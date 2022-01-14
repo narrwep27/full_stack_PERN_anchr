@@ -11,7 +11,7 @@ const GetAllSessions = async (req, res) => {
 
 const GetSessionByID = async (req, res) => {
   try {
-    let id = parsInt(req.params.Session_id);
+    let id = parsInt(req.params.session_id);
     const session = await Session.findByPK(id);
     res.send(session);
   } catch (error) {
@@ -30,7 +30,7 @@ const CreateSession = async (req, res) => {
 
 const UpdateSession = async (req, res) => {
   try {
-    let id = parseInt(req.params.Session_id);
+    let id = parseInt(req.params.session_id);
     let sessionUpdate = await Session.update(req.body, {
       where: { id: id },
       returning: true
@@ -51,7 +51,7 @@ const DeleteSession = async (req, res) => {
   }
 };
 
-module.export = {
+module.exports = {
   CreateSession,
   GetAllSessions,
   GetSessionByID,

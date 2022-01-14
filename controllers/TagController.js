@@ -51,7 +51,7 @@ const DeleteTag = async (req, res) => {
   }
 };
 
-module.export = {
+module.exports = {
   CreateTag,
   GetAllTags,
   GetTagByID,

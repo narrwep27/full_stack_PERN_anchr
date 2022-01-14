@@ -9,7 +9,7 @@ const GetAllUsers = async (req, res) => {
   }
 };
 
-const GetUersById = async (req, res) => {
+const GetUserById = async (req, res) => {
   try {
     let id = parsInt(req.params.user_id);
     const user = await User.findByPK(id);
@@ -53,7 +53,7 @@ const DeleteUser = async (req, res) => {
 
 module.exports = {
   GetAllUsers,
-  GetUersById,
+  GetUserById,
   CreateUser,
   UpdateUser,
   DeleteUser

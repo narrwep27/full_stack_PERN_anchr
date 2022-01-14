@@ -11,13 +11,13 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.hasMany(models.Tag, {
         foreignKey: 'user_id',
-        as: 'user',
+        // as: 'user',
         onDelete: 'cascade',
         onUpdate: 'cascade'
       });
       User.hasMany(models.Session, {
         foreignKey: 'user_id',
-        as: 'user',
+        // as: 'user',
         onDelete: 'cascade',
         onUpdate: 'cascade'
       });

@@ -10,17 +10,16 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Tag.hasMany(models.Session, {
         foreignKey: 'tag_id',
-        as: 'tag',
+        // as: 'tag',
         onDelete: 'cascade',
         onUpdate: 'cascade'
       });
       Tag.belongsTo(models.User, {
         foreignKey: 'user_id',
-        as: 'user',
+        // as: 'owner',
         onDelete: 'cascade',
         onUpdate: 'cascade'
       });
-      // define association here
     }
   }
   Tag.init(
@@ -34,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
         field: 'user_id',
         onDelete: 'CASCADE',
         references: {
-          model: 'user',
+          model: 'users',
           key: 'id'
         }
       }

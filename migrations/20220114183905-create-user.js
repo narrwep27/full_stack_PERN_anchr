@@ -18,13 +18,11 @@ module.exports = {
         type: Sequelize.STRING
       },
       createdAt: {
-        field: 'created_at',
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: new Date()
       },
       updatedAt: {
-        field: 'updated_at',
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: new Date()

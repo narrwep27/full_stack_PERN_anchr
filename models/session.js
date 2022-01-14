@@ -2,25 +2,19 @@
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Session extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
       Session.belongsTo(models.User, {
         foreignKey: 'user_id',
-        as: 'user',
+        // as: 'user',
         onDelete: 'cascade',
         onUpdate: 'cascade'
       });
       Session.belongsTo(models.Tag, {
         foreignKey: 'tag_id',
-        as: 'tag',
+        // as: 'tag',
         onDelete: 'cascade',
         onUpdate: 'cascade'
       });
-      // define association here
     }
   }
   Session.init(
@@ -44,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
         field: 'user_id',
         onDelete: 'CASCADE',
         references: {
-          model: 'user',
+          model: 'users',
           key: 'id'
         }
       }
