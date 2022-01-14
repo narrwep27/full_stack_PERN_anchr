@@ -1,10 +1,15 @@
-const { Router } = require('express');
-const router = Router();
+const Router = require('express').Router();
+const UserRouter = require('./UserRouter');
+const TagRouter = require('./TagRouter');
+const SessionRouter = require('./SessionRouter');
 const AuthRouter = require('./AuthRouter');
 
-router.get('/', (req, res) => {
+Router.get('/', (req, res) => {
   res.send('This is root');
 });
-router.use('/auth', AuthRouter);
+Router.use('/user', UserRouter);
+Router.use('/tag', TagRouter);
+Router.use('/sesion', SessionRouter);
+Router.use('/auth', AuthRouter);
 
-module.exports = router;
+module.exports = Router;
