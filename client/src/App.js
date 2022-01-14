@@ -7,7 +7,8 @@ import './App.css';
 export default function App() {
 	return (
 		<div className='App'>
-			<Route exact path='/' component={SignUp} />
+			<Route exact path='/SignUp' component={SignUp} />
+			<Route exact path='/About' component={About} />
 		</div>
 	);
 }

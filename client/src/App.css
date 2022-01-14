@@ -51,3 +51,33 @@
 	transition: 0.5s;
 }
 /* ----------- SIGN UP PAGE ----------*/
+
+/*--------- ABOUT TEAM PAGE --------*/
+.About {
+	margin: 0 auto;
+}
+h1 {
+	margin: 0;
+	padding: 0;
+}
+
+h2 {
+	margin: 0;
+	padding: 0;
+}
+
+.about-team-div {
+	margin: 0 auto;
+	display: flex;
+	width: 800px;
+}
+
+.about-team-img {
+	width: 200px;
+	height: 200px;
+	border-radius: 100px;
+}
+
+.about-team-details {
+	margin-left: 20px;
+}
