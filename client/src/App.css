@@ -56,18 +56,24 @@
 .About {
 	margin: 0 auto;
 }
-h1 {
+
+about-project-div {
+	width: 800px;
+}
+
+.about-team-h1 {
 	margin: 0;
 	padding: 0;
 }
 
-h2 {
+.about-team-h2 {
 	margin: 0;
 	padding: 0;
 }
 
 .about-team-div {
 	margin: 0 auto;
+	padding: 20px;
 	display: flex;
 	width: 800px;
 }
@@ -80,4 +86,5 @@ h2 {
 
 .about-team-details {
 	margin-left: 20px;
+	margin-top: 20px;
 }
