@@ -1,12 +1,17 @@
 export default function UserHome() {
+  const optionArray = [{ session: "Running" }, { session: "Studying" }, { session: "Walking" }, { session: "Gaming" }];
+
+
+
+
   return (
     <div>
       <button>Start Session</button>
       <form>
-        {/* Map selections here */}
         <select>
-          <option>Running</option>
-          <option>Studying</option>
+          {optionArray.map((e, i) => (
+            <option>{e.session}</option>
+          ))}
         </select>
       </form>
       <input placeholder="Enter new tag"></input>
