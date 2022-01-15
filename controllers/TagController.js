@@ -11,8 +11,8 @@ const GetAllTags = async (req, res) => {
 
 const GetTagByID = async (req, res) => {
   try {
-    let id = parsInt(req.params.tag_id);
-    const tag = await Tag.findByPK(id);
+    let id = parseInt(req.params.tag_id);
+    const tag = await Tag.findByPk(id);
     res.send(tag);
   } catch (error) {
     throw error;

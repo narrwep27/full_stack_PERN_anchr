@@ -11,8 +11,8 @@ const GetAllSessions = async (req, res) => {
 
 const GetSessionByID = async (req, res) => {
   try {
-    let id = parsInt(req.params.session_id);
-    const session = await Session.findByPK(id);
+    let id = parseInt(req.params.session_id);
+    const session = await Session.findByPk(id);
     res.send(session);
   } catch (error) {
     throw error;

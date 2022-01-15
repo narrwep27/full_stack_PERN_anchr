@@ -10,6 +10,7 @@ module.exports = {
       },
 
       startTime: {
+        allowNull: false,
         type: Sequelize.DATE
       },
       endTime: {
