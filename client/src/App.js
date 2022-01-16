@@ -12,7 +12,7 @@ export default function App () {
 
 	return (
 		<div className='App'>
-			{userAuth ? <p>authed</p> : <p>Not authed</p>}
+			{userAuth ? <p>authed</p> : <SignUp />}
 			<Nav />
 			<main>
 				<Route exact path="/home" component={UserHome} />
