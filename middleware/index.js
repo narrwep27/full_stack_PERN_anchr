@@ -4,7 +4,6 @@ require('dotenv').config();
 
 const SALT_ROUNDS = parseInt(process.env.SALT_ROUNDS);
 const APP_SECRET = process.env.APP_SECRET;
-const test;
 
 // functions to be used in login/signup controllers for authentication
 const hashPassword = async (password) => {
