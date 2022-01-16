@@ -9,7 +9,7 @@ Router.get('/', (req, res) => {
 });
 Router.use('/user', UserRouter);
 Router.use('/tag', TagRouter);
-Router.use('/sesion', SessionRouter);
+Router.use('/session', SessionRouter);
 Router.use('/auth', AuthRouter);
 
 module.exports = Router;

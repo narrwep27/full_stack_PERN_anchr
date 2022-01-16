@@ -11,8 +11,8 @@ const GetAllUsers = async (req, res) => {
 
 const GetUserById = async (req, res) => {
   try {
-    let id = parsInt(req.params.user_id);
-    const user = await User.findByPK(id);
+    let id = parseInt(req.params.user_id);
+    const user = await User.findByPk(id);
     res.send(user);
   } catch (error) {
     throw error;
@@ -21,9 +21,10 @@ const GetUserById = async (req, res) => {
 
 const CreateUser = async (req, res) => {
   try {
-    let user = await User.create(req);
+    let user = await User.create(req.body);
     res.send(user);
   } catch (error) {
+    // console.log(req);
     throw error;
   }
 };
