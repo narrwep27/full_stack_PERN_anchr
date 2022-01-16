@@ -10,15 +10,25 @@ export default function App () {
 
 	const [userAuth, setUserAuth] = useState(false)
 
+
+	// Flipping userAuth on click, temporary button.
+	const authClick = () => {
+		if (userAuth) { setUserAuth(false) }
+		else if (!userAuth) setUserAuth(true)
+	}
+
 	return (
 		<div className='App'>
-			{userAuth ? <p>authed</p> : <SignUp />}
-			<Nav />
-			<main>
-				<Route exact path="/home" component={UserHome} />
-				<Route exact path='/SignUp' component={SignUp} />
-				<Route exact path='/About' component={About} />
-			</main>
+			<button onClick={authClick}>UserAuth test</button>
+			{userAuth ? <><Nav />
+
+				<main>
+					<Route exact path="/" component={UserHome} />
+					<Route exact path='/SignUp' component={SignUp} />
+					<Route exact path='/About' component={About} />
+				</main> </>
+				: <SignUp />}
+
 		</div>
 	);
 }
