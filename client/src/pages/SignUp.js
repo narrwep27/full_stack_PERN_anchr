@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function SignUp() {
+export default function SignUp (props) {
 	return (
 		<div className='SignUp'>
 			<div className='signup-form-container-div'>
@@ -54,7 +54,7 @@ export default function SignUp() {
 						/>
 						<br />
 					</div>
-					<button className='signup-form-button'>Sign up</button>
+					<button onClick={props.authClick} className='signup-form-button'>Sign up</button>
 				</form>
 			</div>
 		</div>
