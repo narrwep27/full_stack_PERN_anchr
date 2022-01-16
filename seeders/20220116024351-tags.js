@@ -13,7 +13,7 @@ module.exports = {
         return {
           description: faker.random.word(),
           color: faker.commerce.color(),
-          userId: user.id
+          user_id: user.id
         };
       })
     );

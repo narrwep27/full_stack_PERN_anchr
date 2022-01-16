@@ -1,4 +1,5 @@
 const { User } = require('../models');
+const { hashPassword, comparePassword, createToken } = require('../middleware');
 
 const GetAllUsers = async (req, res) => {
   try {
