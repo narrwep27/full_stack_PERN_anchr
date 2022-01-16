@@ -1,38 +1,24 @@
 import React from "react";
 
-export default function StartSession() {
-  const optionArray = [{ session: "Running" }, { session: "Studying" }, { session: "Walking" }, { session: "Gaming" }];
-
-  const historyArray = [
-    { session: "Running", time: "44:15" },
-    { session: "Walking", time: "1:15:15" },
-    { session: "Studying", time: "15:10" },
-    { session: "Reading", time: "45:00" },
-  ];
+export default function StartSession(props) {
+  const handleSession = () => {
+    props.setSession(false);
+    console.log(props.session);
+  };
 
   return (
     <div>
-      <button>Start Session</button>
+      <button onClick={handleSession}>Start Session</button>
       <form>
         <select>
-          {optionArray.map((e, i) => (
+          {props.optionArray.map((e, i) => (
             <option>{e.session}</option>
           ))}
         </select>
       </form>
-      <input placeholder="Enter new tag"></input>
-      <table>
-        <tr>
-          <th>Session</th>
-          <th>Time</th>
-        </tr>
-        {historyArray.map((e, i) => (
-          <tr>
-            <td>{e.session}</td>
-            <td>{e.time}</td>
-          </tr>
-        ))}
-      </table>
+      <form>
+        <input placeholder="Enter new tag"></input>
+      </form>
     </div>
   );
 }
