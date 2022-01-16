@@ -21,7 +21,7 @@ const GetTagByID = async (req, res) => {
 
 const CreateTag = async (req, res) => {
   try {
-    let tag = await Tag.create(req);
+    let tag = await Tag.create(req.body);
     res.send(tag);
   } catch (error) {
     throw error;
