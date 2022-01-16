@@ -35,7 +35,6 @@
 }
 
 .signup-form-button {
-<<<<<<< HEAD
 	width: 350px;
 	height: 50px;
 	border-radius: 10px;
@@ -50,24 +49,52 @@
 .signup-form-button:hover {
 	background-color: var(--hover-color1);
 	transition: 0.5s;
-=======
-  width: 350px;
-  height: 50px;
-  border-radius: 10px;
-  border: solid 1px gray;
-  margin-top: 10px;
-  background-color: var(--color1);
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  transition: 0.5s;
-}
-
-.signup-form-button:hover {
-  background-color: var(--hover-color1);
->>>>>>> 2f8233e2e60cc15fd0d84cacb8309479273eb7c6
 }
 /* ----------- SIGN UP PAGE ----------*/
+
+/* ---------- SIGN IN PAGE ---------- */
+
+.SignIn {
+	display: flex;
+}
+.signin-form-container-div {
+	margin: 0 auto;
+}
+
+.signin-form-div {
+	background-color: white;
+	width: 350px;
+	height: 50px;
+	border: solid 1px gray;
+	margin-top: 15px;
+	border-radius: 10px;
+}
+
+.signin-form {
+	width: 300px;
+	margin-top: 15px;
+	margin-left: 10px;
+	border: 0;
+	font-size: 16px;
+}
+
+.signin-form-button {
+	width: 350px;
+	height: 50px;
+	border-radius: 10px;
+	border: solid 1px gray;
+	margin-top: 10px;
+	background-color: var(--color1);
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.signin-form-button:hover {
+	background-color: var(--hover-color1);
+	transition: 0.5s;
+}
+/* ----------------------------------*/
 
 /*--------- ABOUT TEAM PAGE --------*/
 .About {
@@ -105,11 +132,3 @@ about-project-div {
 	margin-left: 20px;
 	margin-top: 20px;
 }
-<<<<<<< HEAD
-=======
-
-/* nav-bar */
-.nav-bar-links {
-  color: black;
-}
->>>>>>> 2f8233e2e60cc15fd0d84cacb8309479273eb7c6
