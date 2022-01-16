@@ -19,9 +19,9 @@ module.exports = (sequelize, DataTypes) => {
   }
   Session.init(
     {
-      startTime: DataTypes.DATE,
-      endTime: DataTypes.DATE,
-      timeSpent: DataTypes.TIME,
+      // startTime: DataTypes.DATE,
+      // endTime: DataTypes.DATE,
+      timeSpent: DataTypes.INTEGER,
       tagId: {
         type: DataTypes.INTEGER,
         allowNull: false,

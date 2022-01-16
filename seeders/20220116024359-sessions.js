@@ -10,13 +10,13 @@ module.exports = {
           order: sequelize.random(),
           raw: true
         });
-        let refDate = faker.date.past(1);
-        let newDate;
         return {
-          startTime: faker.random.word(),
-          endTime: faker.commerce.color(),
-          userId: tag.userId,
-          tagId: tag.id
+          timeSpent: faker.datatype.number({
+            min: 10,
+            max: 50
+          }),
+          user_id: tag.user_id,
+          tag_id: tag.id
         };
       })
     );
@@ -24,6 +24,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    return queryInterface.blulkDelete('sessions');
+    // return queryInterface.bulkDelete('sessions');
   }
 };
