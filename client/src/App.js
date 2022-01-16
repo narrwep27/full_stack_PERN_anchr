@@ -19,15 +19,17 @@ export default function App () {
 
 	return (
 		<div className='App'>
-			<button onClick={authClick}>UserAuth test</button>
-			{userAuth ? <><Nav />
-
-				<main>
-					<Route exact path="/" component={UserHome} />
-					<Route exact path='/SignUp' component={SignUp} />
-					<Route exact path='/About' component={About} />
-				</main> </>
-				: <SignUp />}
+			{/* <button onClick={authClick}>UserAuth test</button> */}
+			{userAuth ?
+				<>
+					<Nav authClick={authClick} />
+					<main>
+						<Route exact path="/" component={UserHome} />
+						<Route exact path='/SignUp' component={SignUp} />
+						<Route exact path='/About' component={About} />
+					</main>
+				</>
+				: <SignUp authClick={authClick} />}
 
 		</div>
 	);
