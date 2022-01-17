@@ -13,7 +13,6 @@ import { CheckSession } from "./services/Auth";
 
 export default function App () {
 
-	const [userSto, setUserSto] = useState(null)
 	const [user, setUser] = useState(null)
 	const [auth, setAuth] = useState(false)
 
@@ -21,7 +20,9 @@ export default function App () {
 
 	const checkToken = async () => {
 		const user = await CheckSession();
+		setUser(user)
 		setAuth(true)
+		console.log(user)
 	}
 
 	useEffect(() => {
