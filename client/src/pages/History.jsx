@@ -1,6 +1,18 @@
-import React from "react";
+import { useState, useEffect } from "react";
+import { LoadAllSessions } from '../services/Session';
 
 function History(props) {
+  const [sessions, setSessions] = useState('asdfasdf');
+
+  const getSessions = async () => {
+    const allSessions = await LoadAllSessions();
+    setSessions(allSessions);
+  };
+
+  useEffect(async () => {
+    getSessions();
+  }, [])
+  
   return (
     <div>
       <table>
