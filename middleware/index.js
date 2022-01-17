@@ -10,10 +10,12 @@ const hashPassword = async (password) => {
     let hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
     return hashedPassword;
 };
+
 const comparePassword = async (password, storedPassword) => {
     let match = await bcrypt.compare(password, storedPassword);
     return match;
 };
+
 const createToken = (payload) => {
     let token = jwt.sign(payload, APP_SECRET);
     return token;

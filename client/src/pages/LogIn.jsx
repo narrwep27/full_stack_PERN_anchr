@@ -1,19 +1,20 @@
 import { useState } from "react";
+import { LogInUser } from "../services/Auth";
 
 export default function LogIn(props) {
-  const [logIn, setLogIn] = useState({ username: "", password: "" });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    props.setUserAuth(true);
-  };
+  const [logIn, setLogIn] = useState({username: "", password: "",});
 
   const handleChange = (e) => {
     setLogIn({ ...logIn, [e.target.name]: e.target.value });
+    console.log(logIn);
   };
 
-  const testClick = () => {
-    props.history.push("/signup");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const res = await LogInUser(logIn);
+    props.setUser(res);
+    setLogIn({});
+    props.setAuth(true);
   };
 
   return (
@@ -25,14 +26,15 @@ export default function LogIn(props) {
         </div>
 
         <div className="signup-form-div">
-          <input type="text" name="password" placeholder="Password" onChange={handleChange} className="signup-form" required />
+          <input type="password" name="password" placeholder="Password" onChange={handleChange} className="signup-form" required />
           <br />
         </div>
+
         <button onClick={props.authClick} className="signup-form-button">
           Log In
         </button>
       </form>
-      <button onClick={testClick} className="signup-form-button">
+      <button onClick={() => props.history.push("/signup")} className="signup-form-button">
         Sign up
       </button>
     </div>
