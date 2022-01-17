@@ -1,12 +1,14 @@
 import React from 'react';
 
 export default function SignUp (props) {
+
+	const testClick = () => {
+		props.history.push('/')
+	}
 	return (
 		<div className='SignUp'>
 			<div className='signup-form-container-div'>
 				<form>
-					{/* Add onSubmit to Form */}
-
 					<div className='signup-form-div'>
 						<input
 							type='text'
@@ -31,7 +33,7 @@ export default function SignUp (props) {
 						<br />
 					</div>
 
-					<div className='signup-form-div'>
+					{/* <div className='signup-form-div'>
 						<input
 							type='text'
 							// value={}
@@ -41,7 +43,7 @@ export default function SignUp (props) {
 							className='signup-form'
 						/>
 						<br />
-					</div>
+					</div> */}
 
 					<div className='signup-form-div'>
 						<input
@@ -54,7 +56,7 @@ export default function SignUp (props) {
 						/>
 						<br />
 					</div>
-					<button onClick={props.authClick} className='signup-form-button'>Sign up</button>
+					<button onClick={testClick} className='signup-form-button'>Sign up</button>
 				</form>
 			</div>
 		</div>
