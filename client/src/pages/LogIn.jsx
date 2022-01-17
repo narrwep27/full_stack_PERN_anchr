@@ -15,6 +15,7 @@ export default function LogIn(props) {
     props.setUser(res);
     setLogIn({});
     props.setAuth(true);
+    props.history.push("/home");
   };
 
   return (
