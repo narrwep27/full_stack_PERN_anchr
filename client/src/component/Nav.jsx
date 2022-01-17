@@ -4,7 +4,7 @@ export default function Nav(props) {
   return (
     <div>
       <nav>
-        <Link style={{ textDecoration: "none", color: "white" }} to="/">
+        <Link style={{ textDecoration: "none", color: "white" }} to="/home">
           <span className="nav-bar-links">Home</span>
         </Link>
         <Link style={{ textDecoration: "none", color: "white" }} to="/history">
