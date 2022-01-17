@@ -16,19 +16,21 @@ function History(props) {
 
   useEffect(async () => {
     getSessions();
-  }, [])
+  }, []);
   
   return (
     <div>
       <table>
         <tr>
           <th>Session</th>
+          <th>Tag</th>
           <th>Time</th>
         </tr>
-        {props.historyArray.map((e, i) => (
+        {sessions.map((e, i) => (
           <tr>
-            <td>{e.session}</td>
-            <td>{e.time}</td>
+            <td>Session ID: {e.id}</td>
+            <td>Tag ID: {e.tag_id}</td>
+            <td>{e.timeSpent} mins</td>
           </tr>
         ))}
       </table>
