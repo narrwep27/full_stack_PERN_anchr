@@ -1,8 +1,6 @@
 const { User } = require('../models');
 const { hashPassword, comparePassword, createToken } = require('../middleware');
 
-const { User } = require('../models');
-
 const Login = async (req, res) => {
   try {
     const user = await User.findOne({

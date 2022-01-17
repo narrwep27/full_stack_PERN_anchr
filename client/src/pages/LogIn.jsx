@@ -20,12 +20,12 @@ export default function LogIn(props) {
     <div>
       <form onSubmit={handleSubmit}>
         <div className="signup-form-div">
-          <input type="text" name="username" placeholder="Username" onChange={handleChange} className="signup-form" />
+          <input type="text" name="username" placeholder="Username" onChange={handleChange} className="signup-form" required />
           <br />
         </div>
 
         <div className="signup-form-div">
-          <input type="text" name="password" placeholder="Password" onChange={handleChange} className="signup-form" />
+          <input type="text" name="password" placeholder="Password" onChange={handleChange} className="signup-form" required />
           <br />
         </div>
         <button onClick={props.authClick} className="signup-form-button">
