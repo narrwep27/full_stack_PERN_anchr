@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { LoadAllSessions } from '../services/Session';
 
 function History(props) {
-  const [sessions, setSessions] = useState('asdfasdf');
+  const [sessions, setSessions] = useState([]);
 
   const getSessions = async () => {
     const allSessions = await LoadAllSessions();

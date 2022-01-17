@@ -19,6 +19,15 @@ const GetSessionByID = async (req, res) => {
   }
 };
 
+const GetSessionByUserId = async (req, res) => {
+  try {
+    const sessions = await Session.findAll({ where: {user_id: req.params.user_id} });
+    res.send(sessions);
+  } catch (error) {
+    throw error;
+  };
+};
+
 const CreateSession = async (req, res) => {
   try {
     let session = await Session.create(req.body);
@@ -56,6 +65,7 @@ module.exports = {
   CreateSession,
   GetAllSessions,
   GetSessionByID,
+  GetSessionByUserId,
   UpdateSession,
   DeleteSession
 };
