@@ -10,6 +10,8 @@ import History from './pages/History'
 
 export default function App () {
 
+	var userToken = localStorage.getItem('token')
+
 	const [user, setUser] = useState(null)
 	const [auth, setAuth] = useState(false)
 
