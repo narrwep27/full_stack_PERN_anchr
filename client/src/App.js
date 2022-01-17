@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import About from './pages/About';
 import SignUp from './pages/SignUp';
@@ -7,14 +7,29 @@ import './App.css';
 import Nav from './component/Nav'
 import UserHome from './pages/UserHome'
 import History from './pages/History'
+import { CheckSession } from "./services/Auth";
+
+
 
 export default function App () {
 
-	var userToken = localStorage.getItem('token')
-
+	const [userSto, setUserSto] = useState(null)
 	const [user, setUser] = useState(null)
 	const [auth, setAuth] = useState(false)
 
+
+
+	const checkToken = async () => {
+		const user = await CheckSession();
+		setAuth(true)
+	}
+
+	useEffect(() => {
+		const token = localStorage.getItem('token')
+		if (token) {
+			checkToken()
+		}
+	}, [])
 	// Dummy objects
 	const optionArray = [{ session: "Running" }, { session: "Studying" }, { session: "Walking" }, { session: "Gaming" }];
 
