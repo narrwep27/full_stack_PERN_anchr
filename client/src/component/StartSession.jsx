@@ -3,14 +3,18 @@ import React from "react";
 export default function StartSession(props) {
   const handleSession = () => {
     props.setSession(false);
-    console.log(props.session);
+    props.setStart(true)
   };
 
   return (
     <div>
       <button onClick={handleSession}>Start Session</button>
       <form>
-        <select>
+        <select onChange={(e)=>{
+          props.setSessionTag(e.target.value)
+          props.setSessionObject({...props.sessionObject,"tagId": e.target.value})
+        } 
+          }>
           {props.optionArray.map((e, i) => (
             <option>{e.session}</option>
           ))}
@@ -18,6 +22,7 @@ export default function StartSession(props) {
       </form>
       <form>
         <input placeholder="Enter new tag"></input>
+        <input onChange={props.handleChange} placeholder="Enter session time"></input>
       </form>
     </div>
   );
