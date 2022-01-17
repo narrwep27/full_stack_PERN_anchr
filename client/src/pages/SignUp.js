@@ -2,6 +2,10 @@ import React from 'react';
 
 export default function SignUp (props) {
 
+	const handleChange = () => {
+
+	}
+
 	const testClick = () => {
 		props.history.push('/')
 	}
