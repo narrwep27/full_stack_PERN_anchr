@@ -3,7 +3,7 @@ import React from "react";
 export default function StartSession(props) {
   const handleSession = () => {
     props.setSession(false);
-    console.log(props.session);
+    // console.log(props.session);
   };
 
   return (
