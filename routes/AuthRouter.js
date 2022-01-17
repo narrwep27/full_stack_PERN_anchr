@@ -5,7 +5,7 @@ const controller = require('../controllers/AuthController');
 router.get('/', (req, res) => {
   res.send({ message: 'this is the auth router' });
 });
-router.post(`/register`, controller.Register);
-router.post(`/login`, controller.Login);
+router.post(`/auth/register`, controller.Register);
+router.post(`/auth/login`, controller.Login);
 
 module.exports = router;

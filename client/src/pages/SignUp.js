@@ -1,66 +1,57 @@
-import React from 'react';
+import { useState } from 'react'
+import { RegisterUser } from '../services/Auth'
 
 export default function SignUp (props) {
+	const [values, setValues] = useState({})
 
-	const handleChange = () => {
+	const handleChange = (e) => {
+		setValues({ ...values, [e.target.name]: e.target.value });
+	};
 
+	const handleSubmit = async (e) => {
+		e.preventDefault()
+		await RegisterUser(values)
 	}
 
 	const testClick = () => {
 		props.history.push('/')
 	}
+
 	return (
 		<div className='SignUp'>
 			<div className='signup-form-container-div'>
-				<form>
+				<form onSubmit={handleSubmit}>
 					<div className='signup-form-div'>
 						<input
 							type='text'
-							// value={}
-							name='username'
-							placeholder='Username'
-							// onChange={}
+							name='email'
+							placeholder='Email Address'
+							onChange={handleChange}
 							className='signup-form'
 						/>
 						<br />
 					</div>
-
 					<div className='signup-form-div'>
 						<input
 							type='password'
-							// value={}
 							name='password'
 							placeholder='Password'
-							// onChange={}
+							onChange={handleChange}
 							className='signup-form'
 						/>
 						<br />
 					</div>
-
-					{/* <div className='signup-form-div'>
-						<input
-							type='text'
-							// value={}
-							name='confirm-password'
-							placeholder='Confirm Password'
-							// onChange={}
-							className='signup-form'
-						/>
-						<br />
-					</div> */}
-
 					<div className='signup-form-div'>
 						<input
 							type='text'
-							// value={}
-							name='email'
-							placeholder='Email Address'
-							// onChange={}
+							name='username'
+							placeholder='Username'
+							onChange={handleChange}
 							className='signup-form'
 						/>
 						<br />
 					</div>
-					<button onClick={testClick} className='signup-form-button'>Sign up</button>
+					<button className='signup-form-button'>Sign up</button>
 				</form>
 			</div>
 		</div>
