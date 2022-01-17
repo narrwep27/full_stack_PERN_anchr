@@ -9,7 +9,6 @@ export default function Timer(props) {
   return (
     <div>
       <button onClick={handleSession}>End Session</button>
-      <button onClick={()=>props.setStart(true)}>Start</button>
       <div>Time remaining: {props.hours} : {props.minutes} : {props.seconds} </div>
     </div>
   );
