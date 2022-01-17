@@ -9,3 +9,13 @@ export const RegisterUser = async (data) => {
     throw err
   }
 }
+
+export const LogInUser = async (data) => {
+  try {
+    const res = await Client.post('/auth/login', data)
+    // Set the current signed in users token to localstorage
+    return res.data.user
+  } catch (error) {
+    throw error
+  }
+}

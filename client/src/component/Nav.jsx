@@ -17,7 +17,7 @@ export default function Nav(props) {
           <span className="nav-bar-links">About</span>
         </Link>
         <Link style={{ textDecoration: "none", color: "white" }} to="/">
-          <span onClick={props.authClick} className="nav-bar-links">
+          <span onClick={() => props.setAuth(false)} className="nav-bar-links">
             Log Out
           </span>
         </Link>

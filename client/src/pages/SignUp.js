@@ -17,10 +17,6 @@ export default function SignUp (props) {
 		props.history.push('/')
 	}
 
-	const testClick = () => {
-
-	}
-
 	return (
 		<div className='SignUp'>
 			<div className='signup-form-container-div'>
