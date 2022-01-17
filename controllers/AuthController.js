@@ -30,7 +30,6 @@ const Register = async (req, res) => {
   try {
     const { email, password, username } = req.body;
     let passwordDigest = await hashPassword(password);
-    // let username = name
     const user = await User.create({
       email,
       passwordDigest,

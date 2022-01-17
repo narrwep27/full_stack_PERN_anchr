@@ -10,20 +10,8 @@ import History from './pages/History'
 
 export default function App () {
 
-	const [userAuth, setUserAuth] = useState(false)
-
-	const user = {
-		username: "",
-		password: "",
-		email: "",
-	}
-
-
-	// Flipping userAuth on click, temporary button.
-	const authClick = () => {
-		if (userAuth) { setUserAuth(false) }
-		else if (!userAuth) setUserAuth(true)
-	}
+	const [user, setUser] = useState(null)
+	const [auth, setAuth] = useState(false)
 
 	// Dummy objects
 	const optionArray = [{ session: "Running" }, { session: "Studying" }, { session: "Walking" }, { session: "Gaming" }];
@@ -44,11 +32,11 @@ export default function App () {
 
 	return (
 		<div className='App'>
-			{userAuth ?
+			{auth ?
 				<>
-					<Nav authClick={authClick} />
+					<Nav setAuth={setAuth} />
 					<main>
-						<Route exact path="/" component={(props) => <UserHome optionArray={optionArray} historyArray={historyArray} />} />
+						<Route exact path="/home" component={(props) => <UserHome optionArray={optionArray} historyArray={historyArray} />} />
 						<Route exact path='/history' component={(props) => <History historyArray={historyArray} />} />
 						<Route exact path='/About' component={About} />
 					</main>
@@ -56,7 +44,7 @@ export default function App () {
 				:
 				<>
 					<Route exact path="/signup" component={SignUp} />
-					<Route exact path='/' component={(props) => <LogIn {...props} setUserAuth={setUserAuth} />} />
+					<Route exact path='/' component={(props) => <LogIn {...props} setUser={setUser} setAuth={setAuth} />} />
 				</>
 			}
 		</div >
