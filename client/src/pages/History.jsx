@@ -1,11 +1,16 @@
 import { useState, useEffect } from "react";
-import { LoadAllSessions } from '../services/Session';
+import { LoadUserSessions } from '../services/Session';
 
 function History(props) {
   const [sessions, setSessions] = useState([]);
+  const [user, setUser] = useState({
+    id: 13,
+    email: '',
+    username: ''
+  });
 
   const getSessions = async () => {
-    const allSessions = await LoadAllSessions();
+    const allSessions = await LoadUserSessions(user.id);
     setSessions(allSessions);
   };
 
