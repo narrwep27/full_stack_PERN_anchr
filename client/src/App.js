@@ -33,8 +33,6 @@ export default function App () {
 			await checkToken()
 		}
 	}, [])
-	// Dummy objects
-	const optionArray = [{ session: "Running" }, { session: "Studying" }, { session: "Walking" }, { session: "Gaming" }];
 
 	return (
 		<div className='App'>
@@ -42,7 +40,7 @@ export default function App () {
 				<>
 					<Nav setAuth={setAuth} setUser={setUser} setSessions={setSessions} />
 					<main>
-						<Route exact path="/home" component={(props) => <UserHome optionArray={optionArray} />} />
+						<Route path='/home' component={UserHome} />
 						<Route exact path='/history' component={(props) => <History sessions={sessions} />} />
 						<Route exact path='/About' component={About} />
 					</main>

@@ -1,8 +1,10 @@
 import StartSession from "../component/StartSession";
 import Timer from "../component/Timer";
 import { useState, useEffect } from "react";
+import { LoadUserById } from "../services/User";
 
 export default function UserHome(props) {
+  const [user, setUser] = useState({});
   const [session, setSession] = useState(true);
   const [time, setTime] = useState(0)
   const [start, setStart] = useState(false)
@@ -20,7 +22,13 @@ export default function UserHome(props) {
   let minutes = ("0"+Math.floor((time/60000)%60)).slice(-2)
   let hours = ("0"+Math.floor((time/3600000)%60)).slice(-2)
 
+  const getUser = async () => {
+    let currentUser = await LoadUserById(localStorage.getItem('id'));
+    setUser(currentUser);
+  };
+
   useEffect(()=>{
+    getUser();
     let interval = null
     if (start){
       interval=setInterval(()=>{
@@ -42,12 +50,13 @@ export default function UserHome(props) {
   },[start,time])
   return (
     <div>
-      <h1>Welcome back, name</h1>
+      <h1>Welcome back, {user.username}</h1>
       {session ? 
       <StartSession 
         session={session} 
         setSession={setSession} 
-        optionArray={props.optionArray} 
+        // optionArray={props.optionArray}
+        tags={user.Tags} 
         historyArray={props.historyArray}
         start={start}
         setStart={setStart} 

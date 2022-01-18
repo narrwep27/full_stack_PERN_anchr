@@ -1,10 +1,22 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import { LoadTagsByUserId } from "../services/Tag";
 
 export default function StartSession(props) {
+  const [tags, setTags] = useState([]);
+
+
+  const getTags = async () => {
+    let tags = await LoadTagsByUserId(localStorage.getItem('id'));
+    setTags(tags);
+  };
   const handleSession = () => {
     props.setSession(false);
     props.setStart(true)
   };
+
+  useEffect(() => {
+    getTags();
+  }, []);
 
   return (
     <div>
@@ -15,8 +27,8 @@ export default function StartSession(props) {
           props.setSessionObject({...props.sessionObject,"tagId": e.target.value})
         } 
           }>
-          {props.optionArray.map((e, i) => (
-            <option key={i}>{e.session}</option>
+          {tags.map((e, i) => (
+            <option key={i}>{e.description}</option>
           ))}
         </select>
       </form>

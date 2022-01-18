@@ -29,7 +29,7 @@ function History(props) {
         {sessions.map((e) => (
           <tr key={e.id}>
             <td>{e.date}</td>
-            <td>Tag ID: {e.tag_id}</td>
+            <td>{e.Tag.description}</td>
             <td>{e.timeSpent} mins</td>
             <td><button>Edit</button></td>
             <td><button>Delete</button></td>
