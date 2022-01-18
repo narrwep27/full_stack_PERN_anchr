@@ -99,7 +99,16 @@ export default function UserHome(props) {
         minutes={minutes}
         hours={hours}
       />}
-      <RecentSession sessions={sessions}/>
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Tag</th>
+          <th>Time Spent</th>
+        </tr>
+      {sessions.map((e, i) => ( <RecentSession key={i} e={e}/>))}
+      </table>
+
     </div>
   );
 }
