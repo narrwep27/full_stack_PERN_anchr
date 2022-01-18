@@ -7,7 +7,6 @@ import { EditSessionTag } from '../services/Session';
 function History(props) {
   const [user, setUser] = useState({});
   const [sessions, setSessions] = useState([]);
-  const [userTags, setUserTags] = useState([]);
   const [newTagId, setNewTagId] = useState('');
 
   const getUser = async () => {
@@ -23,12 +22,8 @@ function History(props) {
     })
 		setSessions(datedSess);
 	};
-  const getTags = async () => {
-    const userTags = await LoadTagsByUserId(localStorage.getItem('id'));
-    setUserTags(userTags);
-  };
   const changeSessTag = async (session, tag) => {
-    let userTagIds = userTags.map((index) => {return index.id});
+    let userTagIds = user.Tags.map((index) => {return index.id});
     if (userTagIds.includes(parseInt(newTagId))) {
       const newSess = await EditSessionTag(session, tag);
       setNewTagId('');
@@ -41,7 +36,6 @@ function History(props) {
   useEffect(() => {
     getUser();
     getSessions();
-    getTags();
   }, []);
 
   return (
@@ -60,9 +54,13 @@ function History(props) {
             <td>
               <select value={newTagId} onChange={(e) => {setNewTagId(e.target.value)}}>
                 <option value=''>--Select new tag--</option>
-              {userTags.map((index) => (
-                <option key={index.id} value={index.id}>{index.description}</option>
-              ))}
+              {user.Tags.length ? 
+                user.Tags.map((index) => (
+                  <option key={index.id} value={index.id}>{index.description}</option>
+                ))
+                : 
+                <option>Out of options</option>
+              }
               </select>
             </td>
             <td><button onClick={() => changeSessTag(index.id, newTagId)}>Edit</button></td>
