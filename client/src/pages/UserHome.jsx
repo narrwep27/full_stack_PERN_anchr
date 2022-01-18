@@ -39,12 +39,18 @@ export default function UserHome(props) {
       setUserTags(res.data)
   }
   const [userTags, setUserTags]=useState([])
-  // console.log(userTags)
 
   const getSessions = async () => {
     const userSessions = await LoadUserSessions(localStorage.getItem('id'));
     setSessions(userSessions);
   };
+
+  const logSession = async () => {
+    await axios.post(`${BASE_URL}/session/new`,sessionObject)
+    getSessions()
+    setSession(true)
+
+  }
 
   useEffect(()=>{
     getSessions()
@@ -58,7 +64,7 @@ export default function UserHome(props) {
         if (time>0){
           setTime(previousTime=>previousTime-10)
         } else {
-          alert(`timer complete! Posted tag will be ${JSON.stringify(sessionObject)}`)
+          logSession()
           setStart(false)
         }
       },10)
@@ -78,7 +84,8 @@ export default function UserHome(props) {
       <StartSession
         session={session}
         setSession={setSession}
-        optionArray={userTags}
+        userTags={userTags}
+        setUserTags={setUserTags}
         historyArray={props.historyArray}
         start={start}
         setStart={setStart}
@@ -89,6 +96,7 @@ export default function UserHome(props) {
         setSessionObject={setSessionObject}
         newTag={newTag}
         tagChange={tagChange}
+        getTags={getTags}
       /> :
       <Timer
         session={session}
@@ -106,9 +114,8 @@ export default function UserHome(props) {
           <th>Tag</th>
           <th>Time Spent</th>
         </tr>
-      {sessions.map((e, i) => ( <RecentSession key={i} e={e}/>))}
+      {sessions.slice(0,5).map((e, i) => ( <RecentSession key={i} e={e}/>))}
       </table>
-
     </div>
   );
 }
