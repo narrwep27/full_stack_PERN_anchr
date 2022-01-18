@@ -3,7 +3,7 @@ import { LoadUserSessions } from '../services/Session';
 import { LoadUserById } from '../services/User';
 import { EditSessionTag } from '../services/Session';
 
-function History(props) {  
+function History(props) {
   const [user, setUser] = useState({});
   const [sessions, setSessions] = useState([]);
   const [newTag, setNewTag] = useState(0);

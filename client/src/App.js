@@ -8,17 +8,17 @@ import Nav from './component/Nav';
 import UserHome from './pages/UserHome';
 import History from './pages/History';
 import { CheckSession } from './services/Auth';
-import { LoadUserSessions } from './services/Session';
+import Summary from './pages/Summary';
 
-export default function App() {
+export default function App () {
   const [user, setUser] = useState(null);
   const [auth, setAuth] = useState(false);
 
-	const checkToken = async () => {
-		const user = await CheckSession();
-		setUser(user)
-		setAuth(true)
-	}
+  const checkToken = async () => {
+    const user = await CheckSession();
+    setUser(user)
+    setAuth(true)
+  }
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -36,10 +36,11 @@ export default function App() {
             <Route
               exact
               path="/home"
-              component={(props) => <UserHome user_id={user.id} />}
+              component={(props) => <UserHome user_id={user.id} user={user}/>}
             />
-			<Route exact path='/history' component={(props) => <History user={user} />} />
-            <Route exact path="/About" component={About} />
+            <Route exact path='/history' component={(props) => <History user={user} />} />
+            <Route exact path="/about" component={About} />
+            <Route exacth path='/summary' component={Summary} />
           </main>
         </>
       ) : (

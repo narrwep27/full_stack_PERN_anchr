@@ -16,7 +16,7 @@ export default function UserHome(props) {
   const handleChange=(e)=>{
     setTime(e.target.value*60000)
     setSessionObject({...sessionObject,[e.target.name]: e.target.value*60000})
-    
+
   }
   const tagChange=(e)=>{
     setNewTag({...newTag, "userId": parseInt(props.user_id), [e.target.name]: e.target.value})
@@ -40,12 +40,12 @@ export default function UserHome(props) {
   }
   const [userTags, setUserTags]=useState([])
   // console.log(userTags)
-  
+
   const getSessions = async () => {
     const userSessions = await LoadUserSessions(localStorage.getItem('id'));
     setSessions(userSessions);
   };
-  
+
   useEffect(()=>{
     getSessions()
     return getTags()
@@ -70,15 +70,15 @@ export default function UserHome(props) {
       clearInterval(interval)
     }
   },[start,time,sessionObject])
-  
+
   return (
     <div>
-      <h1>Welcome back, username</h1>
-      {session ? 
-      <StartSession 
-        session={session} 
-        setSession={setSession} 
-        optionArray={userTags} 
+      <h1>Welcome back, {props.user.username}</h1>
+      {session ?
+      <StartSession
+        session={session}
+        setSession={setSession}
+        optionArray={userTags}
         historyArray={props.historyArray}
         start={start}
         setStart={setStart}
@@ -89,15 +89,15 @@ export default function UserHome(props) {
         setSessionObject={setSessionObject}
         newTag={newTag}
         tagChange={tagChange}
-      /> : 
-      <Timer 
-        session={session} 
-        setSession={setSession} 
-        time={time} 
-        setTime={setTime} 
-        seconds={seconds} 
-        minutes={minutes} 
-        hours={hours}  
+      /> :
+      <Timer
+        session={session}
+        setSession={setSession}
+        time={time}
+        setTime={setTime}
+        seconds={seconds}
+        minutes={minutes}
+        hours={hours}
       />}
       <RecentSession sessions={sessions}/>
     </div>
