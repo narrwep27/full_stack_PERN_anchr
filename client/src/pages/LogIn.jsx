@@ -6,12 +6,12 @@ export default function LogIn(props) {
 
   const handleChange = (e) => {
     setLogIn({ ...logIn, [e.target.name]: e.target.value });
-    console.log(logIn);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await LogInUser(logIn);
+    console.log(res);
     props.setUser(res);
     setLogIn({});
     props.setAuth(true);
