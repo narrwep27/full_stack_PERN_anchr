@@ -1,38 +1,56 @@
 import axios from "axios";
-import React from "react";
+import React, {useState} from "react";
 const BASE_URL = 'http://localhost:3001/api'
 
 export default function StartSession(props) {
-
+  const [tagInput, setTagInput] = useState(true)
+  const [selectorValue, setSelectorValue]=useState(null)
   const handleSession = () => {
     props.setSession(false);
     props.setStart(true);
-    postNewTag();
   };
-
-  const postNewTag = async ()=>{
+  const postNewTag = async (e)=>{
+    e.preventDefault()
     await axios.post(`${BASE_URL}/tag/new`, props.newTag)
-    console.log(props.newTag)
+    props.getTags()
+    setSelectorValue(null)
+    
   }
-
+  const tagDropdownHandler = (e) => {
+    if (e.target.value=="newTag") {
+      setTagInput(true)
+    } else {
+      console.log('dropdownOptions')
+      setTagInput(false)
+      props.setSessionObject({...props.sessionObject,"tagId": e.target.value})
+    }
+  }
   return (
     <div>
       <button onClick={handleSession}>Start Session</button>
       <form>
-        <select onChange={(e)=>{
-          props.setSessionTag(e.target.value)
-          props.setSessionObject({...props.sessionObject,"tagId": e.target.value})
-        } 
-          }>
-          {props.optionArray.map((e, i) => (
-            <option key={i}>{e.description}</option>
+        <select id="tagDropDown" onChange={tagDropdownHandler} value={selectorValue}>
+        <option value="newTag">Add new tag...</option>
+          {props.userTags.map((e, i) => (
+            <option key={i} value={e.id}>{e.description}</option>
           ))}
+          
         </select>
       </form>
+      {tagInput ? 
+        <form onSubmit={postNewTag}>
+          <input  value={selectorValue} name="description" onChange={props.tagChange} placeholder="Enter tag name..."></input> 
+          <button type="submit">Add</button>
+        </form>
+        :
+        <div></div>
+        }
+      {tagInput ? 
+      <div></div>
+      :
       <form>
-        <input name="description" onChange={props.tagChange} placeholder="Enter new tag"></input>
         <input name="timeSpent" onChange={props.handleChange} placeholder="Enter session time in minutes"></input>
-      </form>
+      </form>}
     </div>
   );
 }
