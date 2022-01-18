@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 export default function RecentSession(props) {
   let propsToDate = new Date(props.e.createdAt);
   const userDate = propsToDate.toString().slice(4, 16);
-  const userTime = propsToDate.toString().slice(16, 24)
+  const userTime = propsToDate.toString().slice(16, 24);
 
   return (
     <>
