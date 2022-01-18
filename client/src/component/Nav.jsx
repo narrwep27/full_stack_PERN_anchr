@@ -2,16 +2,15 @@ import { Link } from "react-router-dom";
 
 export default function Nav(props) {
   const logout = (e) => {
-    props.setAuth(false)
-    props.setUser(null)
-    props.setSessions([]);
-    localStorage.clear()
+    props.setAuth(false);
+    props.setUser(null);
+    localStorage.clear();
   };
 
   return (
     <div>
       <nav>
-        <Link style={{ textDecoration: "none", color: "white" }} to="/home">
+        <Link style={{ textDecoration: "none", color: "white" }} to="/">
           <span className="nav-bar-links">Home</span>
         </Link>
         <Link style={{ textDecoration: "none", color: "white" }} to="/history">

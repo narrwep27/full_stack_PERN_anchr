@@ -23,7 +23,6 @@ export default function LogIn(props) {
     setLogIn({});
     props.setAuth(true);
     getSessions(res.id);
-    props.history.push("/home");
   };
 
   return (
