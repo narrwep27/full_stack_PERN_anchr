@@ -16,7 +16,7 @@ export default function StartSession(props) {
         } 
           }>
           {props.optionArray.map((e, i) => (
-            <option>{e.session}</option>
+            <option key={i}>{e.session}</option>
           ))}
         </select>
       </form>

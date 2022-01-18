@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { LoadUserSessions } from '../services/Session';
-import { LoadByTagId } from '../services/Tag';
 
 function History(props) {
   const [sessions, setSessions] = useState([]);

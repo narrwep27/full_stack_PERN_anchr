@@ -8,61 +8,49 @@ import Nav from './component/Nav'
 import UserHome from './pages/UserHome'
 import History from './pages/History'
 import { CheckSession } from "./services/Auth";
-
-
+import { LoadUserSessions } from './services/Session';
 
 export default function App () {
 
 	const [user, setUser] = useState(null)
 	const [auth, setAuth] = useState(false)
-
-
+	const [sessions, setSessions] = useState([])
 
 	const checkToken = async () => {
 		const user = await CheckSession();
 		setUser(user)
 		setAuth(true)
-		console.log(user)
 	}
 
-	useEffect(() => {
+	const getSessions = async (id) => {
+		const userSessions = await LoadUserSessions(id)
+		setSessions(userSessions)
+	}
+
+	useEffect( async () => {
 		const token = localStorage.getItem('token')
 		if (token) {
-			checkToken()
+			await checkToken()
 		}
 	}, [])
 	// Dummy objects
 	const optionArray = [{ session: "Running" }, { session: "Studying" }, { session: "Walking" }, { session: "Gaming" }];
 
-	const historyArray = [
-		{ session: "Running", time: "44:15" },
-		{ session: "Walking", time: "1:15:15" },
-		{ session: "Studying", time: "15:10" },
-		{ session: "Reading", time: "45:00" },
-		{ session: "Reading", time: "45:00" },
-		{ session: "Reading", time: "45:00" },
-		{ session: "Reading", time: "45:00" },
-		{ session: "Reading", time: "45:00" },
-		{ session: "Reading", time: "45:00" },
-		{ session: "Reading", time: "45:00" },
-		{ session: "Testing", time: "45:00" },
-	];
-
 	return (
 		<div className='App'>
 			{auth ?
 				<>
-					<Nav setAuth={setAuth} />
+					<Nav setAuth={setAuth} setUser={setUser} setSessions={setSessions} />
 					<main>
-						<Route exact path="/home" component={(props) => <UserHome optionArray={optionArray} historyArray={historyArray} />} />
-						<Route exact path='/history' component={(props) => <History historyArray={historyArray} />} />
+						<Route exact path="/home" component={(props) => <UserHome optionArray={optionArray} />} />
+						<Route exact path='/history' component={(props) => <History />} />
 						<Route exact path='/About' component={About} />
 					</main>
 				</>
 				:
 				<>
 					<Route exact path="/signup" component={SignUp} />
-					<Route exact path='/' component={(props) => <LogIn {...props} setUser={setUser} setAuth={setAuth} />} />
+					<Route exact path='/' component={(props) => <LogIn {...props} setUser={setUser} setAuth={setAuth} getSessions={getSessions} />} />
 				</>
 			}
 		</div >

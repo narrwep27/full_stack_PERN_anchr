@@ -1,5 +1,6 @@
 const Router = require('express').Router();
 const controller = require('../controllers/SessionController');
+const { stripToken, verifyToken } = require('../middleware');
 
 Router.get('/', controller.GetAllSessions);
 Router.get('/:session_id', controller.GetSessionByID);
