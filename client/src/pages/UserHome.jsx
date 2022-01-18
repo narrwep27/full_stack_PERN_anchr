@@ -3,7 +3,7 @@ import Timer from "../component/Timer";
 import { useState, useEffect } from "react";
 import RecentSession from '../component/RecentSession'
 import axios from "axios";
-import { LoadUserSessions } from "../services/Session";
+import { LoadUserSessions, AddSession } from "../services/Session";
 const BASE_URL = 'http://localhost:3001/api'
 
 export default function UserHome(props) {
@@ -46,10 +46,12 @@ export default function UserHome(props) {
   };
 
   const logSession = async () => {
-    await axios.post(`${BASE_URL}/session/new`,sessionObject)
+    // await axios.post(`${BASE_URL}/session/new`,sessionObject)
+    //switch axios call to new Service function
+    await AddSession(sessionObject)
     getSessions()
     setSession(true)
-
+    console.log('session posted')
   }
 
   useEffect(()=>{
