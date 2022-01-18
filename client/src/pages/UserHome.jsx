@@ -6,6 +6,7 @@ import axios from "axios";
 const BASE_URL = 'http://localhost:3001/api'
 
 export default function UserHome(props) {
+  const [user, setUser] = useState({});
   const [session, setSession] = useState(true);
   const [time, setTime] = useState(0)
   const [start, setStart] = useState(false)
@@ -42,7 +43,13 @@ export default function UserHome(props) {
     return getTags()
   },[])
 
+  const getUser = async () => {
+    let currentUser = await LoadUserById(localStorage.getItem('id'));
+    setUser(currentUser);
+  };
+
   useEffect(()=>{
+    getUser();
     let interval = null
     if (start){
       interval=setInterval(()=>{
@@ -63,7 +70,7 @@ export default function UserHome(props) {
   },[start,time,sessionObject])
   return (
     <div>
-      <h1>Welcome back, name</h1>
+      <h1>Welcome back, {user.username}</h1>
       {session ? 
       <StartSession 
         session={session} 

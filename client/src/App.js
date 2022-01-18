@@ -45,11 +45,7 @@ export default function App() {
               path="/home"
               component={(props) => <UserHome user_id={user.id} sessions={sessions} />}
             />
-            <Route
-              exact
-              path="/history"
-              component={(props) => <History sessions={sessions} />}
-            />
+						<Route exact path='/history' component={(props) => <History user={user} />} />
             <Route exact path="/About" component={About} />
           </main>
         </>

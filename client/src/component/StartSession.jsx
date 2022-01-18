@@ -1,16 +1,20 @@
 import axios from "axios";
 import React from "react";
 const BASE_URL = 'http://localhost:3001/api'
+
 export default function StartSession(props) {
+
   const handleSession = () => {
     props.setSession(false);
     props.setStart(true);
     postNewTag();
   };
+
   const postNewTag = async ()=>{
     await axios.post(`${BASE_URL}/tag/new`, props.newTag)
     console.log(props.newTag)
   }
+
   return (
     <div>
       <button onClick={handleSession}>Start Session</button>
