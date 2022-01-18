@@ -49,7 +49,7 @@ export default function UserHome(props) {
     await axios.post(`${BASE_URL}/session/new`,sessionObject)
     getSessions()
     setSession(true)
-
+    console.log(sessionObject)
   }
 
   useEffect(()=>{
