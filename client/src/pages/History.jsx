@@ -1,17 +1,22 @@
-import React from "react";
+import { useState, useEffect } from "react";
+import { LoadUserSessions } from '../services/Session';
 
-function History(props) {
+function History(props) {  
   return (
     <div>
       <table>
         <tr>
-          <th>Session</th>
+          <th>Date</th>
+          <th>Tag</th>
           <th>Time</th>
         </tr>
-        {props.historyArray.map((e, i) => (
-          <tr>
-            <td>{e.session}</td>
-            <td>{e.time}</td>
+        {props.sessions.map((e, i) => (
+          <tr key={e.id}>
+            <td>{e.createdAt}</td>
+            <td>Tag ID: {e.tag_id}</td>
+            <td>{e.timeSpent} mins</td>
+            <td><button>Edit</button></td>
+            <td><button>Delete</button></td>
           </tr>
         ))}
       </table>
