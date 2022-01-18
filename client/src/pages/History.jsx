@@ -48,7 +48,7 @@ function History(props) {
         <p className="history-tag-col"><b>Tag</b></p>
         <p className="history-time-col"><b>Time</b></p>
         {sessions.map((index) => (
-          <HistorySession key={index.id} session={index} />
+          <HistorySession key={index.id} session={index} allTags={user.Tags} />
         ))}
       </div>
       {/* <table>
