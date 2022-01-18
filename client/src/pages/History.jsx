@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
+import { LoadUserById } from '../services/User';
 import { LoadUserSessions } from '../services/Session';
-import { LoadUserById } from '../services/User'
+import { LoadTagsByUserId } from "../services/Tag";
+import { EditSessionTag } from '../services/Session';
 
 function History(props) {
   const [user, setUser] = useState({});
   const [sessions, setSessions] = useState([]);
+  const [userTags, setUserTags] = useState([]);
+  const [newTagId, setNewTagId] = useState('');
 
   const getUser = async () => {
     let currentUser = await LoadUserById(props.user.id);
@@ -19,10 +23,25 @@ function History(props) {
     })
 		setSessions(datedSess);
 	};
+  const getTags = async () => {
+    const userTags = await LoadTagsByUserId(localStorage.getItem('id'));
+    setUserTags(userTags);
+  };
+  const changeSessTag = async (session, tag) => {
+    let userTagIds = userTags.map((index) => {return index.id});
+    if (userTagIds.includes(parseInt(newTagId))) {
+      const newSess = await EditSessionTag(session, tag);
+      setNewTagId('');
+      getSessions();
+    } else {
+      console.log('no match');
+    };
+  };
 
   useEffect(() => {
     getUser();
     getSessions();
+    getTags();
   }, []);
 
   return (
@@ -39,14 +58,14 @@ function History(props) {
             <td>{index.Tag.description}</td>
             <td>{index.timeSpent} mins</td>
             <td>
-              <select>
+              <select value={newTagId} onChange={(e) => {setNewTagId(e.target.value)}}>
                 <option value=''>--Select new tag--</option>
-              {user.Tags.map((index) => (
-                <option key={index.id} value={index.description}>{index.description}</option>
+              {userTags.map((index) => (
+                <option key={index.id} value={index.id}>{index.description}</option>
               ))}
               </select>
             </td>
-            <td><button>Edit</button></td>
+            <td><button onClick={() => changeSessTag(index.id, newTagId)}>Edit</button></td>
             <td><button>Delete</button></td>
           </tr>
         ))}
