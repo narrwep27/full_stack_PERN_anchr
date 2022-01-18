@@ -33,8 +33,8 @@ function History(props) {
     };
   };
 
-  useEffect(() => {
-    getUser();
+  useEffect(async () => {
+    await getUser();
     getSessions();
   }, []);
 
