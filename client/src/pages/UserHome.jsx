@@ -20,7 +20,6 @@ export default function UserHome(props) {
   }
   const tagChange=(e)=>{
     setNewTag({...newTag, "userId": parseInt(props.user_id), [e.target.name]: e.target.value})
-    console.log(newTag)
   }
   const [sessionObject,setSessionObject] =useState({
     timeSpent: 0,
@@ -40,7 +39,6 @@ export default function UserHome(props) {
       setUserTags(res.data)
   }
   const [userTags, setUserTags]=useState([])
-  // console.log(userTags)
 
   const getSessions = async () => {
     const userSessions = await LoadUserSessions(localStorage.getItem('id'));
@@ -48,10 +46,9 @@ export default function UserHome(props) {
   };
 
   const logSession = async () => {
-    console.log(sessionObject)
     await axios.post(`${BASE_URL}/session/new`,sessionObject)
-    console.log(`Session logged`)
     getSessions()
+    setSession(true)
 
   }
 
@@ -117,7 +114,7 @@ export default function UserHome(props) {
           <th>Tag</th>
           <th>Time Spent</th>
         </tr>
-      {sessions.map((e, i) => ( <RecentSession key={i} e={e}/>))}
+      {sessions.slice(0,5).map((e, i) => ( <RecentSession key={i} e={e}/>))}
       </table>
     </div>
   );
