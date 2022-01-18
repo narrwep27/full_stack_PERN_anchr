@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
 
 export default function Nav(props) {
+  const logout = (e) => {
+    props.setAuth(false)
+    props.setUser(null)
+    props.setSessions([]);
+    localStorage.clear()
+  };
+
   return (
     <div>
       <nav>
@@ -17,7 +24,7 @@ export default function Nav(props) {
           <span className="nav-bar-links">About</span>
         </Link>
         <Link style={{ textDecoration: "none", color: "white" }} to="/">
-          <span onClick={() => props.setAuth(false)} className="nav-bar-links">
+          <span onClick={logout} className="nav-bar-links">
             Log Out
           </span>
         </Link>

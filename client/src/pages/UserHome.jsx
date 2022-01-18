@@ -72,12 +72,12 @@ export default function UserHome(props) {
           <th>Session</th>
           <th>Time</th>
         </tr>
-        {props.historyArray.slice(-5).map((e, i) => (
+        {/* {props.historyArray.slice(-5).map((e, i) => (
           <tr>
             <td>{e.session}</td>
             <td>{e.time}</td>
           </tr>
-        ))}
+        ))} */}
       </table>
     </div>
   );
