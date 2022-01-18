@@ -3,14 +3,16 @@ import Timer from "../component/Timer";
 import { useState, useEffect } from "react";
 import RecentSession from '../component/RecentSession'
 import axios from "axios";
+import { LoadUserSessions } from "../services/Session";
 const BASE_URL = 'http://localhost:3001/api'
 
 export default function UserHome(props) {
-  const [user, setUser] = useState({});
   const [session, setSession] = useState(true);
   const [time, setTime] = useState(0)
   const [start, setStart] = useState(false)
   const [sessionTag, setSessionTag] = useState('')
+  const [sessions, setSessions] = useState([]);
+
   const handleChange=(e)=>{
     setTime(e.target.value*60000)
     setSessionObject({...sessionObject,[e.target.name]: e.target.value*60000})
@@ -39,17 +41,17 @@ export default function UserHome(props) {
   const [userTags, setUserTags]=useState([])
   // console.log(userTags)
   
+  const getSessions = async () => {
+    const userSessions = await LoadUserSessions(localStorage.getItem('id'));
+    setSessions(userSessions);
+  };
+  
   useEffect(()=>{
+    getSessions()
     return getTags()
   },[])
 
-  const getUser = async () => {
-    let currentUser = await LoadUserById(localStorage.getItem('id'));
-    setUser(currentUser);
-  };
-
   useEffect(()=>{
-    getUser();
     let interval = null
     if (start){
       interval=setInterval(()=>{
@@ -68,9 +70,10 @@ export default function UserHome(props) {
       clearInterval(interval)
     }
   },[start,time,sessionObject])
+  
   return (
     <div>
-      <h1>Welcome back, {user.username}</h1>
+      <h1>Welcome back, username</h1>
       {session ? 
       <StartSession 
         session={session} 
@@ -96,7 +99,7 @@ export default function UserHome(props) {
         minutes={minutes} 
         hours={hours}  
       />}
-      <RecentSession sessions={props.sessions}/>
+      <RecentSession sessions={sessions}/>
     </div>
   );
 }

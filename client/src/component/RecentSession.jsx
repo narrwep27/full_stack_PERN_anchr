@@ -6,7 +6,7 @@ export default function RecentSession(props) {
       <table>
         <tr>
           <th>Date</th>
-          <th>Session</th>
+          <th>Tag</th>
           <th>Time</th>
         </tr>
         {props.sessions.slice(-5).map((e, i) => (
