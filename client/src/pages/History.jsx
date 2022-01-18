@@ -1,23 +1,7 @@
 import { useState, useEffect } from "react";
 import { LoadUserSessions } from '../services/Session';
 
-function History(props) {
-  const [sessions, setSessions] = useState([]);
-  const [user, setUser] = useState({
-    id: 13,
-    email: '',
-    username: ''
-  });
-
-  const getSessions = async () => {
-    const allSessions = await LoadUserSessions(user.id);
-    setSessions(allSessions);
-  };
-
-  useEffect(() => {
-    getSessions();
-  }, []);
-  
+function History(props) {  
   return (
     <div>
       <table>
@@ -26,7 +10,7 @@ function History(props) {
           <th>Tag</th>
           <th>Time</th>
         </tr>
-        {sessions.map((e, i) => (
+        {props.sessions.map((e, i) => (
           <tr key={e.id}>
             <td>{e.createdAt}</td>
             <td>Tag ID: {e.tag_id}</td>

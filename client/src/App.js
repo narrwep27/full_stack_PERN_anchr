@@ -40,38 +40,32 @@ export default function App() {
     { session: 'Gaming' }
   ];
 
-  return (
-    <div className="App">
-      {auth ? (
-        <>
-          <Nav setAuth={setAuth} setUser={setUser} setSessions={setSessions} />
-          <main>
-            <Route
-              exact
-              path="/home"
-              component={(props) => <UserHome user_id={user.id} />}
-            />
-            <Route exact path="/history" component={(props) => <History />} />
-            <Route exact path="/About" component={About} />
-          </main>
-        </>
-      ) : (
-        <>
-          <Route exact path="/signup" component={SignUp} />
-          <Route
-            exact
-            path="/"
-            component={(props) => (
-              <LogIn
-                {...props}
-                setUser={setUser}
-                setAuth={setAuth}
-                getSessions={getSessions}
-              />
-            )}
-          />
-        </>
-      )}
-    </div>
-  );
+	useEffect( async () => {
+		const token = localStorage.getItem('token')
+		if (token) {
+			await checkToken()
+		}
+	}, [])
+	// Dummy objects
+	const optionArray = [{ session: "Running" }, { session: "Studying" }, { session: "Walking" }, { session: "Gaming" }];
+
+	return (
+		<div className='App'>
+			{auth ?
+				<>
+					<Nav setAuth={setAuth} setUser={setUser} setSessions={setSessions} />
+					<main>
+						<Route exact path="/home" component={(props) => <UserHome user_id={user.id} />} />
+						<Route exact path='/history' component={(props) => <History sessions={sessions} />} />
+						<Route exact path='/About' component={About} />
+					</main>
+				</>
+				:
+				<>
+					<Route exact path="/signup" component={SignUp} />
+					<Route exact path='/' component={(props) => <LogIn {...props} setUser={setUser} setAuth={setAuth} getSessions={getSessions} />} />
+				</>
+			}
+		</div >
+	);
 }
