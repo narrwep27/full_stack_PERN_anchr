@@ -1,6 +1,7 @@
 import StartSession from "../component/StartSession";
 import Timer from "../component/Timer";
 import { useState, useEffect } from "react";
+import RecentSession from '../component/RecentSession'
 
 export default function UserHome(props) {
   const [session, setSession] = useState(true);
@@ -32,7 +33,7 @@ export default function UserHome(props) {
         }
       },10)
     } else {
-      setStart(false)          
+      setStart(false)
       clearInterval(interval)
     }
     return ()=>{
@@ -43,42 +44,30 @@ export default function UserHome(props) {
   return (
     <div>
       <h1>Welcome back, name</h1>
-      {session ? 
-      <StartSession 
-        session={session} 
-        setSession={setSession} 
-        optionArray={props.optionArray} 
+      {session ?
+      <StartSession
+        session={session}
+        setSession={setSession}
+        optionArray={props.optionArray}
         historyArray={props.historyArray}
         start={start}
-        setStart={setStart} 
+        setStart={setStart}
         handleChange={handleChange}
         sessionTag={sessionTag}
         setSessionTag={setSessionTag}
         sessionObject={sessionObject}
         setSessionObject={setSessionObject}
-      /> : 
-      <Timer 
-        session={session} 
-        setSession={setSession} 
-        time={time} 
-        setTime={setTime} 
-        seconds={seconds} 
-        minutes={minutes} 
-        hours={hours}  
+      /> :
+      <Timer
+        session={session}
+        setSession={setSession}
+        time={time}
+        setTime={setTime}
+        seconds={seconds}
+        minutes={minutes}
+        hours={hours}
       />}
-
-      <table>
-        <tr>
-          <th>Session</th>
-          <th>Time</th>
-        </tr>
-        {/* {props.historyArray.slice(-5).map((e, i) => (
-          <tr>
-            <td>{e.session}</td>
-            <td>{e.time}</td>
-          </tr>
-        ))} */}
-      </table>
+      <RecentSession sessions={props.sessions}/>
     </div>
   );
 }

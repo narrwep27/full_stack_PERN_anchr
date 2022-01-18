@@ -20,6 +20,7 @@ export default function App () {
 		const user = await CheckSession();
 		setUser(user)
 		setAuth(true)
+		setSessions(JSON.parse(localStorage.getItem('sessions')))
 	}
 
 	const getSessions = async (id) => {
@@ -27,12 +28,13 @@ export default function App () {
 		setSessions(userSessions)
 	}
 
-	useEffect( async () => {
+	useEffect(() => {
 		const token = localStorage.getItem('token')
 		if (token) {
-			await checkToken()
+			checkToken()
 		}
 	}, [])
+
 	// Dummy objects
 	const optionArray = [{ session: "Running" }, { session: "Studying" }, { session: "Walking" }, { session: "Gaming" }];
 
@@ -42,7 +44,7 @@ export default function App () {
 				<>
 					<Nav setAuth={setAuth} setUser={setUser} setSessions={setSessions} />
 					<main>
-						<Route exact path="/home" component={(props) => <UserHome optionArray={optionArray} />} />
+						<Route exact path="/home" component={(props) => <UserHome optionArray={optionArray} sessions={sessions} />} />
 						<Route exact path='/history' component={(props) => <History sessions={sessions} />} />
 						<Route exact path='/About' component={About} />
 					</main>
@@ -50,7 +52,7 @@ export default function App () {
 				:
 				<>
 					<Route exact path="/signup" component={SignUp} />
-					<Route exact path='/' component={(props) => <LogIn {...props} setUser={setUser} setAuth={setAuth} getSessions={getSessions} />} />
+					<Route exact path='/' component={(props) => <LogIn {...props} setUser={setUser} setAuth={setAuth} getSessions={getSessions} sessions={sessions} />} />
 				</>
 			}
 		</div >

@@ -16,7 +16,7 @@ const Login = async (req, res) => {
       let token = createToken(payload);
       return res.send({
         user: payload,
-        token: token
+        token: token,
       });
     } else {
       res.status(401).send({ status: 'Error', message: 'Unauthorized' });
