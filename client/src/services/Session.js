@@ -29,3 +29,12 @@ export const EditSessionTag = async (sessionId, newTagId) => {
         throw error;
     };
 };
+
+export const DestroySession = async (sessionId) => {
+    try {
+        const res = await Client.delete(`/session/${sessionId}`);
+        return res;
+    } catch (error) {
+        throw error;
+    };
+};
