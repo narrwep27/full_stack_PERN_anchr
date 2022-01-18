@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { LoadUserSessions } from '../services/Session';
 import { LoadUserById } from '../services/User'
 
-function History(props) {  
+function History(props) {
   const [user, setUser] = useState({});
   const [sessions, setSessions] = useState([]);
 
@@ -19,7 +19,7 @@ function History(props) {
     })
 		setSessions(datedSess);
 	};
-  
+
   useEffect(() => {
     getUser();
     getSessions();
