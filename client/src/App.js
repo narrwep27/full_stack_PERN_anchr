@@ -15,21 +15,22 @@ export default function App() {
   const [auth, setAuth] = useState(false);
   const [sessions, setSessions] = useState([]);
 
-  const checkToken = async () => {
-    const user = await CheckSession();
-    setUser(user);
-    setAuth(true);
-  };
+	const checkToken = async () => {
+		const user = await CheckSession();
+		setUser(user)
+		setAuth(true)
+		setSessions(JSON.parse(localStorage.getItem('sessions')))
+	}
 
   const getSessions = async (id) => {
     const userSessions = await LoadUserSessions(id);
     setSessions(userSessions);
   };
 
-  useEffect(async () => {
+  useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      await checkToken();
+      checkToken();
     }
   }, []);
 
@@ -42,7 +43,7 @@ export default function App() {
             <Route
               exact
               path="/home"
-              component={(props) => <UserHome user_id={user.id} />}
+              component={(props) => <UserHome user_id={user.id} sessions={sessions} />}
             />
             <Route
               exact

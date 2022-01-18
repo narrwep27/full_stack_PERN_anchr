@@ -1,6 +1,7 @@
 import StartSession from "../component/StartSession";
 import Timer from "../component/Timer";
 import { useState, useEffect } from "react";
+import RecentSession from '../component/RecentSession'
 import axios from "axios";
 const BASE_URL = 'http://localhost:3001/api'
 
@@ -53,7 +54,7 @@ export default function UserHome(props) {
         }
       },10)
     } else {
-      setStart(false)          
+      setStart(false)
       clearInterval(interval)
     }
     return ()=>{
@@ -70,7 +71,7 @@ export default function UserHome(props) {
         optionArray={userTags} 
         historyArray={props.historyArray}
         start={start}
-        setStart={setStart} 
+        setStart={setStart}
         handleChange={handleChange}
         sessionTag={sessionTag}
         setSessionTag={setSessionTag}
@@ -88,19 +89,7 @@ export default function UserHome(props) {
         minutes={minutes} 
         hours={hours}  
       />}
-
-      <table>
-        <tr>
-          <th>Session</th>
-          <th>Time</th>
-        </tr>
-        {/* {props.historyArray.slice(-5).map((e, i) => (
-          <tr>
-            <td>{e.session}</td>
-            <td>{e.time}</td>
-          </tr>
-        ))} */}
-      </table>
+      <RecentSession sessions={props.sessions}/>
     </div>
   );
 }
