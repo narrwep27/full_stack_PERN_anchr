@@ -43,7 +43,7 @@ export default function App () {
 					<Nav setAuth={setAuth} setUser={setUser} setSessions={setSessions} />
 					<main>
 						<Route exact path="/home" component={(props) => <UserHome optionArray={optionArray} />} />
-						<Route exact path='/history' component={(props) => <History />} />
+						<Route exact path='/history' component={(props) => <History sessions={sessions} />} />
 						<Route exact path='/About' component={About} />
 					</main>
 				</>
