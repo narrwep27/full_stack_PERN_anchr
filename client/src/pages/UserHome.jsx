@@ -46,6 +46,12 @@ export default function UserHome(props) {
     setSessions(userSessions);
   };
 
+  const logSession = async () => {
+    await axios.post(`${BASE_URL}/session/new`,sessionObject)
+    console.log(`Session logged`)
+    console.log(sessionObject)
+  }
+
   useEffect(()=>{
     getSessions()
     return getTags()
@@ -58,7 +64,9 @@ export default function UserHome(props) {
         if (time>0){
           setTime(previousTime=>previousTime-10)
         } else {
-          alert(`timer complete! Posted tag will be ${JSON.stringify(sessionObject)}`)
+          // alert(`timer complete! Posted tag will be ${JSON.stringify(sessionObject)}`)
+          // console.log(sessionObject)
+          logSession()
           setStart(false)
         }
       },10)

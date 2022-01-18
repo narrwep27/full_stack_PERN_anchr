@@ -7,7 +7,7 @@ export default function StartSession(props) {
   const handleSession = () => {
     props.setSession(false);
     props.setStart(true);
-    postNewTag();
+    // postNewTag();
   };
 
   const postNewTag = async ()=>{
@@ -15,6 +15,7 @@ export default function StartSession(props) {
     console.log(props.newTag)
   }
 
+  console.log(props.optionArray)
   return (
     <div>
       <button onClick={handleSession}>Start Session</button>
@@ -25,7 +26,7 @@ export default function StartSession(props) {
         } 
           }>
           {props.optionArray.map((e, i) => (
-            <option key={i}>{e.description}</option>
+            <option key={i} value={e.id}>{e.description}</option>
           ))}
         </select>
       </form>
