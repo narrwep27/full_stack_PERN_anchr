@@ -87,3 +87,48 @@ h2 {
 .nav-bar-links {
   color: black;
 }
+
+/* history */
+.history-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.history-tag-col {
+  grid-column: 2 / 3;
+}
+.history-time-col {
+  grid-column: 3 / 4;;
+}
+.history-session-row {
+  grid-column: 1 / 6;
+}
+.history-session-content {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 2;
+  margin: 1em 0;
+}
+.history-content-date {
+  grid-column: 1 / 2;
+}
+.history-content-tag {
+  grid-column: 2 / 3;
+}
+.history-content-timeSpent {
+  grid-column: 3 / 4;
+}
+.history-content-edit {
+  grid-column: 4 / 5;
+}
+.history-content-delete {
+  grid-column: 5 / 6;
+}
+.history-content-edit-display-show {
+  grid-column: 1 / 6;
+  grid-row: 2 / 3;
+  justify-self: center;
+  margin: .5em;
+}
+.history-content-edit-display-hide {
+  display: none;
+}
