@@ -2,7 +2,7 @@ import { useState } from "react";
 import { LogInUser } from "../services/Auth";
 
 export default function LogIn(props) {
-  const [logIn, setLogIn] = useState({username: "", password: "",});
+  const [logIn, setLogIn] = useState({ username: "", password: "" });
 
   const handleChange = (e) => {
     setLogIn({ ...logIn, [e.target.name]: e.target.value });

@@ -1,21 +1,19 @@
-import { useEffect, useState } from "react";
-import { LoadTagsByUserId } from "../services/Tag";
+import axios from "axios";
+import React from "react";
+const BASE_URL = 'http://localhost:3001/api'
 
 export default function StartSession(props) {
-  const [tags, setTags] = useState([]);
 
-  const getTags = async () => {
-    let tags = await LoadTagsByUserId(localStorage.getItem('id'));
-    setTags(tags);
-  };
   const handleSession = () => {
     props.setSession(false);
-    props.setStart(true)
+    props.setStart(true);
+    postNewTag();
   };
 
-  useEffect(() => {
-    getTags();
-  }, []);
+  const postNewTag = async ()=>{
+    await axios.post(`${BASE_URL}/tag/new`, props.newTag)
+    console.log(props.newTag)
+  }
 
   return (
     <div>
@@ -26,14 +24,14 @@ export default function StartSession(props) {
           props.setSessionObject({...props.sessionObject,"tagId": e.target.value})
         } 
           }>
-          {tags.map((e, i) => (
-            <option key={i} value={e.description}>{e.description}</option>
+          {props.optionArray.map((e, i) => (
+            <option key={i}>{e.description}</option>
           ))}
         </select>
       </form>
       <form>
-        <input placeholder="Enter new tag"></input>
-        <input onChange={props.handleChange} placeholder="Enter session time"></input>
+        <input name="description" onChange={props.tagChange} placeholder="Enter new tag"></input>
+        <input name="timeSpent" onChange={props.handleChange} placeholder="Enter session time in minutes"></input>
       </form>
     </div>
   );

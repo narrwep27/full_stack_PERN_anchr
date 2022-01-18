@@ -60,11 +60,22 @@ const DeleteTag = async (req, res) => {
   }
 };
 
+const GetTagByUser = async (req, res) => {
+  try {
+    let id = parseInt(req.params.user_id);
+    const tag = await Tag.findAll({ where: { user_id: id } });
+    res.send(tag);
+  } catch (error) {
+    throw error;
+  }
+};
+
 module.exports = {
   CreateTag,
   GetAllTags,
   GetTagByID,
   GetTagsByUserId,
   UpdateTag,
-  DeleteTag
+  DeleteTag,
+  GetTagByUser
 };
