@@ -4,7 +4,6 @@ import { LoadTagsByUserId } from "../services/Tag";
 export default function StartSession(props) {
   const [tags, setTags] = useState([]);
 
-
   const getTags = async () => {
     let tags = await LoadTagsByUserId(localStorage.getItem('id'));
     setTags(tags);
@@ -28,7 +27,7 @@ export default function StartSession(props) {
         } 
           }>
           {tags.map((e, i) => (
-            <option key={i}>{e.description}</option>
+            <option key={i} value={e.description}>{e.description}</option>
           ))}
         </select>
       </form>
