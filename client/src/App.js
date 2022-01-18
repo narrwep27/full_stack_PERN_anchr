@@ -6,6 +6,8 @@ import './App.css';
 import Nav from './component/Nav';
 import UserHome from './pages/UserHome';
 import SignIn from './pages/SignIn';
+import StartSession from './component/StartSession';
+import Summary from './component/Summary';
 
 export default function App() {
 	const [userAuth, setUserAuth] = useState(false);
@@ -19,6 +21,7 @@ export default function App() {
 
 	return (
 		<div className='App'>
+			<Summary />
 			{/* <button onClick={authClick}>UserAuth test</button> */}
 			{userAuth ? (
 				<>
