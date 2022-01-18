@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { LoadUserById } from '../services/User';
 import { LoadUserSessions } from '../services/Session';
-import { LoadTagsByUserId } from "../services/Tag";
-import { EditSessionTag } from '../services/Session';
+import { EditSessionTag, DestroySession } from '../services/Session';
 
 function History(props) {
   const [user, setUser] = useState({});
@@ -28,9 +27,12 @@ function History(props) {
       const newSess = await EditSessionTag(session, tag);
       setNewTagId('');
       getSessions();
-    } else {
-      console.log('no match');
     };
+  };
+  const deleteSess = async (sessionId) => {
+    let deleted = await DestroySession(sessionId);
+    console.log(deleted);
+    getSessions();
   };
 
   useEffect(async () => {
@@ -54,17 +56,13 @@ function History(props) {
             <td>
               <select value={newTagId} onChange={(e) => {setNewTagId(e.target.value)}}>
                 <option value=''>--Select new tag--</option>
-              {user.Tags.length ? 
-                user.Tags.map((index) => (
+                {user.Tags.map((index) => (
                   <option key={index.id} value={index.id}>{index.description}</option>
-                ))
-                : 
-                <option>Out of options</option>
-              }
+                ))}
               </select>
             </td>
             <td><button onClick={() => changeSessTag(index.id, newTagId)}>Edit</button></td>
-            <td><button>Delete</button></td>
+            <td><button onClick={() => deleteSess(index.id)}>Delete</button></td>
           </tr>
         ))}
       </table>
