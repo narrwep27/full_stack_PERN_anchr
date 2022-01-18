@@ -9,14 +9,15 @@ module.exports = {
         type: Sequelize.INTEGER
       },
 
-      startTime: {
-        type: Sequelize.DATE
-      },
-      endTime: {
-        type: Sequelize.DATE
-      },
+      // startTime: {
+      //   allowNull: false,
+      //   type: Sequelize.DATE
+      // },
+      // endTime: {
+      //   type: Sequelize.DATE
+      // },
       timeSpent: {
-        type: Sequelize.TIME
+        type: Sequelize.INTEGER
       },
       tagId: {
         type: Sequelize.INTEGER,

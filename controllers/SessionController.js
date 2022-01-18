@@ -1,4 +1,4 @@
-const { Session } = require('../models');
+const { Session, Tag } = require('../models');
 
 const GetAllSessions = async (req, res) => {
   try {
@@ -11,19 +11,29 @@ const GetAllSessions = async (req, res) => {
 
 const GetSessionByID = async (req, res) => {
   try {
-    let id = parsInt(req.params.session_id);
-    const session = await Session.findByPK(id);
+    let id = parseInt(req.params.session_id);
+    const session = await Session.findByPk(id);
     res.send(session);
   } catch (error) {
     throw error;
   }
 };
 
+const GetSessionByUserId = async (req, res) => {
+  try {
+    const sessions = await Session.findAll({ where: {user_id: req.params.user_id}, include: Tag });
+    res.send(sessions);
+  } catch (error) {
+    throw error;
+  };
+};
+
 const CreateSession = async (req, res) => {
   try {
-    let session = await Session.create(req);
+    let session = await Session.create(req.body);
     res.send(session);
   } catch (error) {
+    console.log(req.body);
     throw error;
   }
 };
@@ -43,7 +53,7 @@ const UpdateSession = async (req, res) => {
 
 const DeleteSession = async (req, res) => {
   try {
-    let id = parseInt(req.params.Session_id);
+    let id = parseInt(req.params.session_id);
     await Session.destroy({ where: { id: id } });
     res.send({ message: `Session ID ${id} has been deleted.` });
   } catch (error) {
@@ -55,6 +65,7 @@ module.exports = {
   CreateSession,
   GetAllSessions,
   GetSessionByID,
+  GetSessionByUserId,
   UpdateSession,
   DeleteSession
 };

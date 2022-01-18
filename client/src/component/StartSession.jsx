@@ -1,38 +1,38 @@
+import axios from "axios";
 import React from "react";
+const BASE_URL = 'http://localhost:3001/api'
 
-export default function StartSession() {
-  const optionArray = [{ session: "Running" }, { session: "Studying" }, { session: "Walking" }, { session: "Gaming" }];
+export default function StartSession(props) {
 
-  const historyArray = [
-    { session: "Running", time: "44:15" },
-    { session: "Walking", time: "1:15:15" },
-    { session: "Studying", time: "15:10" },
-    { session: "Reading", time: "45:00" },
-  ];
+  const handleSession = () => {
+    props.setSession(false);
+    props.setStart(true);
+    postNewTag();
+  };
+
+  const postNewTag = async ()=>{
+    await axios.post(`${BASE_URL}/tag/new`, props.newTag)
+    console.log(props.newTag)
+  }
 
   return (
     <div>
-      <button>Start Session</button>
+      <button onClick={handleSession}>Start Session</button>
       <form>
-        <select>
-          {optionArray.map((e, i) => (
-            <option>{e.session}</option>
+        <select onChange={(e)=>{
+          props.setSessionTag(e.target.value)
+          props.setSessionObject({...props.sessionObject,"tagId": e.target.value})
+        } 
+          }>
+          {props.optionArray.map((e, i) => (
+            <option key={i}>{e.description}</option>
           ))}
         </select>
       </form>
-      <input placeholder="Enter new tag"></input>
-      <table>
-        <tr>
-          <th>Session</th>
-          <th>Time</th>
-        </tr>
-        {historyArray.map((e, i) => (
-          <tr>
-            <td>{e.session}</td>
-            <td>{e.time}</td>
-          </tr>
-        ))}
-      </table>
+      <form>
+        <input name="description" onChange={props.tagChange} placeholder="Enter new tag"></input>
+        <input name="timeSpent" onChange={props.handleChange} placeholder="Enter session time in minutes"></input>
+      </form>
     </div>
   );
 }
