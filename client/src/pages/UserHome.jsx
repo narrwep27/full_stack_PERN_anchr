@@ -11,12 +11,21 @@ export default function UserHome(props) {
   const [sessionTag, setSessionTag] = useState('')
   const handleChange=(e)=>{
     setTime(e.target.value*60000)
-    setSessionObject({...sessionObject,"timeSpent": e.target.value*60000})
-   }
+    setSessionObject({...sessionObject,[e.target.name]: e.target.value*60000})
+    
+  }
+  const tagChange=(e)=>{
+    setNewTag({...newTag, "userId": parseInt(props.user_id), [e.target.name]: e.target.value})
+  }
   const [sessionObject,setSessionObject] =useState({
     timeSpent: 0,
     tagId: '',
-    userId: 'get userId after login'
+    userId: props.user_id
+  })
+  const [newTag, setNewTag]= useState({
+    description:'',
+    color: '',
+		userId: 0
   })
   let seconds = ("0"+(Math.floor((time/1000)%60)%60)).slice(-2)
   let minutes = ("0"+Math.floor((time/60000)%60)).slice(-2)
@@ -26,8 +35,8 @@ export default function UserHome(props) {
       setUserTags(res.data)
   }
   const [userTags, setUserTags]=useState([])
-  console.log(userTags)
-
+  // console.log(userTags)
+  
   useEffect(()=>{
     return getTags()
   },[])
@@ -67,7 +76,8 @@ export default function UserHome(props) {
         setSessionTag={setSessionTag}
         sessionObject={sessionObject}
         setSessionObject={setSessionObject}
-
+        newTag={newTag}
+        tagChange={tagChange}
       /> : 
       <Timer 
         session={session} 

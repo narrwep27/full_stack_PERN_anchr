@@ -49,9 +49,7 @@ export default function App() {
             <Route
               exact
               path="/home"
-              component={(props) => (
-                <UserHome user_id={user.id} optionArray={optionArray} />
-              )}
+              component={(props) => <UserHome user_id={user.id} />}
             />
             <Route exact path="/history" component={(props) => <History />} />
             <Route exact path="/About" component={About} />
