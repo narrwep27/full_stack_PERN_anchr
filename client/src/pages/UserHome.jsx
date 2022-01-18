@@ -20,6 +20,7 @@ export default function UserHome(props) {
   }
   const tagChange=(e)=>{
     setNewTag({...newTag, "userId": parseInt(props.user_id), [e.target.name]: e.target.value})
+    console.log(newTag)
   }
   const [sessionObject,setSessionObject] =useState({
     timeSpent: 0,
@@ -50,6 +51,7 @@ export default function UserHome(props) {
     console.log(sessionObject)
     await axios.post(`${BASE_URL}/session/new`,sessionObject)
     console.log(`Session logged`)
+    getSessions()
 
   }
 
@@ -76,7 +78,7 @@ export default function UserHome(props) {
     return ()=>{
       clearInterval(interval)
     }
-  },[start,time,sessionObject,sessions])
+  },[start,time,sessionObject])
 
   return (
     <div>
@@ -85,7 +87,8 @@ export default function UserHome(props) {
       <StartSession
         session={session}
         setSession={setSession}
-        optionArray={userTags}
+        userTags={userTags}
+        setUserTags={setUserTags}
         historyArray={props.historyArray}
         start={start}
         setStart={setStart}
@@ -96,6 +99,7 @@ export default function UserHome(props) {
         setSessionObject={setSessionObject}
         newTag={newTag}
         tagChange={tagChange}
+        getTags={getTags}
       /> :
       <Timer
         session={session}
@@ -106,7 +110,15 @@ export default function UserHome(props) {
         minutes={minutes}
         hours={hours}
       />}
-      <RecentSession sessions={sessions}/>
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Tag</th>
+          <th>Time Spent</th>
+        </tr>
+      {sessions.map((e, i) => ( <RecentSession key={i} e={e}/>))}
+      </table>
     </div>
   );
 }
