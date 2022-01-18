@@ -1,22 +1,18 @@
 import React from "react";
 
 export default function RecentSession(props) {
+  let propsToDate = new Date(props.e.createdAt);
+  const userDate = propsToDate.toString().slice(4, 16);
+  const userTime = propsToDate.toString().slice(16, 24);
+
   return (
-    <div>
-      <table>
-        <tr>
-          <th>Date</th>
-          <th>Tag</th>
-          <th>Time</th>
-        </tr>
-        {props.sessions.slice(-5).map((e, i) => (
-          <tr key={i}>
-            <td>{e.createdAt}</td>
-            <td>{e.tag_id}</td>
-            <td>{e.timeSpent}</td>
-          </tr>
-        ))}
-      </table>
-    </div>
+    <>
+      <tr>
+        <td>{userDate}</td>
+        <td>{userTime}</td>
+        <td>{props.e.tag_id}</td>
+        <td>{props.e.timeSpent}</td>
+      </tr>
+    </>
   );
 }
