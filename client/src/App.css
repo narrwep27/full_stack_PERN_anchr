@@ -1,134 +1,215 @@
 /* DECLARE COLOR VARIABLES HERE */
 :root {
-  --color1: rgb(0, 47, 74);
-  --hover-color1: rgb(0, 85, 133);
+	--color1: rgb(0, 47, 74);
+	--hover-color1: rgb(0, 85, 133);
 }
 /* --------------------------- */
 
 /* ----------- SIGN UP PAGE ----------*/
 .SignUp {
-  display: flex;
+	display: flex;
 }
 .signup-form-container-div {
-  margin: 0 auto;
+	margin: 0 auto;
 }
 
 .signup-form-div {
-  background-color: white;
-  width: 350px;
-  height: 50px;
-  border: solid 1px gray;
-  margin-top: 15px;
-  border-radius: 10px;
+	background-color: white;
+	width: 350px;
+	height: 50px;
+	border: solid 1px gray;
+	margin-top: 15px;
+	border-radius: 10px;
 }
 
 .signup-form {
-  width: 300px;
-  margin-top: 15px;
-  margin-left: 10px;
-  border: 0;
-  font-size: 16px;
+	width: 300px;
+	margin-top: 15px;
+	margin-left: 10px;
+	border: 0;
+	font-size: 16px;
 }
 
 .signup-form::placeholder {
-  font-size: 16px;
+	font-size: 16px;
 }
 
 .signup-form-button {
-  width: 350px;
-  height: 50px;
-  border-radius: 10px;
-  border: solid 1px gray;
-  margin-top: 10px;
-  background-color: var(--color1);
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  transition: 0.5s;
+	width: 350px;
+	height: 50px;
+	border-radius: 10px;
+	border: solid 1px gray;
+	margin-top: 10px;
+	background-color: var(--color1);
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	transition: 0.5s;
 }
 
 .signup-form-button:hover {
-  background-color: var(--hover-color1);
+	background-color: var(--hover-color1);
 }
+/* ----------- SIGN UP PAGE ----------*/
+
+/* ----------- LOGIN PAGE ----------*/
+.Login {
+	display: flex;
+}
+.login-form-container-div {
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: center;
+	/* align-items: center; */
+}
+
+.login-form-div {
+	background-color: white;
+	width: 350px;
+	height: 50px;
+	border: solid 1px gray;
+	margin-top: 15px;
+	border-radius: 10px;
+}
+
+.login-form {
+	width: 300px;
+	margin-top: 15px;
+	margin-left: 10px;
+	border: 0;
+	font-size: 16px;
+}
+
+.login-form::placeholder {
+	font-size: 16px;
+}
+
+.login-form-button {
+	width: 350px;
+	height: 50px;
+	border-radius: 10px;
+	border: solid 1px gray;
+	margin-top: 10px;
+	background-color: var(--color1);
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	transition: 0.5s;
+}
+
+.login-form-button:hover {
+	background-color: var(--hover-color1);
+}
+
 /* ----------- SIGN UP PAGE ----------*/
 
 /*--------- ABOUT TEAM PAGE --------*/
 .About {
-  margin: 0 auto;
+	margin: 0 auto;
 }
 
 h1 {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 h2 {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 .about-team-div {
-  margin: 0 auto;
-  display: flex;
-  width: 800px;
+	margin: 0 auto;
+	display: flex;
+	width: 800px;
 }
 
 .about-team-img {
-  width: 200px;
-  height: 200px;
-  border-radius: 100px;
+	width: 200px;
+	height: 200px;
+	border-radius: 100px;
 }
 
 .about-team-details {
-  margin-left: 20px;
+	margin-left: 20px;
 }
 
 /* nav-bar */
 .nav-bar-links {
-  color: black;
+	color: black;
 }
 
 /* history */
 .history-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
 }
 .history-tag-col {
-  grid-column: 2 / 3;
+	grid-column: 2 / 3;
 }
 .history-time-col {
-  grid-column: 3 / 4;;
+	grid-column: 3 / 4;
 }
 .history-session-row {
-  grid-column: 1 / 6;
+	grid-column: 1 / 6;
 }
 .history-session-content {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 2;
-  margin: 1em 0;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: 2;
+	margin: 1em 0;
 }
 .history-content-date {
-  grid-column: 1 / 2;
+	grid-column: 1 / 2;
 }
 .history-content-tag {
-  grid-column: 2 / 3;
+	grid-column: 2 / 3;
 }
 .history-content-timeSpent {
-  grid-column: 3 / 4;
+	grid-column: 3 / 4;
 }
 .history-content-edit {
-  grid-column: 4 / 5;
+	grid-column: 4 / 5;
 }
 .history-content-delete {
-  grid-column: 5 / 6;
+	grid-column: 5 / 6;
 }
 .history-content-edit-display-show {
-  grid-column: 1 / 6;
-  grid-row: 2 / 3;
-  justify-self: center;
-  margin: .5em;
+	grid-column: 1 / 6;
+	grid-row: 2 / 3;
+	justify-self: center;
+	margin: 0.5em;
 }
 .history-content-edit-display-hide {
-  display: none;
+	display: none;
 }
+
+/* -------- NAV BAR ---------- */
+a {
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	color: var(--color1);
+	text-decoration: underline;
+}
+
+.Nav {
+	margin: 0 auto;
+	/* display: flex;
+	justify-content: space-around; */
+}
+
+.nav-items-container {
+	display: flex;
+	justify-content: space-around;
+}
+
+.nav-items {
+	margin: 10px;
+}
+
+/* -------------------------- */
