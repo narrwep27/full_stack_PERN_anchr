@@ -132,3 +132,7 @@ h2 {
 .history-content-edit-display-hide {
   display: none;
 }
+
+.chart-container {
+  height: 50vmin;
+}
