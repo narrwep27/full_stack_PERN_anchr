@@ -17,8 +17,8 @@ export default function Summary(props) {
   const data = sessions.map(e=>{
     return {
 
-      id:  e.Tag.description,
-      label: e.Tag.description,
+      id:  e.id,
+      lable: e.Tag.description,
       value: e.timeSpent
     }
   })
