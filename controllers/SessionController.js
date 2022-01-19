@@ -1,4 +1,4 @@
-const { Session, Tag } = require('../models');
+const { Session, Tag, sequelize } = require('../models');
 
 const GetAllSessions = async (req, res) => {
 	try {
@@ -35,7 +35,7 @@ const GetSessionByUserId = async (req, res) => {
 const TotalAmounts = async (req, res) => {
 	try {
 		const sessions = await sequelize.query(
-			`SELECT description, SUM(sessions."timeSpent") AS "Total_Time" FROM sessions INNER JOIN tags ON (sessions.tag_id = tags.id) WHERE sessions."user_id" = ${req.params.user_id} GROUP BY description`
+			`SELECT description, SUM(sessions."timeSpent") AS "Total_Time" FROM sessions INNER JOIN tags ON (sessions.tag_id = tags.id) WHERE sessions."user_id" = ${req.params.id} GROUP BY description;`
 		);
 		res.send(sessions[0]);
 	} catch (error) {
