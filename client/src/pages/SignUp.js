@@ -6,13 +6,11 @@ export default function SignUp (props) {
 
 	const handleChange = (e) => {
 		setValues({ ...values, [e.target.name]: e.target.value });
-		console.log(values)
 	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault()
 		const data = await RegisterUser(values)
-		console.log(data)
 		setValues({})
 		props.history.push('/')
 	}

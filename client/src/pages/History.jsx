@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { LoadUserById } from '../services/User';
 import { LoadUserSessions } from '../services/Session';
 import { EditSessionTag, DestroySession } from '../services/Session';
+import HistorySession from "../component/HistorySession";
 
 function History(props) {
   const [user, setUser] = useState({});
@@ -41,8 +42,16 @@ function History(props) {
   }, []);
 
   return (
-    <div>
-      <table>
+    <div className="history-div">
+      <div className="history-grid">
+        <p className="history-date-col"><b>Date</b></p>
+        <p className="history-tag-col"><b>Tag</b></p>
+        <p className="history-time-col"><b>Time</b></p>
+        {sessions.map((index) => (
+          <HistorySession key={index.id} session={index} allTags={user.Tags} />
+        ))}
+      </div>
+      {/* <table>
         <tr>
           <th>Date</th>
           <th>Tag</th>
@@ -65,7 +74,7 @@ function History(props) {
             <td><button onClick={() => deleteSess(index.id)}>Delete</button></td>
           </tr>
         ))}
-      </table>
+      </table> */}
     </div>
   );
 }

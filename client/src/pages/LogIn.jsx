@@ -18,7 +18,6 @@ export default function LogIn(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await LogInUser(logIn);
-    console.log(res);
     props.setUser(res);
     setLogIn({});
     props.setAuth(true);

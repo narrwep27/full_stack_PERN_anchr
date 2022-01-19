@@ -40,7 +40,7 @@ export default function App () {
             />
             <Route exact path='/history' component={(props) => <History user={user} />} />
             <Route exact path="/about" component={About} />
-            <Route exacth path='/summary' component={Summary} />
+            <Route exacth path='/summary' component={Summary} user={user} />
           </main>
         </>
       ) : (
