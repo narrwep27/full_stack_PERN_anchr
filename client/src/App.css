@@ -22,6 +22,7 @@ body {
 
 .signup-form-div {
 	background-color: white;
+	margin: 0 auto;
 	width: 350px;
 	height: 50px;
 	border: solid 1px gray;
@@ -56,6 +57,19 @@ body {
 
 .signup-form-button:hover {
 	background-color: var(--hover-color1);
+	padding-top: 10px;
+}
+
+.sign-up-form {
+	margin: 0 auto;
+}
+
+.login-button-div {
+	text-align: center;
+}
+
+.forgot-password-text {
+	text-align: left;
 }
 /* ----------- SIGN UP PAGE ----------*/
 
