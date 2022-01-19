@@ -55,6 +55,7 @@ export default function App() {
         </>
       ) : (
         <>
+        <Nav />
           <Route exact path="/signup" component={SignUp} />
           <Route
             exact

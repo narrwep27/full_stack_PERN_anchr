@@ -2,32 +2,34 @@ import { Link } from "react-router-dom";
 
 export default function Nav(props) {
   const logout = (e) => {
-    props.setAuth(false)
-    props.setUser(null)
+    props.setAuth(false);
+    props.setUser(null);
     props.setSessions([]);
-    localStorage.clear()
+    localStorage.clear();
   };
 
   return (
-    <div>
+    <div className="Nav">
       <nav>
-        <Link style={{ textDecoration: "none", color: "white" }} to="/home">
-          <span className="nav-bar-links">Home</span>
-        </Link>
-        <Link style={{ textDecoration: "none", color: "white" }} to="/history">
-          <span className="nav-bar-links">History</span>
-        </Link>
-        <Link style={{ textDecoration: "none", color: "white" }} to="/summary">
-          <span className="nav-bar-links">Summary</span>
-        </Link>
-        <Link style={{ textDecoration: "none", color: "white" }} to="/about">
-          <span className="nav-bar-links">About</span>
-        </Link>
-        <Link style={{ textDecoration: "none", color: "white" }} to="/">
-          <span onClick={logout} className="nav-bar-links">
-            Log Out
-          </span>
-        </Link>
+        <div classaName="nav-div">
+          <ul>
+            <li className='nav-items'>
+              <Link to="/home">Home</Link>
+            </li>
+            <li className='nav-items'>
+              <Link to="/history">History</Link>
+            </li>
+            <li className='nav-items'>
+              <Link to="/summary">Summary</Link>
+            </li>
+            <li className='nav-items'>
+              <Link to="/about">About</Link>
+            </li>
+            <Link to="/">
+              <li  className='nav-items' onClick={logout}>Log Out</li>
+            </Link>
+          </ul>
+        </div>
       </nav>
     </div>
   );

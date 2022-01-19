@@ -1,7 +1,11 @@
-/* DECLARE COLOR VARIABLES HERE */
+/* root and body */
 :root {
   --color1: rgb(0, 47, 74);
   --hover-color1: rgb(0, 85, 133);
+}
+
+body {
+
 }
 /* --------------------------- */
 
@@ -83,7 +87,29 @@ h2 {
   margin-left: 20px;
 }
 
-/* nav-bar */
-.nav-bar-links {
+/* NAV BAR */
+a {
+  text-decoration: none;
   color: black;
+}
+
+a:hover {
+  color: var(--color1);
+  text-decoration: underline;
+}
+
+.Nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-div {
+  margin: 0 auto;
+
+}
+
+.nav-items {
+  margin: 10px;
+  display: inline;
+  list-style: none;
 }
