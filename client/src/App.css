@@ -98,18 +98,14 @@ a:hover {
   text-decoration: underline;
 }
 
-.Nav {
-  display: flex;
-  justify-content: space-between;
-}
-
-.nav-div {
+.nav-items-container {
   margin: 0 auto;
-
+  display: flex;
+  justify-content: space-around;
 }
 
 .nav-items {
   margin: 10px;
-  display: inline;
+  display: inline-flex;
   list-style: none;
 }

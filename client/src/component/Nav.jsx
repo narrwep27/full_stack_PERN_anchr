@@ -11,8 +11,8 @@ export default function Nav(props) {
   return (
     <div className="Nav">
       <nav>
-        <div classaName="nav-div">
-          <ul>
+        <div class='nav-items-container'>
+        <ul>
             <li className='nav-items'>
               <Link to="/home">Home</Link>
             </li>
@@ -25,11 +25,15 @@ export default function Nav(props) {
             <li className='nav-items'>
               <Link to="/about">About</Link>
             </li>
+            </ul>
+            </div>
+
+            <div className='nav-items-container'>
             <Link to="/">
-              <li  className='nav-items' onClick={logout}>Log Out</li>
+              Log Out
             </Link>
-          </ul>
-        </div>
+          
+          </div>
       </nav>
     </div>
   );
