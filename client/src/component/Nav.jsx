@@ -11,7 +11,7 @@ export default function Nav(props) {
 		<div className='Nav'>
 			<div class='nav-items-container'>
 				<span className='nav-items'>
-					<Link to='/home'>Home</Link>
+					<Link to='/'>Home</Link>
 				</span>
 				<span className='nav-items'>
 					<Link to='/history'>History</Link>
