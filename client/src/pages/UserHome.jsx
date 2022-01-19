@@ -12,9 +12,11 @@ export default function UserHome(props) {
   const [start, setStart] = useState(false)
   const [sessionTag, setSessionTag] = useState('')
   const [sessions, setSessions] = useState([]);
+  const [initTime, setInitTime]=useState(0)
 
   const handleChange=(e)=>{
     setTime(e.target.value*60000)
+    setInitTime(e.target.value*60000)
     setSessionObject({...sessionObject,[e.target.name]: e.target.value*60000})
 
   }
@@ -46,12 +48,9 @@ export default function UserHome(props) {
   };
 
   const logSession = async () => {
-    // await axios.post(`${BASE_URL}/session/new`,sessionObject)
-    //switch axios call to new Service function
     await AddSession(sessionObject)
     getSessions()
     setSession(true)
-    console.log('session posted')
   }
 
   useEffect(()=>{
@@ -108,6 +107,11 @@ export default function UserHome(props) {
         seconds={seconds}
         minutes={minutes}
         hours={hours}
+        sessionObject={sessionObject}
+        setSessionObject={setSessionObject}
+        logSession={logSession}
+        initTime={initTime}
+        setInitTime={setInitTime}
       />}
       <table>
         <tr>

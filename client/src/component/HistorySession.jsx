@@ -7,7 +7,7 @@ const HistorySession = ({ session, allTags, getSessions }, props) => {
 	);
 	const [newTagId, setNewTagId] = useState('');
 	const [newTime, setNewTime] = useState('');
-	const timeInMinutes = Math.ceil((props.e.timeSpent / 60000) * 10) / 10;
+	const timeInMinutes = Math.ceil((session.timeSpent / 60000) * 10) / 10;
 
 	const toggleDisplay = () => {
 		editDisplay === 'history-content-edit-display-hide'
@@ -46,7 +46,7 @@ const HistorySession = ({ session, allTags, getSessions }, props) => {
 			<div key={session.id} className='history-session-content'>
 				<div className='history-content-date'>{session.date}</div>
 				<div className='history-content-tag'>{session.Tag.description}</div>
-				<div className='history-content-timeSpent'>{session.timeSpent}</div>
+				<div className='history-content-timeSpent'>{timeInMinutes}</div>
 				<div className='history-content-edit'>
 					<button onClick={toggleDisplay}>Edit</button>
 				</div>

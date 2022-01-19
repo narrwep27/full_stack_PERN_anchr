@@ -20,16 +20,16 @@ const GetSessionByID = async (req, res) => {
 };
 
 const GetSessionByUserId = async (req, res) => {
-	try {
-		const sessions = await Session.findAll({
-			where: { user_id: req.params.user_id },
-			include: Tag,
-			order: ['id'],
-		});
-		res.send(sessions);
-	} catch (error) {
-		throw error;
-	}
+  try {
+    const sessions = await Session.findAll({
+      where: { user_id: req.params.user_id },
+      include: Tag,
+      order: [['createdAt', 'DESC']]
+    });
+    res.send(sessions);
+  } catch (error) {
+    throw error;
+  }
 };
 
 const TotalAmounts = async (req, res) => {
