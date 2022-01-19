@@ -49,7 +49,6 @@ export default function UserHome(props) {
     await AddSession(sessionObject)
     getSessions()
     setSession(true)
-    console.log('session posted')
   }
 
   useEffect(()=>{

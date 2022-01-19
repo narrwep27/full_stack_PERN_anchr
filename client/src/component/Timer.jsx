@@ -6,9 +6,8 @@ export default function Timer(props) {
     props.setSession(true);
   };
   const sessionInterrupt = () => {
-    console.log(props.time)
     props.setSessionObject({...props.sessionObject,"timeSpent": props.time})
-    props.logSession()
+    props.setTime(0)
   }
   return (
     <div>
