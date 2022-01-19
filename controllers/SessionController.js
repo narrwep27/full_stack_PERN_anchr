@@ -1,4 +1,4 @@
-const { Session } = require('../models');
+const { Session, Tag } = require('../models');
 
 const GetAllSessions = async (req, res) => {
   try {
@@ -21,7 +21,11 @@ const GetSessionByID = async (req, res) => {
 
 const GetSessionByUserId = async (req, res) => {
   try {
-    const sessions = await Session.findAll({ where: {user_id: req.params.user_id} });
+    const sessions = await Session.findAll({ 
+      where: {user_id: req.params.user_id},
+      include: Tag,
+      order: ['id']
+    });
     res.send(sessions);
   } catch (error) {
     throw error;

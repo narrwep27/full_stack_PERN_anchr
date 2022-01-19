@@ -19,6 +19,15 @@ const GetTagByID = async (req, res) => {
   }
 };
 
+const GetTagsByUserId = async (req, res) => {
+  try {
+    const tags = await Tag.findAll({ where: { user_id: req.params.user_id }});
+    res.send(tags);
+  } catch (error) {
+    throw error;
+  };
+};
+
 const CreateTag = async (req, res) => {
   try {
     let tag = await Tag.create(req.body);
@@ -65,6 +74,7 @@ module.exports = {
   CreateTag,
   GetAllTags,
   GetTagByID,
+  GetTagsByUserId,
   UpdateTag,
   DeleteTag,
   GetTagByUser

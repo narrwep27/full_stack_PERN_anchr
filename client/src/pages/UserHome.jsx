@@ -3,6 +3,7 @@ import Timer from "../component/Timer";
 import { useState, useEffect } from "react";
 import RecentSession from '../component/RecentSession'
 import axios from "axios";
+import { LoadUserSessions, AddSession } from "../services/Session";
 const BASE_URL = 'http://localhost:3001/api'
 
 export default function UserHome(props) {
@@ -10,10 +11,12 @@ export default function UserHome(props) {
   const [time, setTime] = useState(0)
   const [start, setStart] = useState(false)
   const [sessionTag, setSessionTag] = useState('')
+  const [sessions, setSessions] = useState([]);
+
   const handleChange=(e)=>{
     setTime(e.target.value*60000)
     setSessionObject({...sessionObject,[e.target.name]: e.target.value*60000})
-    
+
   }
   const tagChange=(e)=>{
     setNewTag({...newTag, "userId": parseInt(props.user_id), [e.target.name]: e.target.value})
@@ -36,9 +39,23 @@ export default function UserHome(props) {
       setUserTags(res.data)
   }
   const [userTags, setUserTags]=useState([])
-  // console.log(userTags)
-  
+
+  const getSessions = async () => {
+    const userSessions = await LoadUserSessions(localStorage.getItem('id'));
+    setSessions(userSessions);
+  };
+
+  const logSession = async () => {
+    // await axios.post(`${BASE_URL}/session/new`,sessionObject)
+    //switch axios call to new Service function
+    await AddSession(sessionObject)
+    getSessions()
+    setSession(true)
+    console.log('session posted')
+  }
+
   useEffect(()=>{
+    getSessions()
     return getTags()
   },[])
 
@@ -49,7 +66,7 @@ export default function UserHome(props) {
         if (time>0){
           setTime(previousTime=>previousTime-10)
         } else {
-          alert(`timer complete! Posted tag will be ${JSON.stringify(sessionObject)}`)
+          logSession()
           setStart(false)
         }
       },10)
@@ -61,14 +78,16 @@ export default function UserHome(props) {
       clearInterval(interval)
     }
   },[start,time,sessionObject])
+
   return (
     <div>
-      <h1>Welcome back, name</h1>
-      {session ? 
-      <StartSession 
-        session={session} 
-        setSession={setSession} 
-        optionArray={userTags} 
+      <h1>Welcome back, {props.user.username}</h1>
+      {session ?
+      <StartSession
+        session={session}
+        setSession={setSession}
+        userTags={userTags}
+        setUserTags={setUserTags}
         historyArray={props.historyArray}
         start={start}
         setStart={setStart}
@@ -79,17 +98,26 @@ export default function UserHome(props) {
         setSessionObject={setSessionObject}
         newTag={newTag}
         tagChange={tagChange}
-      /> : 
-      <Timer 
-        session={session} 
-        setSession={setSession} 
-        time={time} 
-        setTime={setTime} 
-        seconds={seconds} 
-        minutes={minutes} 
-        hours={hours}  
+        getTags={getTags}
+      /> :
+      <Timer
+        session={session}
+        setSession={setSession}
+        time={time}
+        setTime={setTime}
+        seconds={seconds}
+        minutes={minutes}
+        hours={hours}
       />}
-      <RecentSession sessions={props.sessions}/>
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Tag</th>
+          <th>Time Spent</th>
+        </tr>
+      {sessions.slice(0,5).map((e, i) => ( <RecentSession key={i} e={e}/>))}
+      </table>
     </div>
   );
 }

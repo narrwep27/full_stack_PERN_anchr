@@ -8,24 +8,17 @@ import Nav from './component/Nav';
 import UserHome from './pages/UserHome';
 import History from './pages/History';
 import { CheckSession } from './services/Auth';
-import { LoadUserSessions } from './services/Session';
+import Summary from './pages/Summary';
 
-export default function App() {
+export default function App () {
   const [user, setUser] = useState(null);
   const [auth, setAuth] = useState(false);
-  const [sessions, setSessions] = useState([]);
 
-	const checkToken = async () => {
-		const user = await CheckSession();
-		setUser(user)
-		setAuth(true)
-		setSessions(JSON.parse(localStorage.getItem('sessions')))
-	}
-
-  const getSessions = async (id) => {
-    const userSessions = await LoadUserSessions(id);
-    setSessions(userSessions);
-  };
+  const checkToken = async () => {
+    const user = await CheckSession();
+    setUser(user)
+    setAuth(true)
+  }
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -38,19 +31,16 @@ export default function App() {
     <div className="App">
       {auth ? (
         <>
-          <Nav setAuth={setAuth} setUser={setUser} setSessions={setSessions} />
+          <Nav setAuth={setAuth} setUser={setUser} />
           <main>
             <Route
               exact
-              path="/home"
-              component={(props) => <UserHome user_id={user.id} sessions={sessions} />}
+              path="/"
+              component={(props) => <UserHome user_id={user.id} user={user}/>}
             />
-            <Route
-              exact
-              path="/history"
-              component={(props) => <History sessions={sessions} />}
-            />
-            <Route exact path="/About" component={About} />
+            <Route exact path='/history' component={(props) => <History user={user} />} />
+            <Route exact path="/about" component={About} />
+            <Route exacth path='/summary' component={Summary} user={user} />
           </main>
         </>
       ) : (
@@ -64,7 +54,6 @@ export default function App() {
                 {...props}
                 setUser={setUser}
                 setAuth={setAuth}
-                getSessions={getSessions}
               />
             )}
           />

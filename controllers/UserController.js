@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User, Tag, Session } = require('../models');
 const { hashPassword, comparePassword, createToken } = require('../middleware');
 
 const GetAllUsers = async (req, res) => {
@@ -13,7 +13,11 @@ const GetAllUsers = async (req, res) => {
 const GetUserById = async (req, res) => {
   try {
     let id = parseInt(req.params.user_id);
-    const user = await User.findByPk(id);
+    const user = await User.findOne( 
+      { where: { id: id }, 
+      include: [Tag],
+      attributes: ['id', 'email', 'username']
+    });
     res.send(user);
   } catch (error) {
     throw error;

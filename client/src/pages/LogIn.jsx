@@ -1,11 +1,18 @@
 import { useState } from "react";
 import { LogInUser } from "../services/Auth";
+import { LoadUserSessions } from "../services/Session";
 
 export default function LogIn(props) {
   const [logIn, setLogIn] = useState({ username: "", password: "" });
+  const [sessions, setSessions] = useState([]);
 
   const handleChange = (e) => {
     setLogIn({ ...logIn, [e.target.name]: e.target.value });
+  };
+
+  const getSessions = async (id) => {
+    const userSessions = await LoadUserSessions(id);
+    setSessions(userSessions);
   };
 
   const handleSubmit = async (e) => {
@@ -14,8 +21,7 @@ export default function LogIn(props) {
     props.setUser(res);
     setLogIn({});
     props.setAuth(true);
-    props.getSessions(res.id);
-    props.history.push("/home");
+    getSessions(res.id);
   };
 
   return (
