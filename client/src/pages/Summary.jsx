@@ -1,19 +1,6 @@
-import { useState, useEffect } from "react";
-import { LoadUserSessions } from "../services/Session";
-
 export default function Summary(props) {
-  // const [sessions, setSessions] = useState([]);
 
   const sessions = JSON.parse(localStorage.getItem("sessions"));
-
-  //  useEffect(() => {
-  //    const getSessions = async () => {
-  //      const userSessions = await LoadUserSessions(localStorage.getItem("id"));
-  //      setSessions(userSessions);
-  //    };
-  //    getSessions();
-  //  }, []);
-
   const timeArray = [];
 
   const sumNumbers = () => {
