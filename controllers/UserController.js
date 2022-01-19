@@ -1,5 +1,4 @@
 const { User, Tag, Session } = require('../models');
-const { hashPassword, comparePassword, createToken } = require('../middleware');
 
 const GetAllUsers = async (req, res) => {
   try {
@@ -29,7 +28,6 @@ const CreateUser = async (req, res) => {
     let user = await User.create(req.body);
     res.send(user);
   } catch (error) {
-    // console.log(req);
     throw error;
   }
 };
