@@ -31,7 +31,6 @@ const HistorySession = ({ session, allTags, getSessions }) => {
     };
     const handleDelete = async () => {
         let deleted = await DestroySession(session.id);
-        console.log(deleted);
         getSessions();
     };
     
