@@ -21,7 +21,6 @@ export default function StartSession(props) {
     if (e.target.value=="newTag") {
       setTagInput(true)
     } else {
-      console.log('dropdownOptions')
       setTagInput(false)
       props.setSessionObject({...props.sessionObject,"tagId": e.target.value})
     }

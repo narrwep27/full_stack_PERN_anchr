@@ -46,8 +46,6 @@ export default function UserHome(props) {
   };
 
   const logSession = async () => {
-    // await axios.post(`${BASE_URL}/session/new`,sessionObject)
-    //switch axios call to new Service function
     await AddSession(sessionObject)
     getSessions()
     setSession(true)
@@ -108,6 +106,9 @@ export default function UserHome(props) {
         seconds={seconds}
         minutes={minutes}
         hours={hours}
+        sessionObject={sessionObject}
+        setSessionObject={setSessionObject}
+        logSession={logSession}
       />}
       <table>
         <tr>
