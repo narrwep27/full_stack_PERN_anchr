@@ -18,7 +18,7 @@ export default function StartSession(props) {
     
   }
   const tagDropdownHandler = (e) => {
-    if (e.target.value=="newTag") {
+    if (e.target.id=="newTag") {
       setTagInput(true)
     } else {
       setTagInput(false)
@@ -31,8 +31,8 @@ export default function StartSession(props) {
       <form onSubmit={handleSession}>
         
         <select form="timerform" id="tagDropDown" onChange={tagDropdownHandler} value={selectorValue} required>
-          <option value="">Choose a tag</option>
-          <option value="newTag">Add new tag...</option>
+          {/* <option value="">Choose a tag</option> */}
+          <option value="" id="newTag">Add new tag...</option>
           {props.userTags.map((e, i) => (
             <option key={i} value={e.id}>{e.description}</option>
           ))}
@@ -51,8 +51,8 @@ export default function StartSession(props) {
         <div></div>
         :
         <form onSubmit={handleSession} id="timerform">
-          <button type="submit">Start Session</button>
-          <input name="timeSpent" onChange={props.handleChange} placeholder="Enter session time in minutes"></input>
+          <button  type="submit">Start Session</button>
+          <input type="number" name="timeSpent" onChange={props.handleChange} placeholder="Enter session time in minutes"></input>
         </form>}
     </div>
   );
