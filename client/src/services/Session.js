@@ -16,18 +16,19 @@ export const LoadUserSessions = async (user_id) => {
     return res.data;
   } catch (error) {
     throw error;
-  }
+  };
 };
 
-export const EditSessionTag = async (session_id, newTag_id) => {
-  try {
-    const res = await Client.put(`/session/${session_id}`, {
-      tag_id: newTag_id
-    });
-    return res.data;
-  } catch (error) {
-    throw error;
-  }
+export const UpdateSession = async (session_id, newTime, newTag_id) => {
+    try {
+        const res = await Client.put(`/session/${session_id}`, {
+            timeSpent: newTime,
+            tag_id: newTag_id
+        });
+        return res.data;
+    } catch (error) {
+        throw error;
+    };
 };
 
 export const DestroySession = async (session_id) => {
@@ -36,7 +37,7 @@ export const DestroySession = async (session_id) => {
     return res.data;
   } catch (error) {
     throw error;
-  }
+  };
 };
 
 export const AddSession = async (object) => {
