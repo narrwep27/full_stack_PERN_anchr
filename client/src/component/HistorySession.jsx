@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { UpdateSession } from "../services/Session";
 
-const HistorySession = ({ session, allTags }) => {
+const HistorySession = ({ session, allTags, getSessions }) => {
     const [editDisplay, setEditDisplay] = useState('history-content-edit-display-hide');
-    const [newTag, setNewTag] = useState('');
+    const [newTagId, setNewTagId] = useState('');
+    const [newTime, setNewTime] = useState('');
 
     const toggleDisplay = () => {
         editDisplay === 'history-content-edit-display-hide' ? 
@@ -10,12 +12,22 @@ const HistorySession = ({ session, allTags }) => {
             : setEditDisplay('history-content-edit-display-hide');
     };
     const handleCancel = (e) => {
-        e.preventDefault()
-        setNewTag('');
+        e.preventDefault();
+        setNewTagId('');
+        setNewTime('');
         setEditDisplay('history-content-edit-display-hide');
     };
-    const handleSubmit = async (e) => {
+    const handleEditSubmit = async (e) => {
         e.preventDefault();
+        let time = session.timeSpent;
+        let tag = session.tag_id;
+        if (newTime) { time = newTime };
+        if (newTagId) { tag = newTagId };
+        let newSession = await UpdateSession(session.id, time, tag);
+        setNewTagId('');
+        setNewTime('');
+        setEditDisplay('history-content-edit-display-hide');
+        getSessions();
     };
     
     return (
@@ -29,14 +41,21 @@ const HistorySession = ({ session, allTags }) => {
                 </div>
                 <div className="history-content-delete"><button>Delete</button></div>
                 <div className={editDisplay}>
-                    <form onSubmit={handleSubmit}>
-                        <select onChange={(e) => setNewTag(e.target.value)} value=''>
+                    <form onSubmit={handleEditSubmit}>
+                        <label>New Tag: </label>
+                        <select onChange={(e) => setNewTagId(e.target.value)} value={newTagId}>
                             <option value=''>-Select new tag-</option>
                             {allTags.map((index) => (
                                 <option key={index.id} value={index.id}>{index.description}</option>
                             ))}
                         </select>
-                        <input type='number' value={session.timeSpent} />
+                        <label>New Time: </label>
+                        <input 
+                            type='number' 
+                            onChange={(e) => {setNewTime(e.target.value)}}
+                            value={newTime} 
+                            placeholder={session.timeSpent}
+                        />
                         <button type="submit">Submit Changes</button>
                         <button onClick={handleCancel}>Cancel</button>
                     </form>
