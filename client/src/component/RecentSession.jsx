@@ -4,7 +4,7 @@ export default function RecentSession(props) {
   let propsToDate = new Date(props.e.createdAt);
   const userDate = propsToDate.toString().slice(4, 16);
   const userTime = propsToDate.toString().slice(16, 24);
-  const timeInMinutes = Math.floor((props.e.timeSpent / 60000) * 10) / 10;
+  const timeInMinutes = Math.ceil((props.e.timeSpent / 60000) * 10) / 10;
 
   return (
     <>
