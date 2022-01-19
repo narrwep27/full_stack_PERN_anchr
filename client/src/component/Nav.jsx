@@ -1,33 +1,36 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 export default function Nav(props) {
-  const logout = (e) => {
-    props.setAuth(false);
-    props.setUser(null);
-    localStorage.clear();
-  };
+	const logout = (e) => {
+		props.setAuth(false);
+		props.setUser(null);
+		localStorage.clear();
+	};
 
-  return (
-    <div>
-      <nav>
-        <Link style={{ textDecoration: "none", color: "white" }} to="/">
-          <span className="nav-bar-links">Home</span>
-        </Link>
-        <Link style={{ textDecoration: "none", color: "white" }} to="/history">
-          <span className="nav-bar-links">History</span>
-        </Link>
-        <Link style={{ textDecoration: "none", color: "white" }} to="/summary">
-          <span className="nav-bar-links">Summary</span>
-        </Link>
-        <Link style={{ textDecoration: "none", color: "white" }} to="/about">
-          <span className="nav-bar-links">About</span>
-        </Link>
-        <Link style={{ textDecoration: "none", color: "white" }} to="/">
-          <span onClick={logout} className="nav-bar-links">
-            Log Out
-          </span>
-        </Link>
-      </nav>
-    </div>
-  );
+	return (
+		<div className='Nav'>
+			<div class='nav-items-container'>
+				<span className='nav-items'>
+					<Link to='/home'>Home</Link>
+				</span>
+				<span className='nav-items'>
+					<Link to='/history'>History</Link>
+				</span>
+				<span className='nav-items'>
+					<Link to='/summary'>Summary</Link>
+				</span>
+				<span className='nav-items'>
+					<Link to='/about'>About</Link>
+				</span>
+
+				{props.setUser ? (
+					<span className='nav-items-items' onClick={logout}>
+						<Link to='/'>Log Out</Link>
+					</span>
+				) : (
+					''
+				)}
+			</div>
+		</div>
+	);
 }
