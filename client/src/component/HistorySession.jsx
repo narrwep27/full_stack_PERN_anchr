@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { UpdateSession, DestroySession } from '../services/Session';
 
-const HistorySession = ({ session, allTags, getSessions }, props) => {
+const HistorySession = ({ session, allTags, getSessions, deleteNotify }, props) => {
 	const [editDisplay, setEditDisplay] = useState(
 		'history-content-edit-display-hide'
 	);
@@ -20,6 +20,7 @@ const HistorySession = ({ session, allTags, getSessions }, props) => {
 		setNewTime('');
 		setEditDisplay('history-content-edit-display-hide');
 	};
+
 	const handleEditSubmit = async (e) => {
 		e.preventDefault();
 		let time = session.timeSpent;
@@ -36,9 +37,11 @@ const HistorySession = ({ session, allTags, getSessions }, props) => {
 		setEditDisplay('history-content-edit-display-hide');
 		getSessions();
 	};
+
 	const handleDelete = async () => {
 		let deleted = await DestroySession(session.id);
 		getSessions();
+		deleteNotify()
 	};
 
 	return (
