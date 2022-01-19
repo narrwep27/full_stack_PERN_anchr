@@ -4,6 +4,7 @@ export default function RecentSession(props) {
   let propsToDate = new Date(props.e.createdAt);
   const userDate = propsToDate.toString().slice(4, 16);
   const userTime = propsToDate.toString().slice(16, 24);
+  const timeInMinutes = Math.floor((props.e.timeSpent / 60000) * 10) / 10;
 
   return (
     <>
@@ -11,7 +12,7 @@ export default function RecentSession(props) {
         <td>{userDate}</td>
         <td>{userTime}</td>
         <td>{props.e.tag_id}</td>
-        <td>{props.e.timeSpent}</td>
+        <td>{timeInMinutes}</td>
       </tr>
     </>
   );
