@@ -21,15 +21,15 @@ const GetSessionByID = async (req, res) => {
 
 const GetSessionByUserId = async (req, res) => {
   try {
-    const sessions = await Session.findAll({ 
-      where: {user_id: req.params.user_id},
+    const sessions = await Session.findAll({
+      where: { user_id: req.params.user_id },
       include: Tag,
-      order: ['id']
+      order: [['createdAt', 'DESC']]
     });
     res.send(sessions);
   } catch (error) {
     throw error;
-  };
+  }
 };
 
 const CreateSession = async (req, res) => {

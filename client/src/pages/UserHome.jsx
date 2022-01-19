@@ -12,9 +12,11 @@ export default function UserHome(props) {
   const [start, setStart] = useState(false)
   const [sessionTag, setSessionTag] = useState('')
   const [sessions, setSessions] = useState([]);
+  const [initTime, setInitTime]=useState(0)
 
   const handleChange=(e)=>{
     setTime(e.target.value*60000)
+    setInitTime(e.target.value*60000)
     setSessionObject({...sessionObject,[e.target.name]: e.target.value*60000})
 
   }
@@ -108,6 +110,8 @@ export default function UserHome(props) {
         sessionObject={sessionObject}
         setSessionObject={setSessionObject}
         logSession={logSession}
+        initTime={initTime}
+        setInitTime={setInitTime}
       />}
       <table>
         <tr>
@@ -116,7 +120,7 @@ export default function UserHome(props) {
           <th>Tag</th>
           <th>Time Spent</th>
         </tr>
-      {sessions.slice(-5).map((e, i) => ( <RecentSession key={i} e={e}/>))}
+      {sessions.slice(0,5).map((e, i) => ( <RecentSession key={i} e={e}/>))}
       </table>
     </div>
   );
