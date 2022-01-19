@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { LoadUserById } from '../services/User';
 import { LoadUserSessions } from '../services/Session';
-import { EditSessionTag, DestroySession } from '../services/Session';
+import { DestroySession } from '../services/Session';
 import HistorySession from "../component/HistorySession";
 
 function History(props) {
@@ -22,14 +22,6 @@ function History(props) {
     })
 		setSessions(datedSess);
 	};
-  const changeSessTag = async (session, tag) => {
-    let userTagIds = user.Tags.map((index) => {return index.id});
-    if (userTagIds.includes(parseInt(newTagId))) {
-      const newSess = await EditSessionTag(session, tag);
-      setNewTagId('');
-      getSessions();
-    };
-  };
   const deleteSess = async (sessionId) => {
     let deleted = await DestroySession(sessionId);
     console.log(deleted);
@@ -46,9 +38,9 @@ function History(props) {
       <div className="history-grid">
         <p className="history-date-col"><b>Date</b></p>
         <p className="history-tag-col"><b>Tag</b></p>
-        <p className="history-time-col"><b>Time</b></p>
+        <p className="history-time-col"><b>Time Focused</b></p>
         {sessions.map((index) => (
-          <HistorySession key={index.id} session={index} allTags={user.Tags} />
+          <HistorySession key={index.id} session={index} allTags={user.Tags} getSessions={getSessions} />
         ))}
       </div>
       {/* <table>
