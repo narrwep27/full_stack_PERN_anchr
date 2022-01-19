@@ -116,7 +116,7 @@ export default function UserHome(props) {
           <th>Tag</th>
           <th>Time Spent</th>
         </tr>
-      {sessions.slice(0,5).map((e, i) => ( <RecentSession key={i} e={e}/>))}
+      {sessions.slice(-5).map((e, i) => ( <RecentSession key={i} e={e}/>))}
       </table>
     </div>
   );
