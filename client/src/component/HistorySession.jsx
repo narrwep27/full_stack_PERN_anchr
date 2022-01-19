@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { UpdateSession } from "../services/Session";
+import { UpdateSession, DestroySession } from "../services/Session";
 
 const HistorySession = ({ session, allTags, getSessions }) => {
     const [editDisplay, setEditDisplay] = useState('history-content-edit-display-hide');
@@ -29,6 +29,11 @@ const HistorySession = ({ session, allTags, getSessions }) => {
         setEditDisplay('history-content-edit-display-hide');
         getSessions();
     };
+    const handleDelete = async () => {
+        let deleted = await DestroySession(session.id);
+        console.log(deleted);
+        getSessions();
+    };
     
     return (
         <div className="history-session-row">
@@ -39,7 +44,7 @@ const HistorySession = ({ session, allTags, getSessions }) => {
                 <div className="history-content-edit">
                     <button onClick={toggleDisplay}>Edit</button>
                 </div>
-                <div className="history-content-delete"><button>Delete</button></div>
+                <div className="history-content-delete"><button onClick={handleDelete}>Delete</button></div>
                 <div className={editDisplay}>
                     <form onSubmit={handleEditSubmit}>
                         <label>New Tag: </label>

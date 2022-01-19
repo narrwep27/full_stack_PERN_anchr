@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { LoadUserById } from '../services/User';
 import { LoadUserSessions } from '../services/Session';
-import { DestroySession } from '../services/Session';
 import HistorySession from "../component/HistorySession";
 
 function History(props) {
@@ -22,11 +21,6 @@ function History(props) {
     })
 		setSessions(datedSess);
 	};
-  const deleteSess = async (sessionId) => {
-    let deleted = await DestroySession(sessionId);
-    console.log(deleted);
-    getSessions();
-  };
 
   useEffect(async () => {
     await getUser();
