@@ -10,6 +10,7 @@ export default function RecentSession(props) {
     return minutes+":"+(seconds<10?'0':'')+seconds
   }
   let displaytime = timeconversion(props.e.timeSpent)
+
   return (
     <>
       <tr>

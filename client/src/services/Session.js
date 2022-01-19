@@ -16,7 +16,7 @@ export const LoadUserSessions = async (user_id) => {
     return res.data;
   } catch (error) {
     throw error;
-  }
+  };
 };
 
 export const UpdateSession = async (session_id, newTime, newTag_id) => {
@@ -37,7 +37,7 @@ export const DestroySession = async (session_id) => {
     return res.data;
   } catch (error) {
     throw error;
-  }
+  };
 };
 
 export const AddSession = async (object) => {
