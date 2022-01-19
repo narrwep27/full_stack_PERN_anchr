@@ -8,7 +8,7 @@ import Nav from './component/Nav';
 import UserHome from './pages/UserHome';
 import History from './pages/History';
 import { CheckSession } from './services/Auth';
-import { LoadUserSessions } from './services/Session';
+import Summary from './pages/Summary';
 
 export default function App() {
 	const [user, setUser] = useState(null);
