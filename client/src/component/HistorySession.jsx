@@ -1,7 +1,12 @@
 import { useState } from 'react';
 import { UpdateSession, DestroySession } from '../services/Session';
+import { AiTwotoneEdit, AiTwotoneDelete } from 'react-icons/ai';
+import { IconBase, IconContext } from 'react-icons/lib';
 
-const HistorySession = ({ session, allTags, getSessions, deleteNotify }, props) => {
+const HistorySession = (
+	{ session, allTags, getSessions, deleteNotify },
+	props
+) => {
 	const [editDisplay, setEditDisplay] = useState(
 		'history-content-edit-display-hide'
 	);
@@ -41,21 +46,31 @@ const HistorySession = ({ session, allTags, getSessions, deleteNotify }, props) 
 	const handleDelete = async () => {
 		let deleted = await DestroySession(session.id);
 		getSessions();
-		deleteNotify()
+		deleteNotify();
 	};
 
 	return (
 		<div className='history-session-row'>
 			<div key={session.id} className='history-session-content'>
 				<div className='history-content-date'>{session.date}</div>
+
 				<div className='history-content-tag'>{session.Tag.description}</div>
-				<div className='history-content-timeSpent'>{timeInMinutes + ' mins'}</div>
+
+				<div className='history-content-timeSpent'>
+					{timeInMinutes + ' mins'}
+				</div>
+
 				<div className='history-content-edit'>
-					<button onClick={toggleDisplay}>Edit</button>
+					{/* <IconContext.Provider value={{style: {color: }}} */}
+					<button className='history-content-edit-btn'>
+						<AiTwotoneEdit onClick={toggleDisplay} size={25} />
+					</button>
+
+					<button className='history-content-delete-btn'>
+						<AiTwotoneDelete onClick={handleDelete} size={25} color='red' />
+					</button>
 				</div>
-				<div className='history-content-delete'>
-					<button onClick={handleDelete}>Delete</button>
-				</div>
+
 				<div className={editDisplay}>
 					<form onSubmit={handleEditSubmit}>
 						<label>New Tag: </label>

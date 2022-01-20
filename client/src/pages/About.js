@@ -55,9 +55,11 @@ export default function About() {
 								target='_blank'>
 								<SiGithub size={30} />
 							</a>
+							<SiJavascript size={30} />
 							<SiPostgresql size={30} /> <SiExpress size={30} />
 							<SiNodedotjs size={30} /> <SiNodemon size={30} />{' '}
 							<SiSequelize size={30} />
+							<SiReact size={30} />
 						</IconContext.Provider>
 					</div>
 					<p>
@@ -73,7 +75,7 @@ export default function About() {
 
 				<div className='about-team-div'></div>
 				<img
-					src='https://media-exp1.licdn.com/dms/image/C5603AQFlCgxUpI3Y7w/profile-displayphoto-shrink_800_800/0/1528843672719?e=1648080000&v=beta&t=IYBv_PCAFfz2csQftHZqhbnFYXM0RHDGPL3sYwSON-w'
+					src='https://avatars.githubusercontent.com/u/49847428?v=4'
 					className='about-team-img'
 				/>
 
@@ -84,20 +86,22 @@ export default function About() {
 					<h3>Back-End Master</h3>
 					<IconContext.Provider value={{ style: { margin: '10px' } }}>
 						<a
-							href='https://www.linkedin.com/in/narrwe-park/'
-							alt='Narrwe Park LinkedIn'
+							href='https://www.linkedin.com/in/dominick-delorenzo-breed/'
+							alt='Dom DeLorenzo LinkedIn'
 							target='_blank'>
 							<SiLinkedin size={30} margin={10} />
 						</a>
 						<a
-							href='https://github.com/narrwep27'
-							alt='Narrwe Park GitHub'
+							href='https://github.com/domdelorenzo'
+							alt='Dom DeLorenzo GitHub'
 							target='_blank'>
 							<SiGithub size={30} />
 						</a>
+						<SiJavascript size={30} />
 						<SiPostgresql size={30} /> <SiExpress size={30} />
 						<SiNodedotjs size={30} /> <SiNodemon size={30} />{' '}
 						<SiSequelize size={30} />
+						<SiReact size={30} />
 					</IconContext.Provider>
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -124,23 +128,23 @@ export default function About() {
 					<h3>Front-End Specialist</h3>
 					<IconContext.Provider value={{ style: { margin: '10px' } }}>
 						<a
-							href='https://www.linkedin.com/in/narrwe-park/'
-							alt='Narrwe Park LinkedIn'
+							href='https://www.linkedin.com/in/pabloey/'
+							alt='Pablo Yocupicio LinkedIn'
 							target='_blank'>
 							<SiLinkedin size={30} margin={10} />
 						</a>
-
 						<a
-							href='https://github.com/narrwep27'
-							alt='Narrwe Park GitHub'
+							href='https://github.com/Pabloey'
+							alt='Pablo Yocupicio GitHub'
 							target='_blank'>
 							<SiGithub size={30} />
 						</a>
-
 						<SiHtml5 size={30} />
 						<SiCss3 size={30} />
 						<SiJavascript size={30} />
 						<SiReact size={30} />
+						<SiNodedotjs size={30} /> <SiNodemon size={30} />
+						<SiSequelize size={30} />
 					</IconContext.Provider>
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -167,14 +171,14 @@ export default function About() {
 					<h3>Front-End Styler</h3>
 					<IconContext.Provider value={{ style: { margin: '10px' } }}>
 						<a
-							href='https://www.linkedin.com/in/narrwe-park/'
-							alt='Narrwe Park LinkedIn'
+							href='https://www.linkedin.com/in/jerome-wy/'
+							alt='Jerome Wy LinkedIn'
 							target='_blank'>
 							<SiLinkedin size={30} margin={10} />
 						</a>
 						<a
-							href='https://github.com/narrwep27'
-							alt='Narrwe Park GitHub'
+							href='https://github.com/jerome-wy'
+							alt='Jerome Wy GitHub'
 							target='_blank'>
 							<SiGithub size={30} />
 						</a>
@@ -183,6 +187,7 @@ export default function About() {
 						<SiJavascript size={30} />
 						<SiReact size={30} />
 						<SiAdobephotoshop size={30} />
+						<SiNodedotjs size={30} /> <SiNodemon size={30} />
 					</IconContext.Provider>
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
