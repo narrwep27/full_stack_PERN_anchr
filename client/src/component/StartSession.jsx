@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, {useState} from "react";
 import { AddTag } from "../services/Tag";
 
@@ -31,7 +30,6 @@ export default function StartSession(props) {
       <form onSubmit={handleSession}>
         
         <select form="timerform" id="tagDropDown" onChange={tagDropdownHandler} value={selectorValue} required>
-          {/* <option value="">Choose a tag</option> */}
           <option value="" id="newTag">Add new tag...</option>
           {props.userTags.map((e, i) => (
             <option key={i} value={e.id}>{e.description}</option>
