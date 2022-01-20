@@ -48,3 +48,12 @@ export const AddSession = async (object) => {
     throw error;
   }
 };
+
+export const TotalAmount = async (e) => {
+  try {
+    const res = await Client.get(`session/allsessions/${e}`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
