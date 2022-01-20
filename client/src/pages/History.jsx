@@ -22,8 +22,8 @@ function History(props) {
 		setSessions(datedSess);
 	};
 
-  useEffect(() => {
-    getUser();
+  useEffect(async () => {
+    await getUser();
     getSessions();
   }, []);
 
