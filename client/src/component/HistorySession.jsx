@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { UpdateSession, DestroySession } from '../services/Session';
 import { AiTwotoneEdit, AiTwotoneDelete } from 'react-icons/ai';
 import { IconBase, IconContext } from 'react-icons/lib';
+import toast from 'react-hot-toast'
 
 const HistorySession = (
 	{ session, allTags, getSessions, deleteNotify },
@@ -19,11 +20,14 @@ const HistorySession = (
 			? setEditDisplay('history-content-edit-display-show')
 			: setEditDisplay('history-content-edit-display-hide');
 	};
+
+
 	const handleCancel = (e) => {
 		e.preventDefault();
 		setNewTagId('');
 		setNewTime('');
 		setEditDisplay('history-content-edit-display-hide');
+		toast('No changes made', { style: { background: 'white', color: 'black', border: '1px solid green'} });
 	};
 
 	const handleEditSubmit = async (e) => {
@@ -41,12 +45,13 @@ const HistorySession = (
 		setNewTime('');
 		setEditDisplay('history-content-edit-display-hide');
 		getSessions();
+		toast('Changes successful', { style: { background: 'white', color: 'black', border: '1px solid green'} });
 	};
 
 	const handleDelete = async () => {
 		let deleted = await DestroySession(session.id);
 		getSessions();
-		deleteNotify();
+	toast('Session Deleted', { style: { background: 'red', color: 'white' } });
 	};
 
 	return (
