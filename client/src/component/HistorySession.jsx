@@ -21,7 +21,6 @@ const HistorySession = (
 			: setEditDisplay('history-content-edit-display-hide');
 	};
 
-
 	const handleCancel = (e) => {
 		e.preventDefault();
 		setNewTagId('');
@@ -74,33 +73,54 @@ const HistorySession = (
 					<button className='history-content-delete-btn'>
 						<AiTwotoneDelete onClick={handleDelete} size={25} color='red' />
 					</button>
-				</div>
+					{/* </div>
 
-				<div className={editDisplay}>
-					<form onSubmit={handleEditSubmit}>
-						<label>New Tag: </label>
-						<select
-							onChange={(e) => setNewTagId(e.target.value)}
-							value={newTagId}>
-							<option value=''>-Select new tag-</option>
-							{allTags.map((index) => (
-								<option key={index.id} value={index.id}>
-									{index.description}
-								</option>
-							))}
-						</select>
-						<label>New Time: </label>
-						<input
-							type='number'
-							onChange={(e) => {
-								setNewTime(e.target.value);
-							}}
-							value={newTime}
-							placeholder={timeInMinutes + ' min'}
-						/>
-						<button type='submit'>Submit Changes</button>
-						<button onClick={handleCancel}>Cancel</button>
-					</form>
+				<div className='history-edit-new-tag-container'> */}
+					<div className={editDisplay}>
+						<form onSubmit={handleEditSubmit}>
+							<label>
+								<b>New Tag:</b>
+							</label>
+							<br />
+							<select
+								onChange={(e) => setNewTagId(e.target.value)}
+								value={newTagId}
+								className='history-edit-new-tag-dropdown'>
+								<option value=''>Select new tag</option>
+								{allTags.map((index) => (
+									<option key={index.id} value={index.id}>
+										{index.description}
+									</option>
+								))}
+							</select>
+
+							<br />
+							<br />
+
+							<label>
+								<b>New Time:</b>
+							</label>
+							<input
+								type='number'
+								onChange={(e) => {
+									setNewTime(e.target.value);
+								}}
+								value={newTime}
+								placeholder={timeInMinutes + ' min'}
+								className='history-edit-new-time-form'
+							/>
+
+							<button type='submit' className='history-edit-submit-btn'>
+								Submit Changes
+							</button>
+							<br />
+							<button
+								onClick={handleCancel}
+								className='history-edit-delete-btn'>
+								Cancel
+							</button>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
