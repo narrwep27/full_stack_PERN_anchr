@@ -7,9 +7,10 @@ export default function Nav(props) {
     localStorage.clear();
   };
 
+
   return (
     <div className="Nav">
-      <div class="nav-items-container">
+      <div className="nav-items-container">
         <span className="nav-items">
           <Link to="/">Home</Link>
         </span>
