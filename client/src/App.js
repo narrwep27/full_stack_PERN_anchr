@@ -9,56 +9,58 @@ import UserHome from './pages/UserHome';
 import History from './pages/History';
 import { CheckSession } from './services/Auth';
 import Summary from './pages/Summary';
+import { Toaster } from 'react-hot-toast';
 
-export default function App () {
-  const [user, setUser] = useState(null);
-  const [auth, setAuth] = useState(false);
+export default function App() {
+	const [user, setUser] = useState(null);
+	const [auth, setAuth] = useState(false);
 
-  const checkToken = async () => {
-    const user = await CheckSession();
-    setUser(user)
-    setAuth(true)
-  }
+	const checkToken = async () => {
+		const user = await CheckSession();
+		setUser(user);
+		setAuth(true);
+	};
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      checkToken();
-    }
-  }, []);
+	useEffect(() => {
+		const token = localStorage.getItem('token');
+		if (token) {
+			checkToken();
+		}
+	}, []);
 
-  return (
-    <div className="App">
-      {auth ? (
-        <>
-          <Nav setAuth={setAuth} setUser={setUser} />
-          <main>
-            <Route
-              exact
-              path="/"
-              component={(props) => <UserHome user_id={user.id} user={user}/>}
-            />
-            <Route exact path='/history' component={(props) => <History user={user} />} />
-            <Route exact path="/about" component={About} />
-            <Route exacth path='/summary' component={Summary} user={user} />
-          </main>
-        </>
-      ) : (
-        <>
-          <Route exact path="/signup" component={SignUp} />
-          <Route
-            exact
-            path="/"
-            component={(props) => (
-              <LogIn
-                {...props}
-                setUser={setUser}
-                setAuth={setAuth}
-              />
-            )}
-          />
-        </>
-      )}
-    </div>
-  );
+	return (
+		<div className='App'>
+			<Toaster position='bottom-right' reverseOrder={false} />
+			{auth ? (
+				<>
+					<Nav setAuth={setAuth} setUser={setUser} />
+					<main>
+						<Route
+							exact
+							path='/'
+							component={(props) => <UserHome user_id={user.id} user={user} />}
+						/>
+						<Route
+							exact
+							path='/history'
+							component={(props) => <History user={user} />}
+						/>
+						<Route exact path='/about' component={About} />
+						<Route exacth path='/summary' component={Summary} user={user} />
+					</main>
+				</>
+			) : (
+				<>
+					<Route exact path='/signup' component={SignUp} />
+					<Route
+						exact
+						path='/'
+						component={(props) => (
+							<LogIn {...props} setUser={setUser} setAuth={setAuth} />
+						)}
+					/>
+				</>
+			)}
+		</div>
+	);
 }

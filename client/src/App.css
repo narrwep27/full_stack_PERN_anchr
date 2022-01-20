@@ -1,134 +1,392 @@
 /* DECLARE COLOR VARIABLES HERE */
 :root {
-  --color1: rgb(0, 47, 74);
-  --hover-color1: rgb(0, 85, 133);
+	--color1: rgb(0, 47, 74);
+	--hover-color1: rgb(0, 85, 133);
 }
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Lato', sans-serif;
+}
+
+body {
+	margin: 0;
+	font-family: 'Lato', sans-serif;
+}
+
 /* --------------------------- */
 
 /* ----------- SIGN UP PAGE ----------*/
 .SignUp {
-  display: flex;
+	display: flex;
+	height: 75vh;
+	align-items: center;
 }
 .signup-form-container-div {
-  margin: 0 auto;
+	margin: 0 auto;
+}
+
+.anchor-logo-image {
 }
 
 .signup-form-div {
-  background-color: white;
-  width: 350px;
-  height: 50px;
-  border: solid 1px gray;
-  margin-top: 15px;
-  border-radius: 10px;
+	background-color: white;
+	margin: 0 auto;
+	width: 350px;
+	height: 50px;
+	border: solid 1px gray;
+	margin-top: 15px;
+	border-radius: 10px;
 }
 
 .signup-form {
-  width: 300px;
-  margin-top: 15px;
-  margin-left: 10px;
-  border: 0;
-  font-size: 16px;
+	width: 300px;
+	margin-top: 15px;
+	margin-left: 10px;
+	border: 0;
+	font-size: 16px;
 }
 
 .signup-form::placeholder {
-  font-size: 16px;
+	font-size: 16px;
 }
 
 .signup-form-button {
-  width: 350px;
-  height: 50px;
-  border-radius: 10px;
-  border: solid 1px gray;
-  margin-top: 10px;
-  background-color: var(--color1);
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  transition: 0.5s;
+	width: 350px;
+	height: 50px;
+	border-radius: 10px;
+	border: solid 1px gray;
+	margin-top: 25px;
+	background-color: var(--color1);
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	transition: 0.5s;
 }
 
 .signup-form-button:hover {
-  background-color: var(--hover-color1);
+	background-color: var(--hover-color1);
+	padding-top: 10px;
 }
-/* ----------- SIGN UP PAGE ----------*/
+
+.sign-up-form {
+	margin: 0 auto;
+}
+
+.login-button-div {
+	text-align: left;
+}
+
+/* ----------- SIGN IN PAGE ---------*/
+.signin-text a:hover {
+	color: var(--hover-color1);
+	font-weight: bold;
+	text-decoration: underline;
+	padding-bottom: 10px;
+}
 
 /*--------- ABOUT TEAM PAGE --------*/
 .About {
-  margin: 0 auto;
+	margin: 0 auto;
+	width: 75vw;
 }
 
-h1 {
-  margin: 0;
-  padding: 0;
+h2,
+h3,
+p {
+	margin: 0;
+	padding: 5px;
+	width: 600px;
 }
 
-h2 {
-  margin: 0;
-  padding: 0;
+.icons {
+	display: flex;
+}
+
+b {
+	color: var(--hover-color1);
+}
+.technologies-used-text:hover {
+	color: var(--hover-color1);
+	font-weight: bold;
+	border-bottom: solid 2px var(--hover-color1);
+}
+.about-headers {
+	text-align: center;
+	margin-top: 20px;
 }
 
 .about-team-div {
-  margin: 0 auto;
-  display: flex;
-  width: 800px;
+	margin: 0 auto;
+	margin-top: 10px;
+	width: 900px;
+	display: flex;
+	flex-wrap: wrap;
+	padding-bottom: 20px;
+
+	border-bottom: solid 1px lightgray;
 }
 
 .about-team-img {
-  width: 200px;
-  height: 200px;
-  border-radius: 100px;
+	width: 200px;
+	height: 200px;
+	border-radius: 100px;
+	margin-top: 25px;
+	border: solid 1px lightgray;
 }
 
+.about-header-image {
+	margin: 0 auto;
+}
 .about-team-details {
-  margin-left: 20px;
+	margin-left: 20px;
+	margin-top: 30px;
 }
 
-/* nav-bar */
-.nav-bar-links {
-  color: black;
+/* NAV BAR */
+a {
+	color: var(--color1);
+	text-decoration: none;
+}
+
+.nav-items:hover {
+	color: var(--hover-color1);
+	font-weight: bold;
+	border-bottom: solid 5px var(--hover-color1);
+	padding-bottom: 10px;
+}
+
+.Nav {
+	margin: 0 auto;
+	display: flex;
+	/* justify-content: space-evenly; */
+	height: 60px;
+	border-bottom: solid 1px lightgray;
+	width: 70vw;
+}
+
+.nav-items-container {
+	margin-top: 20px;
+	margin-left: 50px;
+}
+
+.nav-items {
+	margin-top: 20px;
+	margin-left: 50px;
+}
+
+.nav-items-logout {
+	margin-top: 10px;
+	margin-left: 650px;
+}
+
+.logout-btn {
+	background-color: white;
+	color: var(--color1);
+	height: 35px;
+	width: 100px;
+	border: solid 1px lightgray;
+	border-radius: 10px;
+}
+
+.logout-btn:hover {
+	color: white;
+	background-color: var(--color1);
 }
 
 /* history */
 .history-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
 }
 .history-tag-col {
-  grid-column: 2 / 3;
+	grid-column: 2 / 3;
 }
 .history-time-col {
-  grid-column: 3 / 4;;
+	grid-column: 3 / 4;
 }
 .history-session-row {
-  grid-column: 1 / 6;
+	grid-column: 1 / 6;
 }
 .history-session-content {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 2;
-  margin: 1em 0;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: 2;
+	margin: 1em 0;
 }
 .history-content-date {
-  grid-column: 1 / 2;
+	grid-column: 1 / 2;
 }
 .history-content-tag {
-  grid-column: 2 / 3;
+	grid-column: 2 / 3;
 }
 .history-content-timeSpent {
-  grid-column: 3 / 4;
+	grid-column: 3 / 4;
 }
 .history-content-edit {
-  grid-column: 4 / 5;
+	grid-column: 4 / 5;
 }
 .history-content-delete {
-  grid-column: 5 / 6;
+	grid-column: 5 / 6;
 }
 .history-content-edit-display-show {
-  grid-column: 1 / 6;
-  grid-row: 2 / 3;
-  justify-self: center;
-  margin: .5em;
+	grid-column: 1 / 6;
+	grid-row: 2 / 3;
+	justify-self: center;
+	margin: 0.5em;
 }
 .history-content-edit-display-hide {
-  display: none;
+	display: none;
+}
+
+/* ------ SUMMARY PAGE -------- */
+
+.Summary {
+	display: flex;
+	height: 100vh;
+	align-items: center;
+}
+
+.summary-each-item {
+	margin: 0 auto;
+}
+
+.piechart-div {
+	margin: 0 auto;
+}
+
+/* --------- USER HOME PAGE --------- */
+.UserHome {
+	height: 75vh;
+	justify-content: center;
+	align-items: center;
+}
+
+.welcome-text {
+	font-size: 50px;
+	text-align: left;
+	padding: 35px;
+	padding-left: 300px;
+}
+
+.userhome-table {
+	margin: 0 auto;
+	margin-top: 50px;
+	text-align: center;
+	font-size: 16px;
+	width: 50vw;
+}
+
+th {
+	text-align: center;
+	border-bottom: solid 1px lightgray;
+	font-size: 20px;
+	padding-bottom: 15px;
+}
+
+td {
+	padding: 15px;
+	text-align: center;
+	border-bottom: solid 1px lightgray;
+}
+
+.StartSession {
+	text-align: center;
+}
+
+.start-session-tags-dropdown {
+	height: 50px;
+	width: 300px;
+	border: solid 1px lightgray;
+	font-family: 'Lato', sans-serif;
+	font-size: 24px;
+	text-align: center;
+}
+
+.start-session-tags-dropdown:hover {
+	background-color: rgb(238, 238, 238);
+	transition: 0.5s;
+}
+
+.start-session-btn {
+	border: 0;
+	border-radius: 10px;
+	height: 75px;
+	width: 200px;
+	margin: 10px;
+	background-color: var(--color1);
+	color: white;
+	font-family: 'Lato', sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.start-session-btn:hover {
+	background-color: var(--hover-color1);
+	transition: 0.5s;
+}
+
+.start-session-add-tag-btn {
+	font-family: 'Lato', sans-serif;
+	font-size: 24px;
+	border: 0;
+	border-radius: 10px;
+	height: 50px;
+	width: 150px;
+	margin-left: 10px;
+	background-color: var(--color1);
+	color: white;
+}
+
+.start-session-minutes-form {
+	height: 50px;
+	border: solid 1px lightgray;
+	border-radius: 5px;
+	margin: 15px;
+	font-family: 'Lato', sans-serif;
+	text-align: center;
+	font-size: 20px;
+}
+
+.start-session-minutes-form:hover {
+	background-color: rgb(238, 238, 238);
+	transition: 0.5s;
+}
+
+.start-session-minutes-form::placeholder {
+	text-align: center;
+}
+
+.timer-end-session-btn {
+	border: 0;
+	border-radius: 10px;
+	height: 75px;
+	width: 200px;
+	margin: 10px;
+	background-color: red;
+	color: white;
+	font-family: 'Lato', sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.timer-end-session-btn:hover {
+	background-color: rgb(145, 72, 72);
+	transition: 0.5s;
+}
+
+.Timer {
+	text-align: center;
+}
+
+.timer-countdown {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.time-remaining {
+	color: red;
+	font-size: 36px;
 }
