@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { LoadUserById } from '../services/User';
 import { LoadUserSessions } from '../services/Session';
 import HistorySession from "../component/HistorySession";
+import toast, { Toaster } from 'react-hot-toast'
 
 function History(props) {
   const [user, setUser] = useState({});
@@ -21,19 +22,24 @@ function History(props) {
 		setSessions(datedSess);
 	};
 
-  useEffect(async () => {
-    await getUser();
+  useEffect(() => {
+    getUser();
     getSessions();
   }, []);
 
+  const deleteNotify = () => toast("Session Deleted", {style: { background: 'red', color: 'white'}});
+
   return (
     <div className="history-div">
+      <Toaster
+      position="bottom-right"
+      reverseOrder={false}/>
       <div className="history-grid">
         <p className="history-date-col"><b>Date</b></p>
         <p className="history-tag-col"><b>Tag</b></p>
         <p className="history-time-col"><b>Time Focused</b></p>
         {sessions.map((index) => (
-          <HistorySession key={index.id} session={index} allTags={user.Tags} getSessions={getSessions} />
+          <HistorySession key={index.id} session={index} allTags={user.Tags} getSessions={getSessions} deleteNotify={deleteNotify}/>
         ))}
       </div>
     </div>
