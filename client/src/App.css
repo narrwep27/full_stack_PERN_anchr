@@ -69,6 +69,7 @@ body {
 .signup-form-button:hover {
 	background-color: var(--hover-color1);
 	padding-top: 10px;
+	transition: 0.5s;
 }
 
 .sign-up-form {
@@ -85,6 +86,7 @@ body {
 	font-weight: bold;
 	text-decoration: underline;
 	padding-bottom: 10px;
+	transition: 0.5s;
 }
 
 /*--------- ABOUT TEAM PAGE --------*/
@@ -149,6 +151,18 @@ b {
 a {
 	color: var(--color1);
 	text-decoration: none;
+	transition: 0.5s;
+}
+
+a:hover {
+	color: var(--hover-color1);
+	transition: 0.5s;
+}
+
+.nav-items {
+	margin-top: 20px;
+	margin-left: 50px;
+	transition: 0.5s;
 }
 
 .nav-items:hover {
@@ -156,6 +170,7 @@ a {
 	font-weight: bold;
 	border-bottom: solid 5px var(--hover-color1);
 	padding-bottom: 10px;
+	transition: 0.2s;
 }
 
 .Nav {
@@ -172,11 +187,6 @@ a {
 	margin-left: 50px;
 }
 
-.nav-items {
-	margin-top: 20px;
-	margin-left: 50px;
-}
-
 .nav-items-logout {
 	margin-top: 10px;
 	margin-left: 650px;
@@ -189,54 +199,70 @@ a {
 	width: 100px;
 	border: solid 1px lightgray;
 	border-radius: 10px;
+	transition: 0.5s;
 }
 
 .logout-btn:hover {
 	color: white;
 	background-color: var(--color1);
+	transition: 0.5s;
 }
 
 /* history */
+.history-div {
+}
+
 .history-grid {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 }
+
 .history-tag-col {
 	grid-column: 2 / 3;
 }
+
 .history-time-col {
 	grid-column: 3 / 4;
 }
+
 .history-session-row {
 	grid-column: 1 / 6;
 }
+
 .history-session-content {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	grid-template-rows: 2;
 	margin: 1em 0;
 }
+
 .history-content-date {
 	grid-column: 1 / 2;
 }
+
 .history-content-tag {
 	grid-column: 2 / 3;
 }
+
 .history-content-timeSpent {
 	grid-column: 3 / 4;
 }
+
 .history-content-edit {
 	grid-column: 4 / 5;
 }
+
 .history-content-delete {
 	grid-column: 5 / 6;
 }
+
 .history-content-edit-display-show {
 	grid-column: 1 / 6;
 	grid-row: 2 / 3;
 	justify-self: center;
 	margin: 0.5em;
 }
+
 .history-content-edit-display-hide {
 	display: none;
 }
@@ -321,6 +347,7 @@ td {
 	font-family: 'Lato', sans-serif;
 	font-size: 24px;
 	font-weight: bold;
+	transition: 0.5s;
 }
 
 .start-session-btn:hover {
@@ -348,6 +375,7 @@ td {
 	font-family: 'Lato', sans-serif;
 	text-align: center;
 	font-size: 20px;
+	transition: 0.5s;
 }
 
 .start-session-minutes-form:hover {
@@ -370,6 +398,7 @@ td {
 	font-family: 'Lato', sans-serif;
 	font-size: 24px;
 	font-weight: bold;
+	transition: 0.5s;
 }
 
 .timer-end-session-btn:hover {
