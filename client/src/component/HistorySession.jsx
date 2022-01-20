@@ -26,7 +26,7 @@ const HistorySession = ({ session, allTags, getSessions, deleteNotify }, props) 
 		let time = session.timeSpent;
 		let tag = session.tag_id;
 		if (newTime) {
-			time = newTime;
+			time = newTime * 60000;
 		}
 		if (newTagId) {
 			tag = newTagId;
