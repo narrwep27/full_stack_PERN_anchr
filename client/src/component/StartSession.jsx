@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, {useState} from "react";
-const BASE_URL = 'http://localhost:3001/api'
+import { AddTag } from "../services/Tag";
 
 export default function StartSession(props) {
   const [tagInput, setTagInput] = useState(true)
@@ -12,7 +12,7 @@ export default function StartSession(props) {
   };
   const postNewTag = async (e)=>{
     e.preventDefault()
-    await axios.post(`${BASE_URL}/tag/new`, props.newTag)
+    await AddTag(props.newTag)
     props.getTags()
     setSelectorValue(null)
     
