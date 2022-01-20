@@ -29,7 +29,6 @@ export default function StartSession(props) {
   console.log(props.sessionObject)
   return (
     <div>
-      <div>Current tag is </div>
     <div className='StartSession'>      
       {/* <form onSubmit={handleSession}>
         
@@ -63,9 +62,12 @@ export default function StartSession(props) {
       <TagButton
         userTags={props.userTags}
         tagDropdownHandler={tagDropdownHandler}
+        tagInput={tagInput}
+        tagChange={props.tagChange}
+        postNewTag={postNewTag}
       />
     </div>
-     {tagInput ? 
+     {/* {tagInput ? 
       <form onSubmit={postNewTag}>
         <button type="submit">Add</button>
         <input  
@@ -76,7 +78,7 @@ export default function StartSession(props) {
       </form>
       :
       <div></div>
-      }
+      } */}
       </div>
   );
 }

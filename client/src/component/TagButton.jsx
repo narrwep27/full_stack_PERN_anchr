@@ -12,6 +12,15 @@ const TagButton = (props) => {
             <div className="start-session-tags-dropdown" onClick={props.tagDropdownHandler} key={i} id={e.id}>{e.description}</div>
           ))}
       {openDrop && <div className="start-session-tags-dropdown" id="newTag" onClick={props.tagDropdownHandler} >New tag</div>}
+      {props.tagInput && <form onSubmit={props.postNewTag}>
+        <input  
+        className="tag-input-form"
+        name="description" 
+        onChange={props.tagChange} 
+        placeholder="Enter tag name..."></input>
+        <button className="add-tag-btn" type="submit">Add</button> 
+      </form>
+      }
       </div>
     </div>
   )
