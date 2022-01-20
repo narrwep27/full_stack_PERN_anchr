@@ -33,6 +33,17 @@ function History(props) {
 	return (
 		<div className='history-div'>
 			<div className='history-grid'>
+				<span className='history-user-text'>
+					Here's a look at your history,{' '}
+				</span>
+				<span className='history-username'>{props.user.username}!</span>
+				<br />
+				<div className='history-headers-container'>
+					<div className='history-date'>Date</div>
+					<div className='history-description'>Description</div>
+					<div className='history-timespent'>Time Spent</div>
+					<div className='history-edit'>Modify</div>
+				</div>
 				{/* <p className="history-date-col"><b>Date</b></p>
         <p className="history-tag-col"><b>Tag</b></p>
         <p className="history-time-col"><b>Time Focused</b></p> */}
