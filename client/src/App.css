@@ -4,16 +4,24 @@
 	--hover-color1: rgb(0, 85, 133);
 }
 
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Lato', sans-serif;
+}
+
 body {
 	margin: 0;
 	font-family: 'Lato', sans-serif;
 }
+
 /* --------------------------- */
 
 /* ----------- SIGN UP PAGE ----------*/
 .SignUp {
 	display: flex;
-	height: 100vh;
+	height: 75vh;
 	align-items: center;
 }
 .signup-form-container-div {
@@ -50,7 +58,7 @@ body {
 	height: 50px;
 	border-radius: 10px;
 	border: solid 1px gray;
-	margin-top: 10px;
+	margin-top: 25px;
 	background-color: var(--color1);
 	color: white;
 	font-size: 16px;
@@ -68,71 +76,125 @@ body {
 }
 
 .login-button-div {
-	text-align: center;
+	text-align: left;
 }
 
-/* ----------- SIGN UP PAGE ----------*/
+/* ----------- SIGN IN PAGE ---------*/
+.signin-text a:hover {
+	color: var(--hover-color1);
+	font-weight: bold;
+	text-decoration: underline;
+	padding-bottom: 10px;
+}
 
 /*--------- ABOUT TEAM PAGE --------*/
 .About {
 	margin: 0 auto;
+	width: 75vw;
 }
 
-h1 {
+h1,
+h2,
+h3,
+p {
 	margin: 0;
-	padding: 0;
+	padding: 5px;
+	width: 600px;
 }
 
-h2 {
-	margin: 0;
-	padding: 0;
+.icons {
+	display: flex;
+}
+
+b {
+	color: var(--hover-color1);
+}
+.technologies-used-text:hover {
+	color: var(--hover-color1);
+	font-weight: bold;
+	border-bottom: solid 2px var(--hover-color1);
+}
+.about-headers {
+	text-align: center;
+	margin-top: 20px;
 }
 
 .about-team-div {
 	margin: 0 auto;
+	margin-top: 10px;
+	width: 900px;
 	display: flex;
-	width: 800px;
+	flex-wrap: wrap;
+	padding-bottom: 20px;
+
+	border-bottom: solid 1px lightgray;
 }
 
 .about-team-img {
 	width: 200px;
 	height: 200px;
 	border-radius: 100px;
+	margin-top: 25px;
+	border: solid 1px lightgray;
 }
 
+.about-header-image {
+	margin: 0 auto;
+}
 .about-team-details {
 	margin-left: 20px;
+	margin-top: 30px;
 }
 
 /* NAV BAR */
 a {
+	color: var(--color1);
 	text-decoration: none;
-	color: black;
 }
 
-a:hover {
-	color: var(--color1);
-	text-decoration: underline;
+.nav-items:hover {
+	color: var(--hover-color1);
+	font-weight: bold;
+	border-bottom: solid 5px var(--hover-color1);
+	padding-bottom: 10px;
 }
 
 .Nav {
 	margin: 0 auto;
 	display: flex;
-	background-color: rgb(120, 170, 190);
-	justify-content: space-evenly;
+	/* justify-content: space-evenly; */
 	height: 60px;
 	border-bottom: solid 1px lightgray;
+	width: 70vw;
 }
 
 .nav-items-container {
-	display: flex;
-	justify-content: space-around;
+	margin-top: 20px;
+	margin-left: 50px;
 }
 
 .nav-items {
-	margin: 10px;
+	margin-top: 20px;
+	margin-left: 50px;
+}
+
+.nav-items-logout {
+	margin-top: 10px;
+	margin-left: 650px;
+}
+
+.logout-btn {
+	background-color: white;
+	color: var(--color1);
+	height: 35px;
+	width: 100px;
+	border: solid 1px lightgray;
+	border-radius: 10px;
+}
+
+.logout-btn:hover {
 	color: white;
-	display: inline-flex;
+	background-color: var(--color1);
 }
 
 /* history */
@@ -198,7 +260,7 @@ a:hover {
 
 /* --------- USER HOME PAGE --------- */
 .UserHome {
-	height: 100vh;
+	height: 75vh;
 	justify-content: center;
 	align-items: center;
 }
@@ -207,24 +269,27 @@ a:hover {
 	font-size: 50px;
 	text-align: left;
 	padding: 20px;
-	padding-left: 100px;
+	padding-left: 300px;
 }
 
 .userhome-table {
 	margin: 0 auto;
 	margin-top: 50px;
 	text-align: center;
-	font-size: 24px;
+	font-size: 16px;
+	width: 50vw;
 }
 
 th {
 	text-align: center;
 	border-bottom: solid 1px lightgray;
+	font-size: 20px;
+	padding-bottom: 15px;
 }
 
 td {
-	padding: 30px;
-	text-align: left;
+	padding: 15px;
+	text-align: center;
 	border-bottom: solid 1px lightgray;
 }
 
