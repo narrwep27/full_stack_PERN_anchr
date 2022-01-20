@@ -1,19 +1,19 @@
-import { useState } from 'react'
-import { RegisterUser } from '../services/Auth'
+import { useState } from 'react';
+import { RegisterUser } from '../services/Auth';
 
-export default function SignUp (props) {
-	const [values, setValues] = useState({})
+export default function SignUp(props) {
+	const [values, setValues] = useState({});
 
 	const handleChange = (e) => {
 		setValues({ ...values, [e.target.name]: e.target.value });
 	};
 
 	const handleSubmit = async (e) => {
-		e.preventDefault()
-		const data = await RegisterUser(values)
-		setValues({})
-		props.history.push('/')
-	}
+		e.preventDefault();
+		const data = await RegisterUser(values);
+		setValues({});
+		props.history.push('/');
+	};
 
 	return (
 		<div className='SignUp'>
@@ -31,9 +31,9 @@ export default function SignUp (props) {
 					</div>
 					<div className='signup-form-div'>
 						<input
-							type='password'
-							name='password'
-							placeholder='Password'
+							type='text'
+							name='username'
+							placeholder='Username'
 							onChange={handleChange}
 							className='signup-form'
 						/>
@@ -41,9 +41,9 @@ export default function SignUp (props) {
 					</div>
 					<div className='signup-form-div'>
 						<input
-							type='text'
-							name='username'
-							placeholder='Username'
+							type='password'
+							name='password'
+							placeholder='Password'
 							onChange={handleChange}
 							className='signup-form'
 						/>
