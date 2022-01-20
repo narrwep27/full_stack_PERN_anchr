@@ -41,7 +41,7 @@ export default function LogIn(props) {
 							placeholder='Username'
 							onChange={handleChange}
 							className='signup-form'
-							// required
+							required
 						/>
 						<br />
 					</div>
@@ -55,16 +55,13 @@ export default function LogIn(props) {
 							// required
 						/>
 						<br />
-					</div>
-
-					<div className='login-button-div'>
 						<button onClick={props.authClick} className='signup-form-button'>
 							Log In
 						</button>
 						<br />
-						<span className='forgot-password-text'>Forgot password?</span>
+						<span className='signin-text'>Forgot password?</span>
 						<br />
-						<span className='signup-here-text'>
+						<span className='signin-text'>
 							Don't have an account? Register <Link to='/signup'>here!</Link>
 						</span>
 					</div>

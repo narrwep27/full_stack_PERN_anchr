@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { TotalAmount } from '../services/Session';
-import { PieChart, Pie, Label, LabelList, Tooltip } from 'recharts';
+import { PieChart, Pie, Tooltip, Cell } from 'recharts';
+import { randomColor } from 'randomcolor';
 
 export default function Summary(props) {
 	const sessions = JSON.parse(localStorage.getItem('sessions'));
@@ -33,34 +34,49 @@ export default function Summary(props) {
 		return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
 	};
 
-	const intNumber = allTime.map((e, i) => { return {description: e.description, total_time: Math.round((parseInt(e.total_time)/sum)*10000)/100}})
+	const data = allTime.map((e, i) => {
+		return {
+			description: e.description,
+			total_time: Math.round((parseInt(e.total_time) / sum) * 10000) / 100,
+			fill: randomColor(),
+		};
+	});
 
 	const totalTime = timeconversion(sum);
-
-	console.log(intNumber)
+	console.log(data);
 
 	return (
 		<div className='Summary'>
 			<div className='summary-each-item'>
-				<h1>Summary</h1>
+				<h1>Summary:</h1>
 				{allTime.map((e, i) => (
 					<div key={i}>
-						{e.description}: {timeconversion(e.total_time)}
+						<div className='summary-items-container'>
+							<div className='summary-items'>{e.description}:</div>
+							<div className='summary-items'>
+								{timeconversion(e.total_time)}
+							</div>
+						</div>
 					</div>
 				))}
-				<h3>Total time spent: {totalTime}</h3>
+				<span className='summary-total-timespent-text'>
+					Total time spent: <b>{totalTime}</b>
+				</span>
 			</div>
 
 			<div className='piechart-div'>
 				<PieChart width={500} height={500}>
 					<Pie
+						paddingAngle={1}
+						innerRadius={150}
+						outerRadius={250}
 						nameKey='description'
 						dataKey='total_time'
 						isAnimationActive={true}
-						data={intNumber}
-						outerRadius={250}
-						fill="#8884d8"></Pie>
-
+						data={data}></Pie>
+					{data.map((entry, index) => (
+						<Cell fill='#36078E' />
+					))}
 					<Tooltip label='Total Time' />
 				</PieChart>
 			</div>

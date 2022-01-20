@@ -51,4 +51,4 @@ displayTag()
   )
 }
 
-export default TagButton
+export default TagButton;

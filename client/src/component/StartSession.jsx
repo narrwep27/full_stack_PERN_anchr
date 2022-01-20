@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { AddTag } from '../services/Tag';
 import TagButton from './TagButton';
 
