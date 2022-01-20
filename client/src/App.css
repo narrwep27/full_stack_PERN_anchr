@@ -456,7 +456,7 @@ a:hover {
 .Summary {
 	display: flex;
 	flex-wrap: wrap;
-	width: 40vw;
+	width: 60vw;
 	margin: 0 auto;
 	margin-top: 100px;
 }
@@ -472,6 +472,7 @@ a:hover {
 	width: 400px;
 	text-align: center;
 }
+
 .summary-items {
 	padding: 20px;
 	width: 200px;
