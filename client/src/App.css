@@ -288,6 +288,7 @@ a:hover {
 	border: solid 1px lightgray;
 	border-radius: 15px;
 	margin-top: 10px;
+	min-width: 800px;
 }
 
 .history-content-date {
@@ -351,7 +352,7 @@ a:hover {
 	color: var(--color1);
 	font-size: 20px;
 	font-weight: bold;
-	min-width: 900px;
+	min-width: 800px;
 	margin-top: 25px;
 }
 
@@ -454,16 +455,36 @@ a:hover {
 
 .Summary {
 	display: flex;
-	height: 100vh;
-	align-items: center;
+	flex-wrap: wrap;
+	width: 40vw;
+	margin: 0 auto;
+	margin-top: 100px;
 }
 
 .summary-each-item {
 	margin: 0 auto;
+	width: 300px;
+	flex-wrap: wrap;
+}
+
+.summary-items-container {
+	display: inline-flex;
+	width: 400px;
+	text-align: center;
+}
+.summary-items {
+	padding: 20px;
+	width: 200px;
+	font-weight: bold;
+	border: solid 1px lightgray;
 }
 
 .piechart-div {
 	margin: 0 auto;
+}
+
+.summary-total-timespent-text {
+	font-size: 24px;
 }
 
 /* --------- USER HOME PAGE --------- */
