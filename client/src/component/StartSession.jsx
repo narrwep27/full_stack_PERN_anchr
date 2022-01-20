@@ -4,7 +4,7 @@ import TagButton from './TagButton';
 
 export default function StartSession(props) {
   const [tagInput, setTagInput] = useState(true);
-  const [selectorValue, setSelectorValue] = useState(null);
+  // const [selectorValue, setSelectorValue] = useState(null);
   const handleSession = (e) => {
     e.preventDefault();
     props.setSession(false);
@@ -14,7 +14,8 @@ export default function StartSession(props) {
     e.preventDefault()
     await AddTag(props.newTag)
     props.getTags()
-    setSelectorValue(null)
+    setTagInput(false)
+    // setSelectorValue(null)
     
   }
   const tagDropdownHandler = (e) => {
@@ -23,11 +24,12 @@ export default function StartSession(props) {
     } else {
       setTagInput(false)
       props.setSessionObject({...props.sessionObject,"tagId": parseInt(e.target.id)})
-      console.log(e.target.id)
-      console.log(props.sessionObject)
     }
   }
+  console.log(props.sessionObject)
   return (
+    <div>
+      <div>Current tag is </div>
     <div className='StartSession'>      
       {/* <form onSubmit={handleSession}>
         
@@ -63,5 +65,18 @@ export default function StartSession(props) {
         tagDropdownHandler={tagDropdownHandler}
       />
     </div>
+     {tagInput ? 
+      <form onSubmit={postNewTag}>
+        <button type="submit">Add</button>
+        <input  
+        // value={selectorValue} 
+        name="description" 
+        onChange={props.tagChange} 
+        placeholder="Enter tag name..."></input> 
+      </form>
+      :
+      <div></div>
+      }
+      </div>
   );
 }

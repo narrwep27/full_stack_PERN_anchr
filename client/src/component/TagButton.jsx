@@ -11,7 +11,7 @@ const TagButton = (props) => {
       {openDrop && props.userTags.map((e, i) => (
             <div className="start-session-tags-dropdown" onClick={props.tagDropdownHandler} key={i} id={e.id}>{e.description}</div>
           ))}
-      {openDrop && <div className="start-session-tags-dropdown">New tag</div>}
+      {openDrop && <div className="start-session-tags-dropdown" id="newTag" onClick={props.tagDropdownHandler} >New tag</div>}
       </div>
     </div>
   )
