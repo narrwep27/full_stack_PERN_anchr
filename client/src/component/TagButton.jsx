@@ -8,8 +8,11 @@ const TagButton = (props) => {
     <div ref={drop} className="tag-dropdown">
       <button onClick={()=>setOpenDrop(openDrop=>!openDrop)}>Choose Tag</button>
       {openDrop && props.userTags.map((e, i) => (
-            <div onclick={props.tagDropdownHandler} key={i} value={e.id}>{e.description}</div>
-          ))}
+            <div onClick={props.tagDropdownHandler} key={i} id={e.id}>{e.description}</div>
+          ))
+          
+          }
+          
     </div>
   )
 }

@@ -101,6 +101,7 @@ export default function UserHome(props) {
       /> :
       <Timer
         session={session}
+        sessions={sessions}
         setSession={setSession}
         time={time}
         setTime={setTime}

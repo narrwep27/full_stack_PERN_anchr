@@ -22,13 +22,14 @@ export default function StartSession(props) {
       setTagInput(true)
     } else {
       setTagInput(false)
-      props.setSessionObject({...props.sessionObject,"tagId": e.target.value})
+      props.setSessionObject({...props.sessionObject,"tagId": parseInt(e.target.id)})
+      console.log(e.target.id)
+      console.log(props.sessionObject)
     }
   }
   return (
-    <div>
-      
-      <form onSubmit={handleSession}>
+    <div>      
+      {/* <form onSubmit={handleSession}>
         
         <select form="timerform" id="tagDropDown" onChange={tagDropdownHandler} value={selectorValue} required>
           <option value="" id="newTag">Add new tag...</option>
@@ -52,7 +53,11 @@ export default function StartSession(props) {
         <form onSubmit={handleSession} id="timerform">
           <button  type="submit">Start Session</button>
           <input type="number" name="timeSpent" onChange={props.handleChange} placeholder="Enter session time in minutes"></input>
-        </form>}
+        </form>} */}
+      <form onSubmit={handleSession} id="timerform">
+        <button  type="submit">Start Session</button>
+        <input type="number" name="timeSpent" onChange={props.handleChange} placeholder="Enter session time in minutes"></input>
+      </form>
       <TagButton
         userTags={props.userTags}
         tagDropdownHandler={tagDropdownHandler}
