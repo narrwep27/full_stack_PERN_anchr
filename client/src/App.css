@@ -96,8 +96,13 @@ body {
 }
 
 h2,
-h3,
-p {
+h3 {
+	margin: 0;
+	padding: 5px;
+	width: 600px;
+}
+
+.about-team-description {
 	margin: 0;
 	padding: 5px;
 	width: 600px;

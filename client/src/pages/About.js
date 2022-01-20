@@ -62,7 +62,7 @@ export default function About() {
 							<SiReact size={30} />
 						</IconContext.Provider>
 					</div>
-					<p>
+					<div className='about-team-description'>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
 						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -70,7 +70,7 @@ export default function About() {
 						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
 						pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 						culpa qui officia deserunt mollit anim id est laborum.
-					</p>
+					</div>
 				</div>
 
 				<div className='about-team-div'></div>
@@ -103,7 +103,7 @@ export default function About() {
 						<SiSequelize size={30} />
 						<SiReact size={30} />
 					</IconContext.Provider>
-					<p>
+					<div className='about-team-description'>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
 						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -111,7 +111,7 @@ export default function About() {
 						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
 						pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 						culpa qui officia deserunt mollit anim id est laborum.
-					</p>
+					</div>
 				</div>
 			</div>
 
@@ -146,7 +146,7 @@ export default function About() {
 						<SiNodedotjs size={30} /> <SiNodemon size={30} />
 						<SiSequelize size={30} />
 					</IconContext.Provider>
-					<p>
+					<div className='about-team-description'>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
 						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -154,7 +154,7 @@ export default function About() {
 						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
 						pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 						culpa qui officia deserunt mollit anim id est laborum.
-					</p>
+					</div>
 				</div>
 			</div>
 
@@ -189,7 +189,7 @@ export default function About() {
 						<SiAdobephotoshop size={30} />
 						<SiNodedotjs size={30} /> <SiNodemon size={30} />
 					</IconContext.Provider>
-					<p>
+					<div className='about-team-description'>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
 						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -197,7 +197,7 @@ export default function About() {
 						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
 						pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
 						culpa qui officia deserunt mollit anim id est laborum.
-					</p>
+					</div>
 				</div>
 			</div>
 		</div>
