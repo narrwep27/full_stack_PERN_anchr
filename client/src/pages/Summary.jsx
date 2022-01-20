@@ -33,26 +33,20 @@ export default function Summary(props) {
 		return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
 	};
 
+	const intNumber = allTime.map((e, i) => { return {description: e.description, total_time: Math.round((parseInt(e.total_time)/sum)*10000)/100}})
+
 	const totalTime = timeconversion(sum);
 
-	const data = [
-		{ description: 'coding', Total_Time: 60000 },
-		{ description: 'typing', Total_Time: 60000 },
-		{ description: 'studying', Total_Time: 1200000 },
-		{ description: 'reading', Total_Time: 500000 },
-	];
-
-	// I want to use allTime but the value of Total_Time are strings
-	// Creating a data array for testing purposes only
+	console.log(intNumber)
 
 	return (
 		<div className='Summary'>
 			<div className='summary-each-item'>
 				<h1>Summary</h1>
 				{allTime.map((e, i) => (
-					<p key={i}>
-						{e.description}: {timeconversion(e.Total_Time)}
-					</p>
+					<div key={i}>
+						{e.description}: {timeconversion(e.total_time)}
+					</div>
 				))}
 				<h3>Total time spent: {totalTime}</h3>
 			</div>
@@ -61,11 +55,12 @@ export default function Summary(props) {
 				<PieChart width={500} height={500}>
 					<Pie
 						nameKey='description'
-						dataKey='Total_Time'
+						dataKey='total_time'
 						isAnimationActive={true}
-						data={data}
+						data={intNumber}
 						outerRadius={250}
-						fill='gray'></Pie>
+						fill="#8884d8"></Pie>
+
 					<Tooltip label='Total Time' />
 				</PieChart>
 			</div>

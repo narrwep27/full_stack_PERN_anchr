@@ -9,9 +9,7 @@ import UserHome from './pages/UserHome';
 import History from './pages/History';
 import { CheckSession } from './services/Auth';
 import Summary from './pages/Summary';
-import { ThemeProvider } from 'styled-components';
-import { GlobalStyles } from './component/GlobalStyles';
-import { lightTheme, darkTheme } from './component/Themes';
+import { Toaster } from 'react-hot-toast'
 
 export default function App() {
 	const [user, setUser] = useState(null);
@@ -36,44 +34,40 @@ export default function App() {
 	}, []);
 
 	return (
-		<ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-			<>
-				<GlobalStyles />
-				<div className='App'>
-					{auth ? (
-						<>
-							<Nav setAuth={setAuth} setUser={setUser} />
-							<main>
-								<Route
-									exact
-									path='/'
-									component={(props) => (
-										<UserHome user_id={user.id} user={user} />
-									)}
-								/>
-								<Route
-									exact
-									path='/history'
-									component={(props) => <History user={user} />}
-								/>
-								<Route exact path='/about' component={About} />
-								<Route exacth path='/summary' component={Summary} user={user} />
-							</main>
-						</>
-					) : (
-						<>
-							<Route exact path='/signup' component={SignUp} />
-							<Route
-								exact
-								path='/'
-								component={(props) => (
-									<LogIn {...props} setUser={setUser} setAuth={setAuth} />
-								)}
-							/>
-						</>
-					)}
-				</div>
-			</>
-		</ThemeProvider>
+		<div className='App'>
+			<Toaster
+      position="bottom-right"
+      reverseOrder={false}/>
+			{auth ? (
+				<>
+					<Nav setAuth={setAuth} setUser={setUser} />
+					<main>
+						<Route
+							exact
+							path='/'
+							component={(props) => <UserHome user_id={user.id} user={user} />}
+						/>
+						<Route
+							exact
+							path='/history'
+							component={(props) => <History user={user} />}
+						/>
+						<Route exact path='/about' component={About} />
+						<Route exacth path='/summary' component={Summary} user={user} />
+					</main>
+				</>
+			) : (
+				<>
+					<Route exact path='/signup' component={SignUp} />
+					<Route
+						exact
+						path='/'
+						component={(props) => (
+							<LogIn {...props} setUser={setUser} setAuth={setAuth} />
+						)}
+					/>
+				</>
+			)}
+		</div>
 	);
 }
