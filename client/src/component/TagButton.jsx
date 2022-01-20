@@ -5,11 +5,14 @@ const TagButton = (props) => {
   const drop = React.useRef(null)
  
   return (
-    <div ref={drop} className="tag-dropdown">
-      <button onClick={()=>setOpenDrop(openDrop=>!openDrop)}>Choose Tag</button>
+    <div ref={drop} className="tag-dropdown-container">
+      <button className="start-session-btn" onClick={()=>setOpenDrop(openDrop=>!openDrop)}>Choose Tag</button>
+      <div className="tag-dropdown-option-list">
       {openDrop && props.userTags.map((e, i) => (
-            <div onClick={props.tagDropdownHandler} key={i} id={e.id}>{e.description}</div>
+            <div className="start-session-tags-dropdown" onClick={props.tagDropdownHandler} key={i} id={e.id}>{e.description}</div>
           ))}
+      {openDrop && <div className="start-session-tags-dropdown">New tag</div>}
+      </div>
     </div>
   )
 }

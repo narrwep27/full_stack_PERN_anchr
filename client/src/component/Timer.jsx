@@ -23,7 +23,7 @@ export default function Timer(props) {
 	return (
 		<div className='Timer'>
 			<div className='timer-countdown'>
-				Time Remaining: <br />
+				{currentTag}: <br />
 				<span className='time-remaining'>
 					{props.hours} : {props.minutes} : {props.seconds}
 				</span>

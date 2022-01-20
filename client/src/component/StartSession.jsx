@@ -55,7 +55,7 @@ export default function StartSession(props) {
           <input type="number" name="timeSpent" onChange={props.handleChange} placeholder="Enter session time in minutes"></input>
         </form>} */}
       <form onSubmit={handleSession} id="timerform">
-        <button  type="submit">Start Session</button>
+        <button className="start-session-btn" type="submit">Start Session</button>
         <input type="number" className="start-session-minutes-form" name="timeSpent" onChange={props.handleChange} placeholder="Enter session time in minutes"></input>
       </form>
       <TagButton
