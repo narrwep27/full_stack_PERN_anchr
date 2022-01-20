@@ -9,7 +9,7 @@ import UserHome from './pages/UserHome';
 import History from './pages/History';
 import { CheckSession } from './services/Auth';
 import Summary from './pages/Summary';
-import { Toaster } from 'react-hot-toast'
+import { Toaster } from 'react-hot-toast';
 
 export default function App() {
 	const [user, setUser] = useState(null);
@@ -30,9 +30,7 @@ export default function App() {
 
 	return (
 		<div className='App'>
-			<Toaster
-      position="bottom-right"
-      reverseOrder={false}/>
+			<Toaster position='bottom-right' reverseOrder={false} />
 			{auth ? (
 				<>
 					<Nav setAuth={setAuth} setUser={setUser} />
