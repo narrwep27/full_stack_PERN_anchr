@@ -13,6 +13,8 @@ body {
 /* ----------- SIGN UP PAGE ----------*/
 .SignUp {
 	display: flex;
+	height: 100vh;
+	align-items: center;
 }
 .signup-form-container-div {
 	margin: 0 auto;
@@ -182,6 +184,8 @@ a:hover {
 
 .Summary {
 	display: flex;
+	height: 100vh;
+	align-items: center;
 }
 
 .summary-each-item {
@@ -194,7 +198,9 @@ a:hover {
 
 /* --------- USER HOME PAGE --------- */
 .UserHome {
-	margin: 0 auto;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
 }
 
 .welcome-text {
