@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { AddTag } from "../services/Tag";
+import TagButton from "./TagButton";
 
 export default function StartSession(props) {
   const [tagInput, setTagInput] = useState(true)
@@ -52,6 +53,10 @@ export default function StartSession(props) {
           <button  type="submit">Start Session</button>
           <input type="number" name="timeSpent" onChange={props.handleChange} placeholder="Enter session time in minutes"></input>
         </form>}
+      <TagButton
+        userTags={props.userTags}
+        tagDropdownHandler={tagDropdownHandler}
+      />
     </div>
   );
 }
