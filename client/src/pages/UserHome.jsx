@@ -57,6 +57,8 @@ export default function UserHome(props) {
 		await AddSession(sessionObject);
 		getSessions();
 		setSession(true);
+		setSessionObject({...sessionObject,
+			tagId:''})
 	};
 
 	useEffect(() => {
