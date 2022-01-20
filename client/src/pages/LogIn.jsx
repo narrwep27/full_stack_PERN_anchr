@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { LogInUser } from '../services/Auth';
 import { LoadUserSessions } from '../services/Session';
 
@@ -30,7 +31,8 @@ export default function LogIn(props) {
 				<div className='anchor-logo-image'>
 					<img src='https://i.imgur.com/cC31e2t.jpg' alt='anchr.' />
 				</div>
-				<form onSubmit={handleSubmit}>
+
+				<form className='sign-up-form' onSubmit={handleSubmit}>
 					<div className='signup-form-div'>
 						<input
 							type='text'
@@ -42,7 +44,6 @@ export default function LogIn(props) {
 						/>
 						<br />
 					</div>
-
 					<div className='signup-form-div'>
 						<input
 							type='password'
@@ -54,16 +55,18 @@ export default function LogIn(props) {
 						/>
 						<br />
 					</div>
-
+				</form>
+				<div className='login-button-div'>
 					<button onClick={props.authClick} className='signup-form-button'>
 						Log In
 					</button>
-				</form>
-				<button
-					onClick={() => props.history.push('/signup')}
-					className='signup-form-button'>
-					Sign up
-				</button>
+					<br />
+					<span className='forgot-password-text'>Forgot password?</span>
+					<br />
+					<span className='signup-here-text'>
+						Don't have an account? Register <Link to='/signup'>here!</Link>
+					</span>
+				</div>
 			</div>
 		</div>
 	);
