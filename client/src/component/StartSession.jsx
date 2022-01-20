@@ -1,6 +1,5 @@
-import axios from "axios";
 import React, {useState} from "react";
-const BASE_URL = 'http://localhost:3001/api'
+import { AddTag } from "../services/Tag";
 
 export default function StartSession(props) {
   const [tagInput, setTagInput] = useState(true)
@@ -12,7 +11,7 @@ export default function StartSession(props) {
   };
   const postNewTag = async (e)=>{
     e.preventDefault()
-    await axios.post(`${BASE_URL}/tag/new`, props.newTag)
+    await AddTag(props.newTag)
     props.getTags()
     setSelectorValue(null)
     
@@ -31,7 +30,6 @@ export default function StartSession(props) {
       <form onSubmit={handleSession}>
         
         <select form="timerform" id="tagDropDown" onChange={tagDropdownHandler} value={selectorValue} required>
-          {/* <option value="">Choose a tag</option> */}
           <option value="" id="newTag">Add new tag...</option>
           {props.userTags.map((e, i) => (
             <option key={i} value={e.id}>{e.description}</option>
