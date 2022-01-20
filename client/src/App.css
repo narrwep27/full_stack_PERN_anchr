@@ -93,7 +93,6 @@ body {
 	width: 75vw;
 }
 
-h1,
 h2,
 h3,
 p {
@@ -268,7 +267,7 @@ a {
 .welcome-text {
 	font-size: 50px;
 	text-align: left;
-	padding: 20px;
+	padding: 35px;
 	padding-left: 300px;
 }
 
