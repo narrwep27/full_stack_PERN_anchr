@@ -176,3 +176,17 @@ a:hover {
 .history-content-edit-display-hide {
 	display: none;
 }
+
+/* ------ SUMMARY PAGE -------- */
+
+.Summary {
+	display: flex;
+}
+
+.summary-each-item {
+	margin: 0 auto;
+}
+
+.piechart-div {
+	margin: 0 auto;
+}
