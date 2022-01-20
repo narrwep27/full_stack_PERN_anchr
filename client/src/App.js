@@ -15,11 +15,6 @@ export default function App() {
 	const [user, setUser] = useState(null);
 	const [auth, setAuth] = useState(false);
 
-	const [theme, setTheme] = useState('light');
-	const themeToggler = () => {
-		theme === 'light' ? setTheme('dark') : setTheme('light');
-	};
-
 	const checkToken = async () => {
 		const user = await CheckSession();
 		setUser(user);
