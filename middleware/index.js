@@ -35,6 +35,7 @@ const verifyToken = (req, res, next) => {
         res.status(401).send({ status: 'Error', message: 'Unathorized' });
     };
 };
+
 const stripToken = (req, res, next) => {
     try {
         const token = req.headers['authorization'].split(' ')[1];

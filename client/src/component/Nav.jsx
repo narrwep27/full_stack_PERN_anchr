@@ -22,7 +22,7 @@ export default function Nav(props) {
         <span className="nav-items">
           <Link to="/about">About</Link>
         </span>
-        <span className="nav-items-items" onClick={logout}>
+        <span className="nav-items" onClick={logout}>
           <Link to="/">Log Out</Link>
         </span>
       </div>
