@@ -9,10 +9,7 @@ const TagButton = (props) => {
       <button onClick={()=>setOpenDrop(openDrop=>!openDrop)}>Choose Tag</button>
       {openDrop && props.userTags.map((e, i) => (
             <div onClick={props.tagDropdownHandler} key={i} id={e.id}>{e.description}</div>
-          ))
-          
-          }
-          
+          ))}
     </div>
   )
 }

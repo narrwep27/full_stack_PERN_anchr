@@ -20,11 +20,17 @@ export default function Timer(props) {
   }
   getCurrentTag()
 
-  return (
-    <div>
-      <button onClick={handleSession}>End Session Early</button>
-      <div className="current-tag">{currentTag}</div>
-      <div>Time remaining: {props.hours} : {props.minutes} : {props.seconds} </div>
-    </div>
-  );
-}
+	return (
+		<div className='Timer'>
+			<div className='timer-countdown'>
+				Time Remaining: <br />
+				<span className='time-remaining'>
+					{props.hours} : {props.minutes} : {props.seconds}
+				</span>
+			</div>
+			<button onClick={handleSession} className='timer-end-session-btn'>
+				End Session Early
+			</button>
+		</div>
+	);
+  }

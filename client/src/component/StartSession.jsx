@@ -1,16 +1,16 @@
-import React, {useState} from "react";
-import { AddTag } from "../services/Tag";
-import TagButton from "./TagButton";
+import React, {useState} from 'react';
+import { AddTag } from '../services/Tag';
+import TagButton from './TagButton';
 
 export default function StartSession(props) {
-  const [tagInput, setTagInput] = useState(true)
-  const [selectorValue, setSelectorValue]=useState(null)
+  const [tagInput, setTagInput] = useState(true);
+  const [selectorValue, setSelectorValue] = useState(null);
   const handleSession = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     props.setSession(false);
     props.setStart(true);
   };
-  const postNewTag = async (e)=>{
+  const postNewTag = async (e) => {
     e.preventDefault()
     await AddTag(props.newTag)
     props.getTags()
@@ -28,7 +28,7 @@ export default function StartSession(props) {
     }
   }
   return (
-    <div>      
+    <div className='StartSession'>      
       {/* <form onSubmit={handleSession}>
         
         <select form="timerform" id="tagDropDown" onChange={tagDropdownHandler} value={selectorValue} required>
@@ -56,7 +56,7 @@ export default function StartSession(props) {
         </form>} */}
       <form onSubmit={handleSession} id="timerform">
         <button  type="submit">Start Session</button>
-        <input type="number" name="timeSpent" onChange={props.handleChange} placeholder="Enter session time in minutes"></input>
+        <input type="number" className="start-session-minutes-form" name="timeSpent" onChange={props.handleChange} placeholder="Enter session time in minutes"></input>
       </form>
       <TagButton
         userTags={props.userTags}
