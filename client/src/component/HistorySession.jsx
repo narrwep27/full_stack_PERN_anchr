@@ -49,7 +49,7 @@ const HistorySession = ({ session, allTags, getSessions, deleteNotify }, props) 
 			<div key={session.id} className='history-session-content'>
 				<div className='history-content-date'>{session.date}</div>
 				<div className='history-content-tag'>{session.Tag.description}</div>
-				<div className='history-content-timeSpent'>{timeInMinutes}</div>
+				<div className='history-content-timeSpent'>{timeInMinutes + ' mins'}</div>
 				<div className='history-content-edit'>
 					<button onClick={toggleDisplay}>Edit</button>
 				</div>
@@ -76,7 +76,7 @@ const HistorySession = ({ session, allTags, getSessions, deleteNotify }, props) 
 								setNewTime(e.target.value);
 							}}
 							value={newTime}
-							placeholder={session.timeSpent}
+							placeholder={timeInMinutes + ' min'}
 						/>
 						<button type='submit'>Submit Changes</button>
 						<button onClick={handleCancel}>Cancel</button>
