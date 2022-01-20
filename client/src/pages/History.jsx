@@ -27,8 +27,6 @@ function History(props) {
 		getSessions();
 	}, []);
 
-	const deleteNotify = () =>
-		toast('Session Deleted', { style: { background: 'red', color: 'white' } });
 
 	return (
 		<div className='history-div'>
@@ -53,7 +51,6 @@ function History(props) {
 						session={index}
 						allTags={user.Tags}
 						getSessions={getSessions}
-						deleteNotify={deleteNotify}
 					/>
 				))}
 			</div>
