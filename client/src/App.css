@@ -6,6 +6,7 @@
 
 body {
 	margin: 0;
+	font-family: 'Lato', sans-serif;
 }
 /* --------------------------- */
 
@@ -189,4 +190,133 @@ a:hover {
 
 .piechart-div {
 	margin: 0 auto;
+}
+
+/* --------- USER HOME PAGE --------- */
+.UserHome {
+	margin: 0 auto;
+}
+
+.welcome-text {
+	font-size: 50px;
+	text-align: left;
+	padding: 20px;
+	padding-left: 100px;
+}
+
+.userhome-table {
+	margin: 0 auto;
+	margin-top: 50px;
+	text-align: center;
+	font-size: 24px;
+}
+
+th {
+	text-align: center;
+	border-bottom: solid 1px lightgray;
+}
+
+td {
+	padding: 30px;
+	text-align: left;
+	border-bottom: solid 1px lightgray;
+}
+
+.StartSession {
+	text-align: center;
+}
+
+.start-session-tags-dropdown {
+	height: 50px;
+	width: 300px;
+	border: solid 1px lightgray;
+	font-family: 'Lato', sans-serif;
+	font-size: 24px;
+	text-align: center;
+}
+
+.start-session-tags-dropdown:hover {
+	background-color: rgb(238, 238, 238);
+	transition: 0.5s;
+}
+
+.start-session-btn {
+	border: 0;
+	border-radius: 10px;
+	height: 75px;
+	width: 200px;
+	margin: 10px;
+	background-color: var(--color1);
+	color: white;
+	font-family: 'Lato', sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.start-session-btn:hover {
+	background-color: var(--hover-color1);
+	transition: 0.5s;
+}
+
+.start-session-add-tag-btn {
+	font-family: 'Lato', sans-serif;
+	font-size: 24px;
+	border: 0;
+	border-radius: 10px;
+	height: 50px;
+	width: 150px;
+	margin-left: 10px;
+	background-color: var(--color1);
+	color: white;
+}
+
+.start-session-minutes-form {
+	height: 50px;
+	border: solid 1px lightgray;
+	border-radius: 5px;
+	margin: 15px;
+	font-family: 'Lato', sans-serif;
+	text-align: center;
+	font-size: 20px;
+}
+
+.start-session-minutes-form:hover {
+	background-color: rgb(238, 238, 238);
+	transition: 0.5s;
+}
+
+.start-session-minutes-form::placeholder {
+	text-align: center;
+}
+
+.timer-end-session-btn {
+	border: 0;
+	border-radius: 10px;
+	height: 75px;
+	width: 200px;
+	margin: 10px;
+	background-color: red;
+	color: white;
+	font-family: 'Lato', sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.timer-end-session-btn:hover {
+	background-color: rgb(145, 72, 72);
+	transition: 0.5s;
+}
+
+.Timer {
+	text-align: center;
+}
+
+.timer-countdown {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.time-remaining {
+	color: red;
+	font-size: 36px;
 }
