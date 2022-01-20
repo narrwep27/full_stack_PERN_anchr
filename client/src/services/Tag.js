@@ -16,3 +16,12 @@ export const AddTag = async (object) => {
     throw error;
   }
 };
+
+export const GetTagByTagId = async (tag_id) => {
+  try {
+    const res = await Client.get(`/tag/${tag_id}`);
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+};
