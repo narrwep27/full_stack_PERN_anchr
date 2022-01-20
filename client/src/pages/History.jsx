@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { LoadUserById } from '../services/User';
 import { LoadUserSessions } from '../services/Session';
 import HistorySession from "../component/HistorySession";
-import toast, { Toaster } from 'react-hot-toast'
+import toast from 'react-hot-toast'
 
 function History(props) {
   const [user, setUser] = useState({});
@@ -31,9 +31,6 @@ function History(props) {
 
   return (
     <div className="history-div">
-      <Toaster
-      position="bottom-right"
-      reverseOrder={false}/>
       <div className="history-grid">
         <p className="history-date-col"><b>Date</b></p>
         <p className="history-tag-col"><b>Tag</b></p>
