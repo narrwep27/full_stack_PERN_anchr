@@ -21,7 +21,6 @@ export default function StartSession(props) {
 		await AddTag(props.newTag);
 		props.getTags();
 		setTagInput(false);
-		// setSelectorValue(null)
 	};
 	const tagDropdownHandler = (e) => {
 		if (e.target.id == 'newTag') {
@@ -34,7 +33,7 @@ export default function StartSession(props) {
 			});
 		}
 	};
-	console.log(props.sessionObject);
+	
 	return (
 		<div className='StartSession'>
 			<div className='start-session-tag-btn-container'>

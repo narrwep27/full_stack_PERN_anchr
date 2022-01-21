@@ -1,8 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const logger = require('morgan');
-//Add path to AuthRouter when written
-//Add path to PostRouter when written
 const routes = require('./routes/');
 const app = express();
 const path = require('path');

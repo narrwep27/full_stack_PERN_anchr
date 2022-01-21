@@ -65,7 +65,6 @@ const HistorySession = (
 				</div>
 
 				<div className='history-content-edit'>
-					{/* <IconContext.Provider value={{style: {color: }}} */}
 					<button className='history-content-edit-btn'>
 						<AiTwotoneEdit onClick={toggleDisplay} size={25} />
 					</button>
@@ -73,9 +72,6 @@ const HistorySession = (
 					<button className='history-content-delete-btn'>
 						<AiTwotoneDelete onClick={handleDelete} size={25} color='red' />
 					</button>
-					{/* </div>
-
-				<div className='history-edit-new-tag-container'> */}
 					<div className={editDisplay}>
 						<form onSubmit={handleEditSubmit}>
 							<label>
