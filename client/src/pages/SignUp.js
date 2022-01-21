@@ -17,41 +17,51 @@ export default function SignUp(props) {
 
 	return (
 		<div className='SignUp'>
-			<div className='signup-form-container-div'>
-				<form onSubmit={handleSubmit}>
-					<div className='signup-form-div'>
-						<input
-							type='text'
-							name='email'
-							placeholder='Email Address'
-							onChange={handleChange}
-							className='signup-form'
-						/>
-						<br />
+			<div className='signup-left-side'>
+				<div className='signup-form-container-div'>
+					<div className='anchor-logo-image'>
+						<img src='https://i.imgur.com/VSgadZa.png' alt='anchr.' />
 					</div>
-					<div className='signup-form-div'>
-						<input
-							type='text'
-							name='username'
-							placeholder='Username'
-							onChange={handleChange}
-							className='signup-form'
-						/>
-						<br />
-					</div>
-					<div className='signup-form-div'>
-						<input
-							type='password'
-							name='password'
-							placeholder='Password'
-							onChange={handleChange}
-							className='signup-form'
-						/>
-						<br />
-					</div>
-					<button className='signup-form-button'>Sign up</button>
-				</form>
+					<span className='signup-text'>Let's get to know each other!</span>
+					<form onSubmit={handleSubmit}>
+						<div className='signup-form-div'>
+							<input
+								type='text'
+								name='email'
+								placeholder='Email Address'
+								onChange={handleChange}
+								className='signup-form'
+							/>
+							<br />
+						</div>
+
+						<div className='signup-form-div'>
+							<input
+								type='text'
+								name='username'
+								placeholder='Username'
+								onChange={handleChange}
+								className='signup-form'
+							/>
+							<br />
+						</div>
+
+						<div className='signup-form-div'>
+							<input
+								type='password'
+								name='password'
+								placeholder='Password'
+								onChange={handleChange}
+								className='signup-form'
+							/>
+							<br />
+							<button className='signup-form-button'>Sign up</button>
+						</div>
+					</form>
+				</div>
 			</div>
+
+			<div className='signup-right-side'></div>
 		</div>
 	);
 }
