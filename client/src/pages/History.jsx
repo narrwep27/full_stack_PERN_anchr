@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { LoadUserById } from '../services/User';
 import { LoadUserSessions } from '../services/Session';
 import HistorySession from '../component/HistorySession';
-import toast from 'react-hot-toast';
 
 function History(props) {
 	const [user, setUser] = useState({});

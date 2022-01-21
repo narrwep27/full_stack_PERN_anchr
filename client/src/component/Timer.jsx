@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { GetTagByTagId } from '../services/Tag';
+import toast from 'react-hot-toast'
+
 
 export default function Timer(props) {
 	const [currentTag, setCurrentTag] = useState('');
 	const handleSession = () => {
 		sessionInterrupt();
 		props.setSession(true);
+		toast('Session ended early...', { style: { background: 'red', color: 'white', border: '1px solid green'} });
 	};
 	const sessionInterrupt = () => {
 		let remainingTime = props.initTime - props.time;
@@ -15,6 +18,7 @@ export default function Timer(props) {
 		});
 		props.setTime(0);
 	};
+
 	useEffect(() => {
 		const getCurrentTag = async () => {
 			const result = await GetTagByTagId(props.sessionObject.tagId);

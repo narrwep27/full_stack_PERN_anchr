@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import RecentSession from '../component/RecentSession';
 import axios from 'axios';
 import { LoadUserSessions, AddSession } from '../services/Session';
+import toast from 'react-hot-toast'
 const BASE_URL = 'http://localhost:3001/api';
 
 export default function UserHome(props) {
@@ -74,6 +75,7 @@ export default function UserHome(props) {
 				} else {
 					logSession();
 					setStart(false);
+					toast('Session completed!', { style: { background: 'white', color: 'black', border: '1px solid green'} });
 				}
 			}, 10);
 		} else {
