@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast'
 
 export default function Nav(props) {
 	const logout = (e) => {
 		props.setAuth(false);
 		props.setUser(null);
 		localStorage.clear();
+		toast('You have been logged out successfully', { style: { background: 'white', color: 'black', border: '2px solid green', textAlign: 'center' } });
 	};
 
 	return (

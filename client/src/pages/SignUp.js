@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { RegisterUser } from '../services/Auth';
+import toast from 'react-hot-toast'
 
 export default function SignUp(props) {
 	const [values, setValues] = useState({});
@@ -10,9 +11,16 @@ export default function SignUp(props) {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const data = await RegisterUser(values);
-		setValues({});
-		props.history.push('/');
+		if(values.email && values.password && values.email){
+			const data = await RegisterUser(values);
+			setValues({});
+			props.history.push('/');
+			toast('Please log in', { style: { background: 'white', color: 'black', border: '2px solid green', textAlign: 'center' } });
+		}
+		else {
+		toast('Please enter a username, email and password', { style: { background: 'red', color: 'white', textAlign: 'center' } });
+		}
+
 	};
 
 	return (

@@ -8,14 +8,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-
-      // startTime: {
-      //   allowNull: false,
-      //   type: Sequelize.DATE
-      // },
-      // endTime: {
-      //   type: Sequelize.DATE
-      // },
       timeSpent: {
         type: Sequelize.INTEGER
       },

@@ -3,16 +3,13 @@ const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
-      // define association here
       User.hasMany(models.Tag, {
         foreignKey: 'user_id',
-        // as: 'user',
         onDelete: 'cascade',
         onUpdate: 'cascade'
       });
       User.hasMany(models.Session, {
         foreignKey: 'user_id',
-        // as: 'user',
         onDelete: 'cascade',
         onUpdate: 'cascade'
       });

@@ -43,7 +43,6 @@ export default function Summary(props) {
 	});
 
 	const totalTime = timeconversion(sum);
-	console.log(data);
 
 	return (
 		<div className='Summary'>
@@ -60,7 +59,7 @@ export default function Summary(props) {
 				{allTime.map((e, i) => (
 					<div key={i}>
 						<div className='summary-items-container'>
-							<div className='summary-items-description'>{e.description}</div>
+							<div className='summary-items-description'>{i} - {e.description}</div>
 							<div className='summary-items-time'>
 								{timeconversion(e.total_time)}
 							</div>
