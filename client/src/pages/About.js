@@ -147,13 +147,7 @@ export default function About() {
 						<SiSequelize size={30} />
 					</IconContext.Provider>
 					<div className='about-team-description'>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-						aliquip ex ea commodo consequat. Duis aute irure dolor in
-						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-						pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-						culpa qui officia deserunt mollit anim id est laborum.
+					I'm 26, from Tucson, Arizona. Currently in Software Engineering Immersive Bootcamp by General Assembly studying to become a software developer. Tend to focus more on front-end development, but still proficient with back-end development. Dream is to land a software development position for a smaller team. Favorite thing about coding
 					</div>
 				</div>
 			</div>

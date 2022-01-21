@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { LogInUser } from '../services/Auth';
 import { LoadUserSessions } from '../services/Session';
+import toast from 'react-hot-toast'
 
 export default function LogIn(props) {
 	const [logIn, setLogIn] = useState({ username: '', password: '' });
@@ -18,11 +19,17 @@ export default function LogIn(props) {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const res = await LogInUser(logIn);
-		props.setUser(res);
-		setLogIn({});
-		props.setAuth(true);
-		getSessions(res.id);
+		if(logIn.username && logIn.password){
+			const res = await LogInUser(logIn);
+			props.setUser(res);
+			setLogIn({});
+			props.setAuth(true);
+			getSessions(res.id);
+			toast('Logged in successfully', { style: { background: 'white', color: 'black', border: '2px solid green', textAlign: 'center' } });
+		}
+		else{
+			toast('Please make sure you enter your username and password', { style: { background: 'white', color: 'black', border: '2px solid green', textAlign: 'center' } });
+		}
 	};
 
 	console.log(props);
