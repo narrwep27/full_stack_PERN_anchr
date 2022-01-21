@@ -4,25 +4,25 @@ import {GetTagByTagId} from '../services/Tag'
 const TagButton = (props) => {
   const [openDrop, setOpenDrop] = useState(false)
   const [currentTag, setCurrentTag]=useState('')
-let buttonDisplay = ''
+  let buttonDisplay = ''
 
-const getCurrentTag = async () => {
-  const result = await GetTagByTagId(props.sessionObject.tagId)
-  setCurrentTag(result.description)
-  return result
-}
-
-getCurrentTag()
-
-const displayTag = () => {
-  let tag = props.sessionObject.tagId
-  if (tag===''){
-    buttonDisplay='Choose Tag'
-  } else {
-    buttonDisplay=`${currentTag}`
+  const getCurrentTag = async () => {
+    const result = await GetTagByTagId(props.sessionObject.tagId)
+    setCurrentTag(result.description)
+    return result
   }
-}
-displayTag()
+  getCurrentTag()
+
+  const displayTag = () => {
+    let tag = props.sessionObject.tagId
+    if (tag===''){
+      buttonDisplay='Choose Tag'
+    } else {
+      buttonDisplay=`${currentTag}`
+    }
+  }
+  displayTag()
+
 
   return (
     <div className="tag-dropdown-container">
