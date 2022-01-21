@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import RecentSession from '../component/RecentSession';
 import axios from 'axios';
 import { LoadUserSessions, AddSession } from '../services/Session';
-const BASE_URL = 'http://localhost:3001/api';
+import { GLOBAL_BASE_URL } from '../globals';
 
 export default function UserHome(props) {
 	const [session, setSession] = useState(true);
@@ -43,7 +43,7 @@ export default function UserHome(props) {
 	let minutes = ('0' + Math.floor((time / 60000) % 60)).slice(-2);
 	let hours = ('0' + Math.floor((time / 3600000) % 60)).slice(-2);
 	const getTags = async () => {
-		const res = await axios.get(`${BASE_URL}/tag/user/${props.user_id}`);
+		const res = await axios.get(`${GLOBAL_BASE_URL}/tag/user/${props.user_id}`);
 		setUserTags(res.data);
 	};
 	const [userTags, setUserTags] = useState([]);
