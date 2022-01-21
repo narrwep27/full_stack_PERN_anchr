@@ -12,13 +12,15 @@ export default function Timer(props) {
     props.setSessionObject({...props.sessionObject,"timeSpent": remainingTime})
     props.setTime(0)
   }
-
-  const getCurrentTag = async () => {
-    const result = await GetTagByTagId(props.sessionObject.tagId)
-    setCurrentTag(result.description)
-    return result
-  }
-  getCurrentTag()
+  useEffect(()=> {
+    const getCurrentTag = async () => {
+      const result = await GetTagByTagId(props.sessionObject.tagId)
+      setCurrentTag(result.description)
+      return result
+    }
+    getCurrentTag()
+  },[])
+  
 
 	return (
 		<div className='Timer'>
