@@ -45,7 +45,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ### **Login Screen**:
 
-![Image](https://i.imgur.com/cvFPV0D.png)
+![Image](https://i.imgur.com/KlYmfnS.png)
 
 ### **History Page**:
 
@@ -55,4 +55,4 @@ _The History page shows the user all of the sessions + tags they have previously
 ### **Summary Page**:
 
 _The Summary page provides the user with a summarized total of the total time they spent focusing on a particular tag. A graph is also provided for better data visualization._
-![Image](https://i.imgur.com/un0jluK.png)
+![Image](https://i.imgur.com/pMJYvgo.png)

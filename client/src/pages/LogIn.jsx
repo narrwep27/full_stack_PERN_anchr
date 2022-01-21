@@ -27,45 +27,52 @@ export default function LogIn(props) {
 
 	console.log(props);
 	return (
-		<div className='SignUp'>
-			<div className='signup-form-container-div'>
-				<div className='anchor-logo-image'>
-					<img src='https://i.imgur.com/VSgadZa.png' alt='anchr.' />
-				</div>
+		<div className='SignIn'>
+			<div className='signin-left-side'></div>
 
-				<form className='sign-up-form' onSubmit={handleSubmit}>
-					<div className='signup-form-div'>
-						<input
-							type='text'
-							name='username'
-							placeholder='Username'
-							onChange={handleChange}
-							className='signup-form'
-							required
-						/>
-						<br />
+			<div className='signin-right-side'>
+				<div className='signin-form-container-div'>
+					<div className='anchor-logo-image'>
+						<img src='https://i.imgur.com/VSgadZa.png' alt='anchr.' />
 					</div>
-					<div className='signup-form-div'>
-						<input
-							type='password'
-							name='password'
-							placeholder='Password'
-							onChange={handleChange}
-							className='signup-form'
-							// required
-						/>
-						<br />
-						<button onClick={props.authClick} className='signup-form-button'>
-							Log In
-						</button>
-						<br />
-						<span className='signin-text'>Forgot password?</span>
-						<br />
-						<span className='signin-text'>
-							Don't have an account? Register <Link to='/signup'>here!</Link>
-						</span>
-					</div>
-				</form>
+
+					<form onSubmit={handleSubmit}>
+						<div className='signin-form-div'>
+							<input
+								type='text'
+								name='username'
+								placeholder='Username'
+								onChange={handleChange}
+								className='signin-form'
+								required
+							/>
+							<br />
+						</div>
+
+						<div className='signin-form-div'>
+							<input
+								type='password'
+								name='password'
+								placeholder='Password'
+								onChange={handleChange}
+								className='signin-form'
+								// required
+							/>
+						</div>
+
+						<div className='signin-form-buttons-div'>
+							<button onClick={props.authClick} className='signin-form-button'>
+								Log In
+							</button>
+							<br />
+							<span className='signin-text'>Forgot password?</span>
+							<br />
+							<span className='signin-text'>
+								Don't have an account? Register <Link to='/signup'>here!</Link>
+							</span>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 	);

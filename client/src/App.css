@@ -13,6 +13,7 @@
 
 body {
 	margin: 0;
+
 	font-family: 'Lato', sans-serif;
 }
 
@@ -20,15 +21,36 @@ body {
 
 /* ----------- SIGN UP PAGE ----------*/
 .SignUp {
-	display: flex;
-	height: 75vh;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 	align-items: center;
 }
-.signup-form-container-div {
+
+.signup-left-side {
 	margin: 0 auto;
+	margin-top: -100px;
+}
+
+.signup-right-side {
+	background-image: url('https://images.unsplash.com/photo-1455218873509-8097305ee378?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	height: 100vh;
 }
 
 .anchor-logo-image {
+	margin-bottom: 25px;
+}
+
+.signup-text {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.signup-form-container-div {
+	margin: 0 auto;
+	text-align: center;
 }
 
 .signup-form-div {
@@ -54,33 +76,65 @@ body {
 }
 
 .signup-form-button {
-	width: 350px;
+	width: 200px;
 	height: 50px;
 	border-radius: 10px;
-	border: solid 1px gray;
 	margin-top: 25px;
 	background-color: var(--color1);
 	color: white;
 	font-size: 16px;
 	font-weight: bold;
+	border: 0;
 	transition: 0.5s;
 }
 
 .signup-form-button:hover {
-	background-color: var(--hover-color1);
-	padding-top: 10px;
+	background-color: green;
 	transition: 0.5s;
+	width: 350px;
+}
+
+.signup-form-cancel-button {
+	width: 200px;
+	height: 25px;
+	border-radius: 10px;
+	margin-top: 5px;
+	background-color: red;
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	border: 0;
+	transition: 0.5s;
+}
+
+.signup-form-cancel-button:hover {
+	transition: 0.5s;
+	width: 350px;
 }
 
 .sign-up-form {
 	margin: 0 auto;
 }
 
-.login-button-div {
-	text-align: left;
+/* ----------- SIGN IN PAGE ---------*/
+.SignIn {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
 }
 
-/* ----------- SIGN IN PAGE ---------*/
+.signin-left-side {
+	background-image: url('https://images.unsplash.com/photo-1503242464786-199ffb1dd8d9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
+}
+
+.signin-right-side {
+	margin: 0 auto;
+	margin-top: -100px;
+}
+
 .signin-text a:hover {
 	color: var(--hover-color1);
 	font-weight: bold;
@@ -89,10 +143,70 @@ body {
 	transition: 0.5s;
 }
 
+.signin-form-container-div {
+	margin: 0 auto;
+}
+
+.signin-form-div {
+	background-color: white;
+	margin: 0 auto;
+	width: 350px;
+	height: 50px;
+	border: solid 1px gray;
+	margin-top: 15px;
+	border-radius: 10px;
+}
+
+.signin-form {
+	width: 300px;
+	margin-top: 15px;
+	margin-left: 10px;
+	border: 0;
+	font-size: 16px;
+}
+
+.signin-form::placeholder {
+	font-size: 16px;
+}
+.signin-form-buttons-div {
+	text-align: center;
+}
+
+.signin-form-button {
+	width: 200px;
+	height: 50px;
+	border-radius: 10px;
+	border: solid 1px gray;
+	margin-top: 10px;
+	background-color: var(--color1);
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	transition: 0.5s;
+}
+
+.signin-form-button:hover {
+	background-color: green;
+	transition: 0.5s;
+	width: 350px;
+}
+
+.login-button-div {
+	text-align: left;
+}
+
 /*--------- ABOUT TEAM PAGE --------*/
 .About {
 	margin: 0 auto;
 	width: 75vw;
+}
+h1 {
+	text-transform: uppercase;
+	border-bottom: solid 5px green;
+	text-align: center;
+	width: 400px;
+	margin-bottom: -20px;
+	font-size: 36px;
 }
 
 h2,
@@ -201,14 +315,17 @@ a:hover {
 	color: var(--color1);
 	height: 35px;
 	width: 100px;
-	border: solid 1px lightgray;
+	border: 0;
 	border-radius: 10px;
+	transition: 0.5s;
+	font-size: 16px;
 	transition: 0.5s;
 }
 
 .logout-btn:hover {
 	color: white;
-	background-color: var(--color1);
+	background-color: red;
+	width: 150px;
 	transition: 0.5s;
 }
 
@@ -307,6 +424,7 @@ a:hover {
 	width: 200px;
 	border-right: solid 1px lightgray;
 	padding-top: 10px;
+	text-transform: capitalize;
 }
 
 .history-content-timeSpent {
@@ -461,15 +579,15 @@ a:hover {
 .Summary {
 	display: flex;
 	flex-wrap: wrap;
-	width: 60vw;
+	width: 75vw;
 	margin: 0 auto;
 	margin-top: 100px;
+	align-items: center;
 }
 
 .summary-each-item {
 	margin: 0 auto;
 	width: 300px;
-	flex-wrap: wrap;
 }
 
 .summary-items-container {
@@ -478,19 +596,65 @@ a:hover {
 	text-align: center;
 }
 
-.summary-items {
+.summary-items-description {
 	padding: 20px;
 	width: 200px;
+	text-transform: capitalize;
 	font-weight: bold;
-	border: solid 1px lightgray;
+	border-bottom: solid 1px lightgray;
+	text-align: right;
+}
+
+.summary-items-time {
+	padding: 20px;
+	width: 200px;
+	text-transform: capitalize;
+	font-weight: bold;
+	border-bottom: solid 1px lightgray;
 }
 
 .piechart-div {
 	margin: 0 auto;
+	text-transform: capitalize;
+}
+
+.summary-total-timespent-container {
+	display: inline-flex;
+	width: 400px;
+	text-align: center;
 }
 
 .summary-total-timespent-text {
-	font-size: 24px;
+	padding: 20px;
+	width: 200px;
+	text-transform: capitalize;
+	font-weight: bold;
+	text-align: right;
+	text-transform: uppercase;
+	font-size: 20px;
+	color: rgb(31, 88, 31);
+}
+
+.summary-total-timespent {
+	padding: 20px;
+	width: 200px;
+	text-transform: capitalize;
+	font-weight: bold;
+	font-size: 20px;
+	color: rgb(31, 88, 31);
+}
+
+.recharts-tooltip-label {
+	text-align: center;
+}
+
+.recharts-tooltip-item-list {
+	text-align: center;
+}
+
+.recharts-tooltip-item-list > li:after {
+	display: inline;
+	content: '%';
 }
 
 /* --------- USER HOME PAGE --------- */
@@ -498,13 +662,14 @@ a:hover {
 	height: 75vh;
 	justify-content: center;
 	align-items: center;
+	margin: 0 auto;
+	text-align: center;
 }
 
 .welcome-text {
 	font-size: 50px;
-	text-align: left;
 	padding: 35px;
-	padding-left: 300px;
+	width: 70vw;
 }
 
 .userhome-table {
@@ -513,6 +678,7 @@ a:hover {
 	text-align: center;
 	font-size: 16px;
 	width: 50vw;
+	color: var(--color1);
 }
 
 th {
@@ -529,17 +695,21 @@ td {
 }
 
 .StartSession {
-	text-align: center;
-	display: flex;
-	flex-direction: row;
+	margin: 0 auto;
+	width: 900px;
+}
+
+.start-session-tag-btn-container {
+	width: 500px;
+	margin: 0 auto;
 }
 
 .start-session-tags-dropdown {
-	height: 50px;
-	width: 300px;
+	height: 20px;
+	width: 200px;
 	/* border: solid 1px lightgray; */
 	font-family: 'Lato', sans-serif;
-	font-size: 24px;
+	font-size: 16px;
 	text-align: center;
 	border-radius: 10px;
 }
@@ -547,25 +717,28 @@ td {
 .start-session-tags-dropdown:hover {
 	background-color: rgb(238, 238, 238);
 	transition: 0.5s;
+	cursor: pointer;
 }
 
 .start-session-btn {
 	border: 0;
 	border-radius: 10px;
-	height: 75px;
+	height: 50px;
 	width: 200px;
 	margin: 10px;
 	background-color: var(--color1);
 	color: white;
 	font-family: 'Lato', sans-serif;
 	font-size: 24px;
-	font-weight: bold;
 	transition: 0.5s;
+	text-transform: uppercase;
 }
 
 .start-session-btn:hover {
-	background-color: var(--hover-color1);
+	background-color: green;
+	font-weight: bold;
 	transition: 0.5s;
+	width: 300px;
 }
 
 .choose-tag-btn {
@@ -584,14 +757,23 @@ td {
 
 .start-session-add-tag-btn {
 	font-family: 'Lato', sans-serif;
-	font-size: 24px;
+	font-size: 20px;
 	border: 0;
 	border-radius: 10px;
-	height: 50px;
+	height: 30px;
 	width: 150px;
 	margin-left: 10px;
-	background-color: var(--color1);
+	background-color: rgb(104, 104, 187);
 	color: white;
+	text-transform: uppercase;
+	transition: 0.5s;
+}
+
+.start-session-add-tag-btn:hover {
+	background-color: var(--hover-color1);
+	width: 200px;
+	transition: 0.5s;
+	cursor: pointer;
 }
 
 .start-session-minutes-form {
@@ -617,7 +799,7 @@ td {
 .timer-end-session-btn {
 	border: 0;
 	border-radius: 10px;
-	height: 75px;
+	height: 40px;
 	width: 200px;
 	margin: 10px;
 	background-color: red;
@@ -629,7 +811,8 @@ td {
 }
 
 .timer-end-session-btn:hover {
-	background-color: rgb(145, 72, 72);
+	height: 60px;
+	width: 250px;
 	transition: 0.5s;
 }
 
@@ -647,11 +830,14 @@ td {
 	font-size: 36px;
 }
 
+.tag-dropdown-container {
+}
+
 .tag-dropdown-option-list {
 	display: flex;
 	flex-direction: column;
 	position: absolute;
-	z-index: 20;
+	z-index: 1;
 	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.459);
 	background-color: rgb(255, 255, 255);
 	border-radius: 10px;
@@ -694,4 +880,20 @@ td {
 .add-tag-btn:hover {
 	background-color: var(--hover-color1);
 	transition: 0.5s;
+}
+
+.recent-session-tag-description {
+	text-transform: capitalize;
+}
+
+.timer-current-tag {
+	text-transform: uppercase;
+	color: var(--hover-color1);
+	padding: 10px;
+	border-radius: 10px;
+}
+
+.welcome-text-username {
+	text-transform: uppercase;
+	color: rgb(38, 105, 38);
 }
