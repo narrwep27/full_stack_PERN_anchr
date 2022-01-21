@@ -57,8 +57,7 @@ export default function UserHome(props) {
 		await AddSession(sessionObject);
 		getSessions();
 		setSession(true);
-		setSessionObject({...sessionObject,
-			tagId:''})
+		setSessionObject({ ...sessionObject, tagId: '' });
 	};
 
 	useEffect(() => {
@@ -88,7 +87,10 @@ export default function UserHome(props) {
 
 	return (
 		<div className='UserHome'>
-			<h1 className='welcome-text'>Welcome back, {props.user.username}!</h1>
+			<div className='welcome-text'>
+				Welcome back,{' '}
+				<span className='welcome-text-username'>{props.user.username}!</span>
+			</div>{' '}
 			{session ? (
 				<StartSession
 					session={session}

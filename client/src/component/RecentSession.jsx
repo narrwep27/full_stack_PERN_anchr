@@ -16,7 +16,11 @@ export default function RecentSession(props) {
 			<tr>
 				<td>{userDate}</td>
 				<td>{userTime}</td>
-				<td>{props.e.Tag.description}</td>
+				<td>
+					<span className='recent-session-tag-description'>
+						{props.e.Tag.description}
+					</span>
+				</td>
 				<td>{displaytime}</td>
 			</tr>
 		</>
