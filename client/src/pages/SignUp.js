@@ -56,6 +56,13 @@ export default function SignUp(props) {
 							/>
 							<br />
 							<button className='signup-form-button'>Sign up</button>
+							<button
+								className='signup-form-cancel-button'
+								onClick={() => {
+									props.history.push('/');
+								}}>
+								Cancel
+							</button>
 						</div>
 					</form>
 				</div>
