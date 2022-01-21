@@ -1,80 +1,51 @@
 import React, { useState } from 'react';
 import { AddTag } from '../services/Tag';
+import TagButton from './TagButton';
 
 export default function StartSession(props) {
-	const [tagInput, setTagInput] = useState(true);
-	const [selectorValue, setSelectorValue] = useState(null);
-	const handleSession = (e) => {
-		e.preventDefault();
-		props.setSession(false);
-		props.setStart(true);
-	};
-	const postNewTag = async (e) => {
-		e.preventDefault();
-		await AddTag(props.newTag);
-		props.getTags();
-		setSelectorValue(null);
-	};
-	const tagDropdownHandler = (e) => {
-		if (e.target.id == 'newTag') {
-			setTagInput(true);
-		} else {
-			setTagInput(false);
-			props.setSessionObject({ ...props.sessionObject, tagId: e.target.value });
-		}
-	};
-	return (
-		<div className='StartSession'>
-			<form onSubmit={handleSession}>
-				<select
-					form='timerform'
-					className='start-session-tags-dropdown'
-					id='tagDropDown'
-					onChange={tagDropdownHandler}
-					value={selectorValue}
-					required>
-					<option value='' id='newTag'>
-						Add new tag...
-					</option>
-					{props.userTags.map((e, i) => (
-						<option key={i} value={e.id}>
-							{e.description}
-						</option>
-					))}
-				</select>
-			</form>
-			{tagInput ? (
-				<form onSubmit={postNewTag}>
-					<input
-						value={selectorValue}
-						name='description'
-						className='start-session-minutes-form'
-						onChange={props.tagChange}
-						placeholder='Enter tag name...'></input>
+  const [tagInput, setTagInput] = useState(false);
+  const handleSession = (e) => {
+    e.preventDefault();
+    if ((props.sessionObject.tagId!=='') && (props.sessionObject.timeSpent!==0)){
+      props.setSession(false);
+      props.setStart(true);
+    }
+  
+  };
+  const postNewTag = async (e) => {
+    e.preventDefault()
+    await AddTag(props.newTag)
+    props.getTags()
+    setTagInput(false)
+    // setSelectorValue(null)
+    
+  }
+  const tagDropdownHandler = (e) => {
+    if (e.target.id=="newTag") {
+      setTagInput(true)
+    } else {
+      setTagInput(false)
+      props.setSessionObject({...props.sessionObject,"tagId": parseInt(e.target.id)})
+    }
+  }
+  console.log(props.sessionObject)
+  return (
+    <div>
+    <div className='StartSession'>
+    <TagButton
+        userTags={props.userTags}
+        tagDropdownHandler={tagDropdownHandler}
+        tagInput={tagInput}
+        tagChange={props.tagChange}
+        postNewTag={postNewTag}
+        sessionObject={props.sessionObject}
+      />      
+      <form onSubmit={handleSession} id="timerform">
+        <button className="start-session-btn" type="submit">Start Session</button>
+        <input type="number" className="start-session-minutes-form" name="timeSpent" onChange={props.handleChange} placeholder="Enter session time in minutes"></input>
+      </form>
 
-					<button type='submit' className='start-session-add-tag-btn'>
-						Add
-					</button>
-				</form>
-			) : (
-				<div></div>
-			)}
-			{tagInput ? (
-				<div></div>
-			) : (
-				<form onSubmit={handleSession} id='timerform'>
-					<input
-						type='number'
-						name='timeSpent'
-						className='start-session-minutes-form'
-						onChange={props.handleChange}
-						placeholder='Enter session time in minutes'></input>
-					<br />
-					<button type='submit' className='start-session-btn'>
-						Start Session
-					</button>
-				</form>
-			)}
-		</div>
-	);
+    </div>
+      </div>
+  );
 }

@@ -30,7 +30,7 @@ export default function LogIn(props) {
 		<div className='SignUp'>
 			<div className='signup-form-container-div'>
 				<div className='anchor-logo-image'>
-					<img src='https://i.imgur.com/cC31e2t.jpg' alt='anchr.' />
+					<img src='https://i.imgur.com/VSgadZa.png' alt='anchr.' />
 				</div>
 
 				<form className='sign-up-form' onSubmit={handleSubmit}>
