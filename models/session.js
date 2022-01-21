@@ -5,13 +5,11 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Session.belongsTo(models.User, {
         foreignKey: 'user_id',
-        // as: 'user',
         onDelete: 'cascade',
         onUpdate: 'cascade'
       });
       Session.belongsTo(models.Tag, {
         foreignKey: 'tag_id',
-        // as: 'tag',
         onDelete: 'cascade',
         onUpdate: 'cascade'
       });
@@ -19,8 +17,6 @@ module.exports = (sequelize, DataTypes) => {
   }
   Session.init(
     {
-      // startTime: DataTypes.DATE,
-      // endTime: DataTypes.DATE,
       timeSpent: DataTypes.INTEGER,
       tagId: {
         type: DataTypes.INTEGER,

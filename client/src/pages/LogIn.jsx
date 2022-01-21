@@ -25,7 +25,6 @@ export default function LogIn(props) {
 		getSessions(res.id);
 	};
 
-	console.log(props);
 	return (
 		<div className='SignIn'>
 			<div className='signin-left-side'></div>

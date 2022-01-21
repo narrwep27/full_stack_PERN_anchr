@@ -58,7 +58,6 @@ const TagButton = (props) => {
 							name='description'
 							onChange={props.tagChange}
 							placeholder='Enter tag name...'></input>
-						{/* <button className="add-tag-btn" type="submit">Add</button>  */}
 					</form>
 				)}
 			</div>

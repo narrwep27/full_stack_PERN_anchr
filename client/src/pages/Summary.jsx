@@ -43,7 +43,6 @@ export default function Summary(props) {
 	});
 
 	const totalTime = timeconversion(sum);
-	console.log(data);
 
 	return (
 		<div className='Summary'>
