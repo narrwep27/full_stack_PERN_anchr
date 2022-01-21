@@ -18,12 +18,12 @@ import {
 import { Link } from 'react-router-dom';
 import { IconContext } from 'react-icons';
 
-export default function About() {
+export default function About () {
 	return (
 		<div className='About'>
 			<div className='about-headers'>
 				<img
-					src='https://i.imgur.com/W9uzQa3.png'
+					src='https://i.imgur.com/qpGdHlK.png'
 					alt='the team'
 					className='about-header-image'
 				/>
@@ -34,6 +34,7 @@ export default function About() {
 				<img
 					src='https://media-exp1.licdn.com/dms/image/C4E03AQFCGOerXuChtw/profile-displayphoto-shrink_800_800/0/1630710978360?e=1647475200&v=beta&t=W4EZUap5tQPt0TRD9LH-fZ-Riu0hhRnfcFacnXKV8iQ'
 					className='about-team-img'
+					alt=""
 				/>
 
 				<div className='about-team-details'>
@@ -63,13 +64,7 @@ export default function About() {
 						</IconContext.Provider>
 					</div>
 					<div className='about-team-description'>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-						aliquip ex ea commodo consequat. Duis aute irure dolor in
-						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-						pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-						culpa qui officia deserunt mollit anim id est laborum.
+						Narrwe transitioned into software engineering from a career as a middle-school science teacher. He enjoys the logic and deduction behind coding languages and approaches software projects as puzzles to piece together. On his free time, he enjoys reading books about his always-changing interests, badly cooking new recipes, and keeping in shape.
 					</div>
 				</div>
 
@@ -104,13 +99,7 @@ export default function About() {
 						<SiReact size={30} />
 					</IconContext.Provider>
 					<div className='about-team-description'>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-						aliquip ex ea commodo consequat. Duis aute irure dolor in
-						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-						pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-						culpa qui officia deserunt mollit anim id est laborum.
+						Dominick is software engineer with a background in project  management in the HRIS industry. He is driven deliver and support products through collaboration, accountability, and adaptability. When he isn't coding, you might find him hammock camping in a national forest, working on his pie crust recipe, or renewing his overdue library books.
 					</div>
 				</div>
 			</div>
@@ -147,7 +136,7 @@ export default function About() {
 						<SiSequelize size={30} />
 					</IconContext.Provider>
 					<div className='about-team-description'>
-					I'm 26, from Tucson, Arizona. Currently in Software Engineering Immersive Bootcamp by General Assembly studying to become a software developer. Tend to focus more on front-end development, but still proficient with back-end development. Dream is to land a software development position for a smaller team. Favorite thing about coding
+						Pablo is from Tucson, Arizona. Turned Software Developer from Construction Inspector. Tend to focus more on front-end development, but still proficient with back-end development. Dream is to land a software development position for a smaller team. Favorite thing when not coding is to play video games.
 					</div>
 				</div>
 			</div>
@@ -184,13 +173,7 @@ export default function About() {
 						<SiNodedotjs size={30} /> <SiNodemon size={30} />
 					</IconContext.Provider>
 					<div className='about-team-description'>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-						aliquip ex ea commodo consequat. Duis aute irure dolor in
-						reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-						pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-						culpa qui officia deserunt mollit anim id est laborum.
+						Jerome is a Healthcare Professional & Project Manager turned Software Engineer. Jerome is loves web design and web development so he decided it was time to pursue his passion as a Full Stack Developer. Whenever he has some spare time when he isn't studying/writing code or being a dad, you'll still find him at his desk playing League of Legends.
 					</div>
 				</div>
 			</div>
