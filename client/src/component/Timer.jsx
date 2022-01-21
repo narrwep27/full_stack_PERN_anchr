@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { GetTagByTagId } from '../services/Tag';
+import toast from 'react-hot-toast'
 
 export default function Timer(props) {
 	const [currentTag, setCurrentTag] = useState('');
@@ -14,6 +15,7 @@ export default function Timer(props) {
 			timeSpent: remainingTime,
 		});
 		props.setTime(0);
+		toast('Session ended early...', { style: { background: 'red', color: 'white', border: '1px solid green'} });
 	};
 	useEffect(() => {
 		const getCurrentTag = async () => {
