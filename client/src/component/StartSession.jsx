@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AddTag } from '../services/Tag';
 import TagButton from './TagButton';
+import toast from 'react-hot-toast'
 
 export default function StartSession(props) {
 	const [tagInput, setTagInput] = useState(false);
@@ -12,6 +13,7 @@ export default function StartSession(props) {
 		) {
 			props.setSession(false);
 			props.setStart(true);
+			toast('Session started!', { style: { background: 'green', color: 'white', border: '1px solid green'} });
 		}
 	};
 	const postNewTag = async (e) => {
