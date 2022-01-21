@@ -5,6 +5,9 @@ import RecentSession from '../component/RecentSession';
 import axios from 'axios';
 import { LoadUserSessions, AddSession } from '../services/Session';
 const BASE_URL = 'http://localhost:3001/api';
+import WebWorker from '../workers/WebWorker';
+import incrementWorker from '../workers/incrementWorker';
+
 
 export default function UserHome(props) {
 	const [session, setSession] = useState(true);
@@ -64,26 +67,35 @@ export default function UserHome(props) {
 		getSessions();
 		return getTags();
 	}, []);
+	const worker = new WebWorker(incrementWorker)
+	useEffect(()=>{
+		worker.addEventListener("message", (event)=>{
+			if (start) {
 
-	useEffect(() => {
-		let interval = null;
-		if (start) {
-			interval = setInterval(() => {
-				if (time > 0) {
-					setTime((previousTime) => previousTime - 10);
-				} else {
-					logSession();
-					setStart(false);
-				}
-			}, 10);
-		} else {
-			setStart(false);
-			clearInterval(interval);
-		}
-		return () => {
-			clearInterval(interval);
-		};
-	}, [start, time, sessionObject]);
+			}
+		})
+	})
+
+	/* old useEffect */
+	// useEffect(() => {
+	// 	let interval = null;
+	// 	if (start) {
+	// 		interval = setInterval(() => {
+	// 			if (time > 0) {
+	// 				setTime((previousTime) => previousTime - 10);
+	// 			} else {
+	// 				logSession();
+	// 				setStart(false);
+	// 			}
+	// 		}, 10);
+	// 	} else {
+	// 		setStart(false);
+	// 		clearInterval(interval);
+	// 	}
+	// 	return () => {
+	// 		clearInterval(interval);
+	// 	};
+	// }, [start, time, sessionObject]);
 
 	return (
 		<div className='UserHome'>
