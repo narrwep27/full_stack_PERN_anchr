@@ -16,7 +16,9 @@
 
 ## **Description:**
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+**Deployed Heroku App: [anchr.](http://anchr-app.herokuapp.com/)**
+
+Files for a task management app. Users are able to start a countdown timer to time themselves focusing on a particular tasks. New categories can be created, focused sessions can be edited/deleted, and a summary of focus sessions can be viewed. This project will continue to be updated and improved.
 
 ## **Technologies Used:**
 
@@ -26,6 +28,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 - Express.js
 - Node.js
 - Sequelize
+- Bcrypt
+- Jsonwebtoken
 
 **Front-End:**
 
@@ -34,6 +38,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 - JavaScript ES6
 - React.js
 - Adobe Photoshop
+- Axios
 
 **React Libraries:**
 
